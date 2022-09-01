@@ -10,6 +10,7 @@ import PharmaConsulting from "./pages/pharmaConsulting/PharmaConsulting";
 import TreatmentGuide from "./pages/treatmentGuide/TreatmentGuide";
 import Services from "./pages/services/Services";
 import ClinicalTrialFinderMenu from "./pages/clinicalTrialFinderMenu/ClinicalTrialFinderMenu";
+import ContactUs from "./pages/contactUs/ContactUs";
 
 function App() {
   return (
@@ -43,6 +44,9 @@ function App() {
 
         <Route exact path="/clinicalTrialFinderMenu">
           <ClinicalTrialFinderMenu/>
+        </Route>
+        <Route exact path="/contactus">
+          <ContactUs/>
         </Route>
 
       </Switch>

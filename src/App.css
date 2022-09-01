@@ -28,6 +28,7 @@
     --sky:  #bde7fb;
     --skyblue: #008dd0;
     --lightgreen: #00dea9;
+    --lightgray:#ecf0ef
   }
   
 .sidebar-section{
@@ -578,9 +579,45 @@ overflow: hidden;
     object-fit: contain;
 }
 
-
-
-
+/* *************contact-section-wrapper************** */
+.contact-section-wrapper{
+    width: 100%;
+    height: auto;
+    display: flex;
+    position:relative;
+}
+.contact-inner-parent{
+    width: -webkit-fill-available;
+    height: auto;
+    padding: 5px 20px;
+}
+.contact-form-main-area{
+    width: 100%;
+    height: auto;
+    background-color: lightblue;
+    padding: 10px;
+}
+.contact-form-wrapper{
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    height: 370px;
+    background-color: white;
+    
+}
+.contact-form-wrapper label{
+    display: block;
+    font-weight: 500;
+}
+.custom-form-control{
+    border-radius: .6rem;
+    border: none;
+    background-color: var(--lightgray);
+    padding: 5px;
+    outline: none;
+    width: 100%;
+    margin-top: 5px;
+}
 
 
 
@@ -686,3 +723,4 @@ overflow: hidden;
         padding: 25px;
     }
 }
+
