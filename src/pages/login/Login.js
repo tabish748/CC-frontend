@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import logo from "../../images/logo.png";
 import signupBirds from "../../images/signup-birds.png";
 import signupGround from "../../images/signup-ground.png";
@@ -11,6 +11,56 @@ import Header from "../../components/Header/Header";
 function Login() {
   const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
+
+  const [email , setEmail] = useState("");
+  const [password , setPassword] = useState("");
+  const [state , setState] =useState(0)
+
+
+  ///form handler ///
+
+  const submit =(event) =>{
+    event.preventDefault();
+    console.log(email , password)
+    asyncCall();
+  };
+
+
+  ///backend call //
+
+  const asyncCall = async () =>{
+    const url = "http://127.0.0.1:8000/user/login";
+
+    const data = {
+      "email" : email,
+      "password" : password,
+    };
+
+    console.log(data)
+
+    const requestOptions = {
+      method : 'POST',
+      headers : {'Content-Type': 'application/json'},
+      body : JSON.stringify(data)
+    };
+    
+    let response = await fetch(url,requestOptions);
+    let responseData = await response.json();
+    console.log(responseData.data.token);
+    if (responseData.error ===false && responseData.data.token) {
+      sessionStorage.setItem("token" , responseData.data.token)
+    }
+
+  }
+
+  /// use effect  /// 
+  useEffect(()=>{
+    if (sessionStorage.getItem("token")){
+      console.log("logged in");
+    }
+  })
+
+  ///toggle handlers ///
   function handleHeader() {
     setHeader((t) => !t);
   }
@@ -54,7 +104,7 @@ function Login() {
                 Welcome!
               </h2>
               <h6 className="marginZero">Sign into your account</h6>
-              <form action="" className="login-form">
+              <form action="" className="login-form" onSubmit={submit}>
                 <div className="row">
                   <div className="col-lg-12 px-1">
                     <div className="input-box-wrapper mb-3">
@@ -62,8 +112,9 @@ function Login() {
                         type="text"
                         name="userName"
                         className="signup-box-input loginfields"
-                        placeholder="Username"
+                        placeholder="Email"
                         id=""
+                        onChange={(event)=>{setEmail(event.target.value)}}
                       />
                     </div>
                   </div>
@@ -75,6 +126,7 @@ function Login() {
                         className="signup-box-input loginfields"
                         placeholder="Password"
                         id=""
+                        onChange={(event)=>{setPassword(event.target.value)}}
                       />
                     </div>
                   </div>

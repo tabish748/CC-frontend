@@ -15,7 +15,7 @@ function Header(props) {
           <div className="content-wrapper w-auto h-auto">
             <i className="fas fa-user" style={{ marginRight: "5px" }}></i>
             <Link
-              to="#"
+              to="/login"
               className="registration-links"
               style={{ marginRight: "4px" }}
             >
