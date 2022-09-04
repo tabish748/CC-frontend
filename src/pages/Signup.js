@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import logo from "../images/logo.png";
 import signupBirds from "../images/signup-birds.png";
 import signupGround from "../images/signup-ground.png";
@@ -13,13 +13,68 @@ function Signup() {
   const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
 
+
+  /// input handlers and form submitter ///
+  
+  const [firstName , setFristName] = useState("")
+  const [lastName , setLastName] = useState("")
+  const [email , setEmail] = useState("")
+  const [userName , setUserName] = useState("")
+  const [ password , setPassword] = useState("")
+  const [affiliation , setAffiliation] = useState("")
+  const [backendStatus , setBackendStatus] = useState(false);
+
+  const submit  = (event) => {
+      event.preventDefault();
+      console.log("here")
+      asyncCall();
+  };
+
+  ///  backend call        ///
+  
+  const asyncCall = async ()  =>{
+     const url = "http://127.0.0.1:8000/user/signup";
+      
+      const data = {
+        "first_name":firstName,
+        "last_name" : lastName,
+        "email" : email,
+        "username" : userName,
+        "password" : password,
+        "status" : "1"
+      };
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    };
+
+      const response = await fetch(url,requestOptions);
+      const responseData = await response.json();
+      if (responseData.error == false) {
+        setBackendStatus(true);
+      }
+      console.log(responseData);
+  }
+
+
+  // /// effect manipulation ///
+  useEffect ( () =>{
+    if (backendStatus === true){
+      console.log("USER CREATED SUCCESFULLY")
+    }
+   
+  })
+
+  /// toggle handlers /// 
+
   function handleHeader() {
     setHeader((t) => !t);
   }
   function handleSideBar() {
     setSideBar((t) => !t);
   }
-  console.log(header);
+
   return (
     <div>
       <div className="mobile-header-section">
@@ -59,7 +114,7 @@ function Signup() {
                   Login
                 </Link>
               </h6>
-              <form action="">
+              <form action="" onSubmit={submit}>
                 <div className="row">
                   <div className="col-lg-6 px-1">
                     <div className="input-box-wrapper mb-3">
@@ -69,6 +124,7 @@ function Signup() {
                         className="signup-box-input"
                         placeholder="First Name"
                         id=""
+                        onChange={(e)=>{setFristName(e.target.value)}}
                       />
                     </div>
                   </div>
@@ -81,6 +137,7 @@ function Signup() {
                         className="signup-box-input"
                         placeholder="Last Name"
                         id=""
+                        onChange={(event)=>{setLastName(event.target.value)}}
                       />
                     </div>
                     {/* <!-- input-box-wrapper --> */}
@@ -95,6 +152,7 @@ function Signup() {
                         className="signup-box-input"
                         placeholder="User Name"
                         id=""
+                        onChange={(event)=>{setUserName(event.target.value)}}
                       />
                     </div>
                     {/* <!-- input-box-wrapper --> */}
@@ -109,6 +167,7 @@ function Signup() {
                         className="signup-box-input"
                         placeholder="Email Address"
                         id=""
+                        onChange={((event)=>{setEmail(event.target.value)})}
                       />
                     </div>
                     {/* <!-- input-box-wrapper --> */}
@@ -123,6 +182,7 @@ function Signup() {
                         className="signup-box-input"
                         placeholder="Password"
                         id=""
+                        onChange={(event)=>{setPassword(event.target.value)}}
                       />
                     </div>
                     {/* <!-- input-box-wrapper --> */}
@@ -131,10 +191,10 @@ function Signup() {
 
                   <div className="col-lg-12 px-1">
                     <div className="input-box-wrapper mb-3">
-                      <select name="" id="">
+                      <select name="" id="" onChange={(event)=>{setAffiliation(event.target.value)}}>
                         <option value="">Select Affiliation</option>
-                        <option value="">1</option>
-                        <option value="">2</option>
+                        <option value="patient">1</option>
+                        <option value="caretaker">2</option>
                       </select>
                     </div>
                     {/* <!-- input-box-wrapper --> */}
