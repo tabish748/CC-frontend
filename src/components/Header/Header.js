@@ -20,9 +20,9 @@ function Header(props) {
               style={{ marginRight: "4px" }}
             >
               SIGN IN
-            </Link>
+            </Link>&nbsp;
             <span style={{ color: "#707070" }}>|</span>
-            &nbsp;
+            &nbsp;&nbsp;
             <Link to="#" className="registration-links">
               SIGN UP
             </Link>

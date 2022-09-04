@@ -1,5 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap'); */
 
+@font-face {
+    font-family: 'Segoe UI Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Segoe UI Regular'), url('./fonts/sogeo-ui/Segoe UI.woff') format('woff');
+    }
+    
+
+    /* @font-face {
+    font-family: 'Segoe UI Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Segoe UI Italic'), url('Segoe UI Italic.woff') format('woff');
+    } */
+    
+
+    @font-face {
+    font-family: 'Segoe UI Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Segoe UI Bold'), url('./fonts/sogeo-ui/Segoe UI Bold.woff') format('woff');
+    }
+    
+
+    /* @font-face {
+    font-family: 'Segoe UI Bold Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Segoe UI Bold Italic'), url('Segoe UI Bold Italic.woff') format('woff');
+    } */
+
+    body{
+        font-family:'Segoe UI Regular';
+    }
 
 .marginZero{
     margin: 0;
@@ -14,7 +48,7 @@
     width: 80%;
 }
 .w-90{
-    width: 90%;
+    width: 90%!important;
 }
 .fontWeightSix{
     font-weight: 600;
@@ -28,7 +62,8 @@
     --sky:  #bde7fb;
     --skyblue: #008dd0;
     --lightgreen: #00dea9;
-    --lightgray:#ecf0ef
+    --lightgray:#ecf0ef;
+    --slightlyblue: #eff9fb;
   }
   
 .sidebar-section{
@@ -36,7 +71,6 @@
     max-width: 250px;
     height:100vh;
     background-color: white;
-    font-family: 'Poppins', sans-serif;
 }
 .logo-wrapper{
     width: 100%;
@@ -78,7 +112,7 @@ margin: 3px 10px 0 16px;
 }
 .sidebar-list-area ul li a{
     text-decoration: none;
-    font-size: 16px;
+    font-size: 18.5px;
     font-weight: 400;
     letter-spacing: -0.6px;
     text-align: left;
@@ -559,6 +593,7 @@ a:hover{
 .service-card-parent p{
     font-size: 20px;
     margin-top:12px;
+    margin-bottom: 0;
 }
 .service-card-wrapper{
     width: 100%;
@@ -589,21 +624,20 @@ overflow: hidden;
 .contact-inner-parent{
     width: -webkit-fill-available;
     height: auto;
-    padding: 5px 20px;
 }
 .contact-form-main-area{
     width: 100%;
     height: auto;
-    background-color: lightblue;
     padding: 10px;
 }
 .contact-form-wrapper{
     width: 100%;
-    max-width: 600px;
+    max-width: 550px;
     margin: 0 auto;
-    height: 370px;
-    background-color: white;
     
+}
+.contact-form-wrapper  h1{
+    font-weight: bold;
 }
 .contact-form-wrapper label{
     display: block;
@@ -613,11 +647,118 @@ overflow: hidden;
     border-radius: .6rem;
     border: none;
     background-color: var(--lightgray);
-    padding: 5px;
+    padding: 5px 10px;
     outline: none;
     width: 100%;
     margin-top: 5px;
+    resize: none;
 }
+
+
+/* **********Profile************* */
+
+.profile-section-wrapper{
+    width: 100%;
+    height: auto;
+    display: flex;
+    position:relative;
+}
+.profile-inner-parent{
+    width: -webkit-fill-available;
+    height: auto;
+}
+.profile-main-area{
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 10px;
+}
+.profile-main-area h1{
+    font-weight: bold;
+}
+.profile-main-area .service-card-wrapper {
+    height: 140px;
+}
+
+
+/* ************Services packages************ */
+.services-packages-section{
+    width: 100%;
+    height: auto;
+    display: flex;
+    position:relative;
+}
+.services-packages-section h1{
+    font-size: 34px;
+    font-weight: bold;
+}
+.services-packages-inner-parent{
+    width: -webkit-fill-available;
+    height: auto;
+}
+.service-packages-main-area{
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    height: auto;
+    padding: 10px;
+}
+.servicepackage-card-wrapper{
+    width: 100%;
+    height: 100%;
+    background-color: var(--slightlyblue);
+    border-radius: .6rem;
+    padding: 15px;
+}
+
+.servicepackage-card-wrapper img{
+    width: 100%;
+    max-width: 50%;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+.servicepackage-card-wrapper p{
+    text-align: center;
+    font-size: 10px;
+    margin: 0;
+    margin-top: 4px;
+}
+.packages-card-wrapper{
+    width: 100%;
+    height: 100%;
+    background-color: lightblue;
+    border-radius: 1rem;
+    padding: 10px;
+}
+.packages-card-wrapper h2{
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+}
+.packages-card-wrapper p{
+    text-align: center;
+    font-size: 13px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+.services-packages-inner-parent .service-card-wrapper{
+    height: 135px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -721,6 +862,9 @@ overflow: hidden;
     .service-row-wrapper{
         height: auto;
         padding: 25px;
+    }
+    .service-packages-main-area .row .col{
+        flex: 50%;
     }
 }
 

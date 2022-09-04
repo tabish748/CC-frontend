@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import birds from "../../images/birds.png";
-import signupGround from "../../images/signup-ground.png";
+import signupGround from "../../images/leafs.png";
 import Header from '../../components/Header/Header';
 import logo from "../../images/logo.png";
 import Sidebar from '../../components/sidebar/Sidebar';

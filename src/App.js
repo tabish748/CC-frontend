@@ -11,6 +11,9 @@ import TreatmentGuide from "./pages/treatmentGuide/TreatmentGuide";
 import Services from "./pages/services/Services";
 import ClinicalTrialFinderMenu from "./pages/clinicalTrialFinderMenu/ClinicalTrialFinderMenu";
 import ContactUs from "./pages/contactUs/ContactUs";
+import Profile from "./pages/profile/Profile";
+import ServicesPackages from "./pages/servicesPackages/ServicesPackages";
+import PharmaPackages from "./pages/pharmaPackages/PharmaPackages";
 
 function App() {
   return (
@@ -49,6 +52,17 @@ function App() {
           <ContactUs/>
         </Route>
 
+        <Route exact path="/profile">
+          <Profile/>
+        </Route>
+        <Route exact path="/services-Packages">
+          <ServicesPackages/>
+        </Route>
+
+        <Route exact path="/pharma-Packages">
+          <PharmaPackages/>
+        </Route>
+        
       </Switch>
     </>
   );
