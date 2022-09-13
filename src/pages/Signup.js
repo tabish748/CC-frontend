@@ -7,6 +7,7 @@ import "font-awesome/css/font-awesome.min.css";
 import { Link } from "react-router-dom";
 import Sidebar from "../components/sidebar/Sidebar";
 import Header from "../components/Header/Header";
+import { GoogleAuth ,FacebookAuth ,TwitterAuth} from "../firebase/authentication";
 
 function Signup() {
 
@@ -51,7 +52,7 @@ function Signup() {
 
       const response = await fetch(url,requestOptions);
       const responseData = await response.json();
-      if (responseData.error == false) {
+      if (responseData.error === false) {
         setBackendStatus(true);
       }
       console.log(responseData);
@@ -193,8 +194,8 @@ function Signup() {
                     <div className="input-box-wrapper mb-3">
                       <select name="" id="" onChange={(event)=>{setAffiliation(event.target.value)}}>
                         <option value="">Select Affiliation</option>
-                        <option value="patient">1</option>
-                        <option value="caretaker">2</option>
+                        <option value="">Patients</option>
+                        <option value="">Care taker</option>
                       </select>
                     </div>
                     {/* <!-- input-box-wrapper --> */}
@@ -227,7 +228,7 @@ function Signup() {
                         style={{ width: "fit-content" }}
                       >
                         <Link to="#" target="_blank">
-                          <div className="social-icon-circle align-items-end">
+                          <div className="social-icon-circle align-items-end" onClick={FacebookAuth}>
                             <i className="fa fa-facebook-f"></i>
                           </div>
                           {/* <!-- social-icon-circle --> */}
@@ -237,7 +238,7 @@ function Signup() {
                             className="social-icon-circle"
                             style={{ backgroundColor: "whitesmoke" }}
                           >
-                            <img src={googleG} alt="" />
+                            <img src={googleG} alt=""  onClick={GoogleAuth}/>
                           </div>
                           {/* <!-- social-icon-circle --> */}
                         </Link>
@@ -248,7 +249,7 @@ function Signup() {
                           {/* <!-- social-icon-circle --> */}
                         </Link>
                         <Link to="#" target="_blank">
-                          <div className="social-icon-circle">
+                          <div className="social-icon-circle" onClick={TwitterAuth}>
                             <i className="fa-brands fa-twitter"></i>
                           </div>
                           {/* <!-- social-icon-circle --> */}
