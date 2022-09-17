@@ -7,6 +7,7 @@ import "font-awesome/css/font-awesome.min.css";
 import { Link } from "react-router-dom";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Header from "../../components/Header/Header";
+import { GoogleAuth ,FacebookAuth ,TwitterAuth} from "../../firebase/authentication";
 
 function Login() {
   const [header, setHeader] = useState(false);
@@ -14,7 +15,7 @@ function Login() {
 
   const [email , setEmail] = useState("");
   const [password , setPassword] = useState("");
-  const [state , setState] =useState(0)
+  const [state , setState] = useState(0)
 
 
   ///form handler ///
@@ -56,8 +57,9 @@ function Login() {
   /// use effect  /// 
   useEffect(()=>{
     if (sessionStorage.getItem("token")){
-      console.log("logged in");
+      
     }
+    console.log(state);
   })
 
   ///toggle handlers ///
@@ -155,7 +157,7 @@ function Login() {
                         style={{ width: "fit-content" }}
                       >
                         <Link href="#" target="_blank">
-                          <div className="social-icon-circle align-items-end">
+                          <div className="social-icon-circle align-items-end" onClick={FacebookAuth}>
                             <i className="fa fa-facebook-f"></i>
                           </div>
                         </Link>
@@ -164,7 +166,7 @@ function Login() {
                             className="social-icon-circle"
                             style={{ backgroundColor: "whitesmoke" }}
                           >
-                            <img src={googleG} alt="" />
+                            <img src={googleG} alt=""  onClick={GoogleAuth}/>
                           </div>
                         </Link>
                         <Link href="#" target="_blank">
@@ -173,7 +175,7 @@ function Login() {
                           </div>
                         </Link>
                         <Link href="#" target="_blank">
-                          <div className="social-icon-circle">
+                          <div className="social-icon-circle" onClick={TwitterAuth}>
                             <i className="fa-brands fa-twitter"></i>
                           </div>
                         </Link>

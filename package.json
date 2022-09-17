@@ -13,6 +13,7 @@
         "convert-svg-react": "^1.0.0",
         "dangerously-set-html-content": "^1.0.9",
         "dangerously-set-inner-html": "^2.0.1",
+        "firebase": "^9.9.4",
         "font-awesome": "^4.7.0",
         "formik": "^2.2.9",
         "google-map-react": "^2.1.10",
