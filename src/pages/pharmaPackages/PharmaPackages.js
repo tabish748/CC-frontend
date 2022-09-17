@@ -52,7 +52,7 @@ function PharmaPackages() {
         <div className="services-packages-inner-parent">
         <Header header={header} />
         <div className="service-packages-main-area">
-            <h1 className="text-center mb-3">Pharmaceutical Consulting</h1>
+            <h1 className="text-center mb-3 site-heading">Pharmaceutical Consulting</h1>
         
             <div className="row">
                    
@@ -104,7 +104,7 @@ function PharmaPackages() {
                 </div>
 
 
-            <h1 className="text-center">Packages</h1>
+            <h1 className="text-center site-heading">Packages</h1>
             <div className="row">
                 <div className="col-lg-4 mt-3">
                     <div className="packages-card-wrapper">

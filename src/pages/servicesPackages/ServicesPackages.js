@@ -53,7 +53,7 @@ function ServicesPackages() {
         <div className="services-packages-inner-parent">
         <Header header={header} />
         <div className="service-packages-main-area">
-            <h1 className="text-center">Services</h1>
+            <h1 className="text-center site-heading">Services</h1>
             <div className="row">
                 <div className="col mt-4 col-xs-12 px-3">
                     <div className="servicepackage-card-wrapper">
@@ -104,7 +104,7 @@ function ServicesPackages() {
 
             </div>
 
-            <h1 className="text-center mt-3">Packages</h1>
+            <h1 className="text-center mt-3 site-heading">Packages</h1>
             <div className="row">
                 <div className="col-lg-4 mt-3">
                     <div className="packages-card-wrapper">

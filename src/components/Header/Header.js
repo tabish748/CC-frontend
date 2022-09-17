@@ -23,7 +23,7 @@ function Header(props) {
             </Link>&nbsp;
             <span style={{ color: "#707070" }}>|</span>
             &nbsp;&nbsp;
-            <Link to="#" className="registration-links">
+            <Link to="/signup" className="registration-links">
               SIGN UP
             </Link>
           </div>
@@ -33,7 +33,7 @@ function Header(props) {
         </div>
         <div className="d-flex align-items-center">
           <div className="content-wrapper px-2">
-            <Link to="" className="gray-button">
+            <Link to="/contactus" className="gray-button">
               Contact Us
             </Link>
           </div>

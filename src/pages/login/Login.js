@@ -100,10 +100,10 @@ function Login() {
 
           <div className="signup-form-main-area">
             <div className="signup-form-wrapper mt-5">
-              <h2 style={{ color: "#222" }} className="marginZero">
+              <h1 className="marginZero site-heading">
                 Welcome!
-              </h2>
-              <h6 className="marginZero">Sign into your account</h6>
+              </h1>
+              <p className="marginZero BluetextUnderHeading">Sign into your account</p>
               <form action="" className="login-form" onSubmit={submit}>
                 <div className="row">
                   <div className="col-lg-12 px-1">

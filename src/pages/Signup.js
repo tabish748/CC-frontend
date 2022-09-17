@@ -107,13 +107,13 @@ function Signup() {
 
           <div className="signup-form-main-area">
             <div className="signup-form-wrapper">
-              <h2>Create an Account</h2>
-              <h6>
+              <h1 className="site-heading">Create an Account</h1>
+              <p className="BluetextUnderHeading">
                 Already have an account? &nbsp;
                 <Link to="#" className="login-link">
                   Login
                 </Link>
-              </h6>
+              </p>
               <form action="" onSubmit={submit}>
                 <div className="row">
                   <div className="col-lg-6 px-1">

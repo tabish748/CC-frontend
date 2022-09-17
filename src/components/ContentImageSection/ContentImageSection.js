@@ -6,9 +6,9 @@ function ContentImageSection(props) {
            <div className="row">
              <div className="col-lg-5">
                <div className="welcomeCol-wrapper">
-                 <h2 className="text-center">
+                 <h1 className="text-center site-heading">
                    {heading1.headingForCCCLine1 } { heading2 &&<><br/> {heading2.headingForCCCLine2}</> }
-                 </h2>
+                 </h1>
                  {textUnderHeading && <p class="patient-txt">{textUnderHeading}</p>}
                  <p className="mt-4 mb-5">
                    Choosing the right disease process for your asset is

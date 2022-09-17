@@ -51,7 +51,7 @@ function ClinicalTrialFinderMenu(){
                 
                <div class="service-row-wrapper" style={{height: "65%"}}>
             <div class="service-cards-area">
-                <h1 class="text-center">Clinical Trial Finder</h1>
+                <h1 class="text-center site-heading">Clinical Trial Finder</h1>
                 <div class="row mt-custom">
                     <div class="col-md-4 col-sm-12 px-5">
                         <div class="service-card-parent  w-90 mx-auto">

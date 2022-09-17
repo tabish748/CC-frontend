@@ -14,6 +14,13 @@ import ContactUs from "./pages/contactUs/ContactUs";
 import Profile from "./pages/profile/Profile";
 import ServicesPackages from "./pages/servicesPackages/ServicesPackages";
 import PharmaPackages from "./pages/pharmaPackages/PharmaPackages";
+import ClinicalQuestions from "./pages/clinicalQuestions/ClinicalQuestions";
+import TrialCriteria from "./pages/trailCriteria/trialCriteria";
+import TrialMenuThree from "./pages/trailMenuThree/trialMenuThree";
+import MyAccount from "./pages/myAccount/MyAccount";
+import StatsDrugs from "./pages/statsDrugs/StatsDrugs";
+import SecuritySettings from "./pages/securitySettings/securitySettings";
+import AccountsSetting from "./pages/accountsSetting/AccountsSetting";
 
 function App() {
   return (
@@ -62,7 +69,32 @@ function App() {
         <Route exact path="/pharma-Packages">
           <PharmaPackages/>
         </Route>
-        
+
+        <Route exact path="/clinical-questions">
+          <ClinicalQuestions/>
+        </Route>
+
+        <Route exact path="/trial-criteria">
+          <TrialCriteria/>
+        </Route>
+        <Route exact path="/trial-menu">
+          <TrialMenuThree/>
+        </Route>
+        <Route exact path="/accounts">
+          <MyAccount/>
+        </Route>
+        <Route exact path="/stats-drugs">
+          <StatsDrugs/>
+        </Route>
+
+        <Route exact path="/security-settings">
+          <SecuritySettings/>
+        </Route>
+
+        <Route exact path="/accounts-settings">
+          <AccountsSetting/>
+        </Route>
+
       </Switch>
     </>
   );

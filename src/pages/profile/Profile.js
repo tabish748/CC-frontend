@@ -53,9 +53,9 @@ function Profile() {
         />
         <div className="profile-inner-parent">
           <Header header={header} />
-            <div className="profile-main-area">
+            <div className="profile-main-area mt-4">
 
-            <h1 class="text-center mb-4">My Profile</h1>
+            <h1 class="text-center mb-4 site-heading">My Profile</h1>
 
                 <div className="row">
                     <div className="col-lg-3 col-xs-6 col-sm-6 mt-2">
