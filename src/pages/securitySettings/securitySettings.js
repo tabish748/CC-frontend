@@ -5,10 +5,40 @@ import Header from "../../components/Header/Header";
 import birds from "../../images/birds.png";
 import leafs from "../../images/leafs.png";
 import securitySettings from "../../images/security-settings.png";
+import { useDispatch } from "react-redux";
+import {edit_profile} from '../../redux/actions/edit_profile_action';
 
 const SecuritySettings = () => {
   const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
+
+  const dispatch = new useDispatch();
+
+  /// states for attributes ////
+  const [email , setEmail] = useState("");
+  const [username , setUserName] = useState("");
+  const [oldPassword , setOldPassword] = useState("");
+  const [newPassword , setNewPassword] = useState("");
+
+  const handleSubmit = (event) =>{
+    event.preventDefault();
+    let data = {}
+    if (email !== ""){
+      data["email"] = email
+    }
+    if (username !== ""){
+      data["username"] = username
+    }
+    if (oldPassword !== ""){
+      data["old_password"] = oldPassword
+    }
+    if (newPassword !== ""){
+      data["new_password"] = newPassword
+    }
+    dispatch(edit_profile(data));
+  }
+  ///
+
 
   function handleHeader() {
     setHeader((t) => !t);
@@ -57,27 +87,28 @@ const SecuritySettings = () => {
                     <h2>Edit Profile</h2>
                     <form action="">
                       <label htmlFor="">User Name:</label>
-                      <input type="text" className="custom-form-control mb-2" />
+                      <input type="text" className="custom-form-control mb-2" onChange={(event)=> setUserName(event.target.value)}/>
 
                       <label htmlFor="">Email:</label>
                       <input
                         type="email"
                         className="custom-form-control  mb-2"
+                        onChange={(event)=>setEmail(event.target.value)}
                       />
-                    </form>
 
                     <h2 className="mt-2">Change Password</h2>
-                    <form action="">
                       <label htmlFor="">Old Password:</label>
                       <input
                         type="password"
                         className="custom-form-control mb-2"
+                        onChange={(event)=> setOldPassword(event.target.value)}
                       />
 
                       <label htmlFor="">New Password:</label>
                       <input
                         type="password"
                         className="custom-form-control  mb-2"
+                        onChange={(event)=>setNewPassword(event.target.value)}
                       />
 
                       <div className="form-btns-wrapper">
@@ -91,6 +122,7 @@ const SecuritySettings = () => {
                           type="submit"
                           value="Save"
                           className="blue-button"
+                          onClick={handleSubmit}
                         />
                         
                       </div>
