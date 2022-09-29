@@ -21,6 +21,7 @@ import MyAccount from "./pages/myAccount/MyAccount";
 import StatsDrugs from "./pages/statsDrugs/StatsDrugs";
 import SecuritySettings from "./pages/securitySettings/securitySettings";
 import AccountsSetting from "./pages/accountsSetting/AccountsSetting";
+import SettingAccounts from "./pages/accountsSetting/SettingAccounts";
 
 function App() {
   return (
@@ -93,6 +94,10 @@ function App() {
 
         <Route exact path="/accounts-settings">
           <AccountsSetting/>
+        </Route>
+
+        <Route exact path="/settings-accounts">
+          <SettingAccounts/>
         </Route>
 
       </Switch>

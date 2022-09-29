@@ -7,6 +7,7 @@ import leafs from "../../images/leafs.png";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import StatsCard from "../../components/statsCard/StatsCard";
+import Therapeutics from './Therapeutics'
 
 function StatsDrugs() {
   const [header, setHeader] = useState(false);
@@ -200,70 +201,8 @@ function StatsDrugs() {
 
                 <TabPanel>
                   <div className="tab-content-wrapper-drugs mt-4">
-                    <div className="row">
-                      <div className="col mb-4">
-                        <StatsCard
-                          text="Number of Unique Drugs"
-                          stats="25482"
-                        />
-                      </div>
-                      <div className="col mb-4">
-                        <StatsCard
-                          text="Number of Unique Mechanism"
-                          stats="25482"
-                        />
-                      </div>
-                      <div className="col mb-4">
-                        <StatsCard
-                          text="Number of Trials by Stage"
-                          stats="25482"
-                        />
-                      </div>
-                      <div className="col mb-4">
-                        <StatsCard
-                          text="Number of Trials by Phase"
-                          stats="25482"
-                        />
-                      </div>
-                      <div className="col mb-4">
-                        <StatsCard
-                          text="Number of Trials by Intervention Type"
-                          stats="25482"
-                        />
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="col mb-4">
-                        <StatsCard
-                          text="Number of Unique Drugs"
-                          stats="25482"
-                        />
-                      </div>
-                      <div className="col mb-4">
-                        <StatsCard
-                          text="Number of Unique Mechanism"
-                          stats="25482"
-                        />
-                      </div>
-                      <div className="col mb-4">
-                        <StatsCard
-                          text="Number of Trials by Stage"
-                          stats="25482"
-                        />
-                      </div>
-                      <div className="col mb-4">
-                        <StatsCard
-                          text="Number of Trials by Phase"
-                          stats="25482"
-                        />
-                      </div>
-                      <div className="col mb-4">
-                        <StatsCard
-                          text="Number of Trials by Intervention Type"
-                          stats="25482"
-                        />
-                      </div>
-                    </div>
+                   <Therapeutics/>
+                    
                   </div>
                 </TabPanel>
               </Tabs>

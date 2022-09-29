@@ -2,13 +2,15 @@ import React, { useState , useEffect} from "react";
 import logo from "../images/logo.png";
 import signupBirds from "../images/signup-birds.png";
 import signupGround from "../images/signup-ground.png";
+
+
 import googleG from "../images/g.svg";
 import "font-awesome/css/font-awesome.min.css";
 import { Link } from "react-router-dom";
 import Sidebar from "../components/sidebar/Sidebar";
 import Header from "../components/Header/Header";
 import { GoogleAuth ,FacebookAuth ,TwitterAuth} from "../firebase/authentication";
-
+import DatePicker from 'react-date-picker';
 function Signup() {
 
   const [header, setHeader] = useState(false);
@@ -24,7 +26,10 @@ function Signup() {
   const [ password , setPassword] = useState("")
   const [affiliation , setAffiliation] = useState("")
   const [backendStatus , setBackendStatus] = useState(false);
+  const [value, onChange] = useState(new Date());
 
+
+  const days= [1,2,3,4,5]
   const submit  = (event) => {
       event.preventDefault();
       console.log("here")
@@ -146,7 +151,7 @@ function Signup() {
                   {/* <!-- col 6 --> */}
 
                   <div className="col-lg-12 px-1">
-                    <div className="input-box-wrapper mb-3">
+                    {/* <div className="input-box-wrapper mb-3">
                       <input
                         type="text"
                         name="userName"
@@ -155,7 +160,7 @@ function Signup() {
                         id=""
                         onChange={(event)=>{setUserName(event.target.value)}}
                       />
-                    </div>
+                    </div> */}
                     {/* <!-- input-box-wrapper --> */}
                   </div>
                   {/* <!-- col 12 --> */}
@@ -187,6 +192,29 @@ function Signup() {
                       />
                     </div>
                     {/* <!-- input-box-wrapper --> */}
+                  </div>
+                  {/* <!-- col 12 --> */}
+
+                  <div className="col-lg-12">
+                 <div className="row">
+                  <div className="col-lg-6 px-1">
+                  <div className="input-box-wrapper mb-3">
+                    <DatePicker onChange={onChange} value={value} />
+                    </div>
+                    {/* <!-- input-box-wrapper --> */}
+                  </div>
+                  <div className="col-lg-6 px-1">
+                  <div className="input-box-wrapper mb-3">
+                  <select name="" id="">
+                        <option value="">Select Gender</option>
+                        <option value="">Male</option>
+                        <option value="">Female</option>
+                        <option value="">Others</option>
+                      </select>
+                    </div>
+                    {/* <!-- input-box-wrapper --> */}
+                  </div>
+                 </div>
                   </div>
                   {/* <!-- col 12 --> */}
 

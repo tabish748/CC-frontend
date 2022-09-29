@@ -37,6 +37,10 @@
 p{
     margin: 0;
 }
+.formvalidation-error-text{
+    color: red;
+    margin: 0;
+}
 .site-heading{
     text-align: center;
     margin: 0;
@@ -332,6 +336,18 @@ a:hover{
     width: 41%;
     height: 1px;
     background-color: #000;
+}
+.react-date-picker__wrapper {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+     border: none; 
+    background-color: #d6edf7;
+    border-radius: 0.64rem;
+    padding: 5px;
+}
+.react-date-picker{
+    width: 100%;
 }
 /* *************mobile-header-section************************ */
 .mobile-header-section{
@@ -1011,8 +1027,25 @@ overflow: hidden;
 }
 .tab-content-wrapper-drugs{
     width: 100%;
- 
+    
 }
+.tab-content-wrapper-drugs table tbody{
+    max-height: 400px;
+    
+}
+
+.tab-content-wrapper-drugs table tbody::-webkit-scrollbar {
+    width: 10px;
+  }
+  .tab-content-wrapper-drugs table tbody::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border: thin solid var(--skyblue);
+    border-radius: 20px;
+  }
+  .tab-content-wrapper-drugs table tbody::-webkit-scrollbar-thumb {
+    background: var(--skyblue); 
+      border-radius:10px;
+  }
 .stats-drug-card-area{
     width: 100%;
     height: 160px;
@@ -1024,7 +1057,7 @@ overflow: hidden;
     width: 100%;
     height: 100px;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     padding: 10px;
 }
@@ -1032,7 +1065,7 @@ overflow: hidden;
     max-width: 140px;
     text-align: center;
     line-height: 1.3;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
 }
 .stats-drug-card-area button{
@@ -1117,12 +1150,65 @@ overflow: hidden;
     margin: 0 auto;
 }
 
-
-
-
-
-
-
+/* *************drugsTable****************8 */
+.drugsTable thead tr{
+    width: 100%;
+    background-color: var(--skyblue);
+    color: white;
+    margin-bottom: 20px;
+    border-radius: .5rem;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 500;
+}
+.drugName{
+    color: var(--skyblue);
+    font-weight: 600;
+}
+.drugsTable tr span{
+    color: var(--skyblue);
+    font-size: 14px;
+    text-align: center;
+}
+.drugsTable tbody tr td{
+    text-align: center; 
+    vertical-align: middle;
+}
+.drugsTable td button{
+    padding: 4px 15px;
+}
+.drugstableIcon{
+    width: 16px;
+    cursor: pointer;
+    fill: red;
+    margin: 0 7px;
+}
+.centertd{
+    display: block;
+    text-align: center;
+}
+.accounts-form-card-wrapper{
+    width:100%;
+    height: auto;
+    display: flex;
+    border-bottom: 1px solid gray;
+}
+.accounts-form-card-wrapper .label{
+    margin-right: 20px;
+    font-size: 18px;
+    font-weight: 550;
+}
+.paymentPlanName{
+    font-weight: bold;
+    color: #ffb300;
+    margin-left: 20px;
+    font-size: 20px;
+}
+.paymentPlanName span{
+    color: gray;
+    font-size: 14px;
+    font-weight: normal;
+}
 
 
 

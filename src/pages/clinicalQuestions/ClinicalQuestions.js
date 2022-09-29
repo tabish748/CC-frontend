@@ -73,12 +73,12 @@ function ClinicalQuestions() {
     "Cancer Type & Stage",
     "Demographics",
     "Location",
-    "Trial Type & Sponcer",
-    " Performance Status  & Organ Function",
+    "Trial Type & Sponsor",
+    "Functional Status",
     "Cancer Characteristics",
     "Molecular Profile",
-    "Cancer Treatment History",
-    "Drug name & Mechanism of Action",
+    "Treatment History",
+    "Drug & Mechanism ",
   ];
   const [curSection, setCurSection] = useState(0);
 

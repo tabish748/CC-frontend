@@ -5,6 +5,33 @@ import leafs from "../../images/leafs.png";
 import "font-awesome/css/font-awesome.min.css";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Header from "../../components/Header/Header";
+import { Formik, Form, Field } from "formik";
+import * as Yup from "yup";
+
+const phoneRegExp =
+  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+
+const AccountSchema = Yup.object().shape({
+  firstName: Yup.string()
+    .min(2, "Too Short!")
+    .max(50, "Too Long!")
+    .matches(/^[A-Za-z ]*$/, "Please enter valid name"),
+  lastName: Yup.string()
+    .min(2, "Too Short!")
+    .max(50, "Too Long!")
+    .matches(/^[A-Za-z ]*$/, "Please enter valid name"),
+  orginzationName: Yup.string().min(2, "Too Short!").max(50, "Too Long!"),
+  role: Yup.string()
+    .min(2, "Too Short!")
+    .max(50, "Too Long!")
+    .matches(/^[A-Za-z ]*$/, "Please enter valid role"),
+  email: Yup.string().email("Invalid email").required("Required"),
+
+  contactNo: Yup.string()
+    .matches(phoneRegExp, "Invalid Number")
+    .required("required"),
+});
+
 const MyAccount = () => {
   const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
@@ -49,79 +76,155 @@ const MyAccount = () => {
 
           <div className="contact-form-main-area account-form-main-area">
             <div className="contact-form-wrapper account-form-wrapper mt-2">
-              <h1 class="text-center site-heading">My Account</h1>
+              <h1 class="text-center site-heading">Profile Settings</h1>
 
-              <p className="mt-5 text-center" style={{fontSize:"18px"}}>
+              <p className="mt-5 text-center" style={{ fontSize: "18px" }}>
                 Please Input The Following Data
               </p>
 
-              <form action="" className="mt-4">
-                <div className="row">
-                  <div className="col-lg-6 px-4">
-                    <div className="form-group mb-2 input-box-wrapper">
-                      <label htmlFor="">First Name:</label>
-                      <input type="text" className="signup-box-input" style={{backgroundColor:"#ddedf1"}} />
-                    </div>
-                  </div>
-                  <div className="col-lg-6 px-4">
-                    <div className="form-group mb-2 input-box-wrapper">
-                      <label htmlFor="">Last Name:</label>
-                      <input type="text" className="signup-box-input" style={{backgroundColor:"#ddedf1"}}/>
-                    </div>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-lg-6 px-4">
-                    <div className="form-group mb-2 input-box-wrapper">
-                      <label htmlFor="">Organization Name:</label>
-                      <input type="text" className="signup-box-input" style={{backgroundColor:"#ddedf1"}} />
-                    </div>
-                  </div>
+              <Formik
+                initialValues={{
+                  firstName: "",
+                  lastName: "",
+                }}
+                validationSchema={AccountSchema}
+                onSubmit={(values) => {
+                  // same shape as initial values
+                  console.log(values);
+                }}
+              >
+                {({ errors, touched }) => (
+                  <Form action="" className="mt-4">
+                    <div className="row">
+                      <div className="col-lg-6 px-4">
+                        <div className="form-group mb-2 input-box-wrapper">
+                          <label htmlFor="">First Name:</label>
 
-                  <div className="col-lg-6 px-4">
-                    <div className="form-group mb-2 input-box-wrapper">
-                      <label htmlFor="">Role:</label>
-                      <input type="text" className="signup-box-input" style={{backgroundColor:"#ddedf1"}} />
+                          <Field
+                            name="firstName"
+                            className="custom-form-control"
+                          />
+                          {errors.firstName && touched.firstName ? (
+                            <div>
+                              <p className="formvalidation-error-text">
+                                {errors.firstName}
+                              </p>
+                            </div>
+                          ) : null}
+                        </div>
+                      </div>
+                      <div className="col-lg-6 px-4">
+                        <div className="form-group mb-2 input-box-wrapper">
+                          <label htmlFor="">Last Name:</label>
+                          <Field
+                            name="lastName"
+                            className="custom-form-control"
+                          />
+                          {errors.lastName && touched.lastName ? (
+                            <div>
+                              <p className="formvalidation-error-text">
+                                {errors.lastName}
+                              </p>
+                            </div>
+                          ) : null}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
+                    <div className="row">
+                      <div className="col-lg-6 px-4">
+                        <div className="form-group mb-2 input-box-wrapper">
+                          <label htmlFor="">Organization Name:</label>
 
-                <div className="row">
-                  <div className="col-lg-6 px-4">
-                    <div className="form-group mb-2 input-box-wrapper">
-                      <label htmlFor="">Email Address:</label>
-                      <input type="email" className="signup-box-input" style={{backgroundColor:"#ddedf1"}} />
+                          <Field
+                            name="organizationName"
+                            className="custom-form-control"
+                          />
+                          {errors.organizationName &&
+                          touched.organizationName ? (
+                            <div>
+                              <p className="formvalidation-error-text">
+                                {errors.organizationName}
+                              </p>
+                            </div>
+                          ) : null}
+                        </div>
+                      </div>
+
+                      <div className="col-lg-6 px-4">
+                        <div className="form-group mb-2 input-box-wrapper">
+                          <label htmlFor="">Role:</label>
+                          <Field name="role" className="custom-form-control" />
+                          {errors.role && touched.role ? (
+                            <div>
+                              <p className="formvalidation-error-text">
+                                {errors.role}
+                              </p>
+                            </div>
+                          ) : null}
+                        </div>
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="col-lg-6 px-4">
-                    <div className="form-group mb-2 input-box-wrapper">
-                      <label htmlFor="">Phone Number:</label>
-                      <input type="number" className="signup-box-input" style={{backgroundColor:"#ddedf1"}} />
+                    <div className="row">
+                      <div className="col-lg-6 px-4">
+                        <div className="form-group mb-2 input-box-wrapper">
+                          <label htmlFor="">Email Address:</label>
+                          <Field name="email" className="custom-form-control" />
+                          {errors.email && touched.email ? (
+                            <div>
+                              <p className="formvalidation-error-text">
+                                {errors.email}
+                              </p>
+                            </div>
+                          ) : null}
+                        </div>
+                      </div>
+
+                      <div className="col-lg-6 px-4">
+                        <div className="form-group mb-2 input-box-wrapper">
+                          <label htmlFor="">Phone Number:</label>
+                          <Field
+                            name="contactNo"
+                            className="custom-form-control"
+                          />
+                          {errors.contactNo && touched.contactNo ? (
+                            <div>
+                              <p className="formvalidation-error-text">
+                                {errors.contactNo}
+                              </p>
+                            </div>
+                          ) : null}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
 
+                    <div className="row mt-4">
+                      <div className="col-lg-6 px-4">
+                        <div className="form-group mb-2 d-flex justify-content-end">
+                          <button type="submit" className="blue-button">
+                            SAVE
+                          </button>
+                        </div>
+                      </div>
 
-                <div className="row mt-4">
-                  <div className="col-lg-6 px-4">
-                    <div className="form-group mb-2 d-flex justify-content-end" >
-                     <button type="submit" className="blue-button">
-                        SAVE
-                     </button>
+                      <div className="col-lg-6 px-4">
+                        <div className="form-group mb-2 d-flex justify-content-start">
+                          <button
+                            type="submit"
+                            className="blue-button"
+                            style={{
+                              backgroundColor: "#c7c7c7",
+                              color: "#000",
+                            }}
+                          >
+                            CANCEL
+                          </button>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-
-                  <div className="col-lg-6 px-4">
-                  <div className="form-group mb-2 d-flex justify-content-start"  >
-                     <button type="submit" className="blue-button" style={{backgroundColor:"#c7c7c7",color:"#000"}}>
-                        CANCEL
-                     </button>
-                    </div>
-                  </div>
-                </div>
-              
-              </form>
+                  </Form>
+                )}
+              </Formik>
             </div>
             {/* contact-form-wrapper */}
           </div>
