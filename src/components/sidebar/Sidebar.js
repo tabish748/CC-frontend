@@ -15,7 +15,7 @@ function Sidebar(props) {
       }
     >
       <div className="logo-wrapper hideInMobile">
-        <img src={logo} alt="" />
+      <Link to="/"> <img src={logo} alt="" /></Link>
       </div>
 
       <div className={margintop2rem ?"sidebar-list-area margintop2rem" : "sidebar-list-area"}>

@@ -5,6 +5,7 @@ import intro from '../../images/intro.png';
 import logo from "../../images/logo.png";
 import birds from "../../images/birds.png";
 import signupGround from "../../images/signup-ground.png";
+import { Link } from 'react-router-dom';
 function Welcome() {
   const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
@@ -65,7 +66,7 @@ function Welcome() {
                     trials. He has three papers in the NEJM and two in Lancet.
                   </p>
   
-                  <button class="gray-button welcome-btn">Enter the site</button>
+                  <Link to="/services"><button class="gray-button welcome-btn">Enter the site</button></Link>
                 </div>
               </div>
               <div class="col-lg-7">
