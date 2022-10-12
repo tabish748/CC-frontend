@@ -38,14 +38,14 @@ function Login() {
             title: 'Sucessfull!',
             text: originalPromiseResult.message,
             icon: 'success',
-            confirmButtonText: 'ok'
+            confirmButtonText: 'Cool'
           })
         } else {
           Swal.fire({
             title: 'Error!',
             text: originalPromiseResult.message,
             icon: 'error',
-            confirmButtonText: 'ok'
+            confirmButtonText: 'Try again'
           })}
         }).catch((rejectedValueOrSerializedError) => {
           Swal.fire({

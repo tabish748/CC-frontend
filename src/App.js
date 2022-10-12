@@ -31,20 +31,20 @@ function App() {
         <Route path="/login" element={<Login />}>
         </Route>
         <Route path="/" element={<Welcome />}> </Route>
+        <Route path="/services" element={<Services />}>
+        </Route>
+        <Route path="/cancerCenterConsulting" element={<CancerCenterConsulting />}>
+        </Route>
+        <Route path="/clinicalTrialFinder" element={<ClinicalTrialFinder />}>
+        </Route>
+        <Route path="/pharmaConsulting" element={<PharmaConsulting />}>
+        </Route>
+        <Route path="/treatmentGuide" element={<TreatmentGuide />}>
+        </Route>
+        <Route path="/contactus" element={<ContactUs />}>
+        </Route>
         <Route element={<ProtectedRoute />} >
-          <Route path="/cancerCenterConsulting" element={<CancerCenterConsulting />}>
-          </Route>
-          <Route path="/clinicalTrialFinder" element={<ClinicalTrialFinder />}>
-          </Route>
-          <Route path="/pharmaConsulting" element={<PharmaConsulting />}>
-          </Route>
-          <Route path="/treatmentGuide" element={<TreatmentGuide />}>
-          </Route>
-          <Route path="/services" element={<Services />}>
-          </Route>
           <Route path="/clinicalTrialFinderMenu" element={<ClinicalTrialFinderMenu />}>
-          </Route>
-          <Route path="/contactus" element={<ContactUs />}>
           </Route>
           <Route path="/profile" element={<Profile />}>
           </Route>

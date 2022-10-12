@@ -8,6 +8,12 @@ function Sidebar(props) {
   const sidebar = props.sideBar;
   const marginTopH6 = props.marginTopH6;
   const margintop2rem = props.margintop2rem;
+
+  let isLogged = false
+  if (localStorage.getItem("user")) {
+     isLogged = true;
+  }
+  
   return (
     <div
       className={
@@ -50,7 +56,7 @@ function Sidebar(props) {
               Cancer Center Consulting
             </Link>
           </li>
-          <li>
+          {isLogged ? (<li>
             <Link to="#">
               <div
                 className="sidebar-list-bullet"
@@ -58,7 +64,8 @@ function Sidebar(props) {
               ></div>
               My Profile
             </Link>
-          </li>
+          </li>) : null}
+          
         </ul>
 
         <h6 className={marginTopH6 ?`px-3 mt-4 marginTopH6` :`px-3 mt-4`} style={{ fontWeight: "600" }}>

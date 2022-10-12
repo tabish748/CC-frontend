@@ -65,7 +65,7 @@ function Signup() {
           title: 'Error!',
           text: promiseResult.message,
           icon: 'error',
-          confirmButtonText: 'ok'
+          confirmButtonText: 'Try again'
         })
       }
     }).catch((serverRejection)=>{

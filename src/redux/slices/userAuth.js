@@ -19,9 +19,7 @@ export const login = createAsyncThunk(
         }
         return responseData
     }
-
 )
-
 const initialState = {
     isLoading:true,
     data:{},

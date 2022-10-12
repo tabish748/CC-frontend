@@ -9,7 +9,7 @@ export const backendCall = createAsyncThunk(
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json',
-                        'Authorization': 'token '+ sessionStorage.getItem("token") },
+                        'Authorization': 'token '+ localStorage.getItem("token") },
             body: JSON.stringify(payload)
         };
 
