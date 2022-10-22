@@ -14,12 +14,14 @@ import DatePicker from 'react-date-picker';
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { signupAction } from "../redux/slices/userSignup";
+import { async } from "@firebase/util";
 
 function Signup() {
 
   const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
-
+  const [userExist, setUserExist] = useState("")
+  const [Loading, setLoading] = useState(true);
 
   /// input handlers and form submitter ///
 
@@ -33,7 +35,7 @@ function Signup() {
 
 
   const dispatch = new useDispatch();
-  const response = useSelector (state=>state.userReg);
+
 
   const submit = (event) => {
     event.preventDefault();
@@ -50,40 +52,60 @@ function Signup() {
     };
 
     dispatch(signupAction(data))
-    .unwrap()
-    .then((promiseResult)=>{
-      if (promiseResult.error === false) {
-        Swal.fire({
-          title: 'Sucessfull!',
-          text: promiseResult.message,
-          icon: 'success',
-          confirmButtonText: 'Cool'
-        })
-      }
-      else {
+      .unwrap()
+      .then((promiseResult) => {
+        if (promiseResult.error === false) {
+          Swal.fire({
+            title: 'Sucessfull!',
+            text: promiseResult.message,
+            icon: 'success',
+            confirmButtonText: 'Cool'
+          })
+        }
+        else {
+          Swal.fire({
+            title: 'Error!',
+            text: promiseResult.message,
+            icon: 'error',
+            confirmButtonText: 'Try again'
+          })
+        }
+      }).catch((serverRejection) => {
         Swal.fire({
           title: 'Error!',
-          text: promiseResult.message,
+          text: serverRejection.message,
           icon: 'error',
-          confirmButtonText: 'Try again'
+          confirmButtonText: 'ok'
         })
-      }
-    }).catch((serverRejection)=>{
-      Swal.fire({
-        title: 'Error!',
-        text: serverRejection.message,
-        icon: 'error',
-        confirmButtonText: 'ok'
       })
-    })
 
   }
+
 
   ///  backend call        ///
 
   // /// effect manipulation ///
   useEffect(() => {
-  })
+    const url = "http://127.0.0.1:8000/user/check-email";
+    const payload = {
+      "email": email
+    }
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    };
+    // const response = await fetch(url, requestOptions);
+    // const responseData = await response.json();
+    fetch(url,requestOptions)
+    .then(
+      (response)=>{
+        setUserExist(response.message);
+        setLoading(false);
+      }
+    ).catch()
+    console.log(userExist);
+  }, [userExist , password])
 
   /// toggle handlers /// 
 
@@ -181,14 +203,22 @@ function Signup() {
                   <div className="col-lg-12 px-1">
                     <div className="input-box-wrapper mb-3">
                       <input
-                        type="text"
+                        type="email"
                         name="email"
                         className="signup-box-input"
                         placeholder="Email Address"
                         id=""
-                        onChange={((event) => { setEmail(event.target.value) })}
+                        onChange={((event) => {
+                          setEmail(event.target.value);                   
+                        })}
                       />
                     </div>
+                    {Loading ? null : (
+                      <p className="BluetextUnderHeading">
+                      {userExist} &nbsp;
+                     </p>
+                    )}
+                    
                     {/* <!-- input-box-wrapper --> */}
                   </div>
                   {/* <!-- col 12 --> */}
