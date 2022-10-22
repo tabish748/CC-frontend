@@ -4,12 +4,15 @@ import heart from  '../../images/heart.svg'
 import download from  '../../images/download.svg'
 const Therapeutics = () => {
     return (
-      
-      <div style={{overflowX: "auto"}}>
+     <>
+       <div className="d-flex justify-content-end mb-3">
+        <button className="blue-button">Download</button>
+      </div>
+      <div style={{overflowX: "auto",overflowY:"auto",maxHeight:"370px"}} className="drugstatusTable-wrapper">
           <Table   hover className='drugsTable'>
       <thead>
         <tr>
-          <th>Drugs</th>
+        <th>Drugs</th>
           <th>Mechanism of Action</th>
           <th>Distance</th>
           <th>Status</th>
@@ -17,6 +20,7 @@ const Therapeutics = () => {
           <th>Tumor type</th>
           <th>Phase</th>
           <th>Related Trials</th>
+         
         </tr>
       </thead>
       <tbody>
@@ -154,7 +158,7 @@ const Therapeutics = () => {
       </tbody>
     </Table>
       </div>
+     </>
     );
 }
-
 export default Therapeutics;

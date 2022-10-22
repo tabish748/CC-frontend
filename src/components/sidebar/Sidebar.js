@@ -27,13 +27,13 @@ function Sidebar(props) {
       <div className={margintop2rem ?"sidebar-list-area margintop2rem" : "sidebar-list-area"}>
         <ul>
           <li>
-            <Link to="#">
+            <Link to="clinicalTrialFinderMenu">
               <div className="sidebar-list-bullet"></div>
               Clinincal Trial Finder
             </Link>
           </li>
           <li>
-            <Link to="#">
+            <Link to="treatmentGuide">
               <div
                 className="sidebar-list-bullet"
                 style={{ backgroundColor: "#bde7fb" }}
@@ -42,7 +42,7 @@ function Sidebar(props) {
             </Link>
           </li>
           <li>
-            <Link to="#">
+            <Link to="pharmaConsulting">
               <div
                 className="sidebar-list-bullet"
                 style={{ backgroundColor: "#008dd0" }}
@@ -51,13 +51,18 @@ function Sidebar(props) {
             </Link>
           </li>
           <li>
-            <Link to="#">
+            <Link to="CancerCenterConsultingCards">
               <div className="sidebar-list-bullet"></div>
               Cancer Center Consulting
             </Link>
           </li>
+<<<<<<< HEAD
+          <li>
+            <Link to="profile">
+=======
           {isLogged ? (<li>
             <Link to="#">
+>>>>>>> d0551db0067e4fda3874521e0a8932b0864872e3
               <div
                 className="sidebar-list-bullet"
                 style={{ backgroundColor: "#00dea9" }}

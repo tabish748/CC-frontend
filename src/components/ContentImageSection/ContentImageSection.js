@@ -1,5 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
+import CustomModal from '../Modal/CustomModal';
 function ContentImageSection(props) {
+
+  const [showModal, setShowModal] = useState(false)
+  function openLoginModal(){
+    setShowModal(true);
+  }
     const {heading1, heading2, img, buttonText, textUnderHeading} =props.obj
     return (
         <div className="welcome-row-wrapper mt-5">
@@ -23,7 +29,7 @@ function ContentImageSection(props) {
                    trials. He has three papers in the NEJM and two in Lancet.
                  </p>
  
-                 <button className="gray-button welcome-btn">{buttonText}</button>
+                 <button className="gray-button welcome-btn"onClick={openLoginModal}>{buttonText}</button>
                </div>
              </div>
              <div className="col-lg-7">
@@ -35,6 +41,8 @@ function ContentImageSection(props) {
              
            </div>
            
+      {showModal ? <CustomModal/> : null}
+
          </div>
     );
 }

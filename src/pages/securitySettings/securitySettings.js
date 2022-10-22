@@ -105,22 +105,33 @@ const SecuritySettings = () => {
               <div className="row">
                 <div className="col-lg-6">
                   <div className="security-settings-form-wrapper">
+                    {/* <h2>Edit Profile</h2> */}
                     <form action="">
+<<<<<<< HEAD
+                      <label htmlFor="">First Name:</label>
+                      <input type="text" className="custom-form-control mb-2" onChange={(event)=> setUserName(event.target.value)}/>
+                      <label htmlFor="">Last Name:</label>
+                      <input
+                        type="email"
+                        className="custom-form-control  mb-2"
+                        onChange={(event)=>setEmail(event.target.value)}
+                      />
+                    <h2 className="mt-2">Change Password</h2>
+=======
                       <h2 className="mt-2">Change Password</h2>
+>>>>>>> d0551db0067e4fda3874521e0a8932b0864872e3
                       <label htmlFor="">Old Password:</label>
                       <input
                         type="password"
                         className="custom-form-control mb-2"
                         onChange={(event) => setOldPassword(event.target.value)}
                       />
-
                       <label htmlFor="">New Password:</label>
                       <input
                         type="password"
                         className="custom-form-control  mb-2"
                         onChange={(event) => setNewPassword(event.target.value)}
                       />
-
                       <div className="form-btns-wrapper">
                         <input
                           type="button"
