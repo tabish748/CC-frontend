@@ -116,14 +116,14 @@ function Signup() {
               <h1 className="site-heading">Create an Account</h1>
               <p className="BluetextUnderHeading">
                 Already have an account? &nbsp;
-                <Link to="#" className="login-link">
+                <Link to="login" className="login-link">
                   Login
                 </Link>
               </p>
               <form action="" onSubmit={submit}>
                 <div className="row">
                   <div className="col-lg-6 px-1">
-                    <div className="input-box-wrapper mb-3">
+                    <div className="input-box-wrapper mb-2">
                       <input
                         type="text"
                         name="firstName"
@@ -136,7 +136,7 @@ function Signup() {
                   </div>
                   {/* <!-- col 6 --> */}
                   <div className="col-lg-6 px-1">
-                    <div className="input-box-wrapper mb-3">
+                    <div className="input-box-wrapper mb-2">
                       <input
                         type="text"
                         name="lastName"
@@ -151,7 +151,7 @@ function Signup() {
                   {/* <!-- col 6 --> */}
 
                   <div className="col-lg-12 px-1">
-                    {/* <div className="input-box-wrapper mb-3">
+                    {/* <div className="input-box-wrapper mb-2">
                       <input
                         type="text"
                         name="userName"
@@ -166,7 +166,7 @@ function Signup() {
                   {/* <!-- col 12 --> */}
 
                   <div className="col-lg-12 px-1">
-                    <div className="input-box-wrapper mb-3">
+                    <div className="input-box-wrapper mb-2">
                       <input
                         type="text"
                         name="email"
@@ -181,7 +181,7 @@ function Signup() {
                   {/* <!-- col 12 --> */}
 
                   <div className="col-lg-12 px-1">
-                    <div className="input-box-wrapper mb-3">
+                    <div className="input-box-wrapper mb-2">
                       <input
                         type="text"
                         name="password"
@@ -195,16 +195,33 @@ function Signup() {
                   </div>
                   {/* <!-- col 12 --> */}
 
+                  <div className="col-lg-12 px-1">
+                    <div className="input-box-wrapper mb-2">
+                      <input
+                        type="text"
+                        name="password"
+                        className="signup-box-input"
+                        placeholder="Confirm Password"
+                        id=""
+                        onChange={(event)=>{setPassword(event.target.value)}}
+                      />
+                    </div>
+                    {/* <!-- input-box-wrapper --> */}
+                  </div>
+                  {/* <!-- col 12 --> */}
+
                   <div className="col-lg-12">
                  <div className="row">
                   <div className="col-lg-6 px-1">
-                  <div className="input-box-wrapper mb-3">
-                    <DatePicker onChange={onChange} value={value} />
+                  <div className="input-box-wrapper mb-2" title="Date of birth">
+                  <abbr>  <DatePicker 
+                   
+                   onChange={onChange} value={value} /></abbr>
                     </div>
                     {/* <!-- input-box-wrapper --> */}
                   </div>
                   <div className="col-lg-6 px-1">
-                  <div className="input-box-wrapper mb-3">
+                  <div className="input-box-wrapper mb-2">
                   <select name="" id="">
                         <option value="">Select Gender</option>
                         <option value="">Male</option>
@@ -219,7 +236,7 @@ function Signup() {
                   {/* <!-- col 12 --> */}
 
                   <div className="col-lg-12 px-1">
-                    <div className="input-box-wrapper mb-3">
+                    <div className="input-box-wrapper mb-2">
                       <select name="" id="" onChange={(event)=>{setAffiliation(event.target.value)}}>
                         <option value="">Select Affiliation</option>
                         <option value="">Patients</option>
@@ -242,7 +259,7 @@ function Signup() {
                   {/* <!-- col 12 --> */}
 
                   <div className="col-lg-12 px-1">
-                    <div className="input-box-wrapper mb-3">
+                    <div className="input-box-wrapper mb-2">
                       <input
                         type="submit"
                         className="gray-button submit-btn"
@@ -270,12 +287,7 @@ function Signup() {
                           </div>
                           {/* <!-- social-icon-circle --> */}
                         </Link>
-                        <Link to="#" target="_blank">
-                          <div className="social-icon-circle">
-                            <i className="fab fa-instagram"></i>
-                          </div>
-                          {/* <!-- social-icon-circle --> */}
-                        </Link>
+                       
                         <Link to="#" target="_blank">
                           <div className="social-icon-circle" onClick={TwitterAuth}>
                             <i className="fa-brands fa-twitter"></i>

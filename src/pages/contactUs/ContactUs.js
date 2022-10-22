@@ -160,7 +160,7 @@ function ContactUs() {
                     <div className="row">
                       <div className="col-lg-6">
                         <div className="form-group mb-2">
-                          <label htmlFor="">Email:</label>
+                          <label htmlFor="">Email*:</label>
                           <Field className="custom-form-control" name="email" />
                           {errors.email && touched.email ? (
                             <div>
@@ -174,7 +174,7 @@ function ContactUs() {
 
                       <div className="col-lg-6">
                         <div className="form-group mb-2">
-                          <label htmlFor="">Contact Number:</label>
+                          <label htmlFor="">Contact Number*:</label>
                           <Field
                             className="custom-form-control"
                             name="contactNo"
@@ -191,7 +191,7 @@ function ContactUs() {
                     </div>
                     <div className="row">
                       <div className="col-lg-12">
-                        <label htmlFor="">Brief Description of Inquiry:</label>
+                        <label htmlFor="">Brief Description of Inquiry*:</label>
                         <Field
                           as="textarea"
                           cols="30"

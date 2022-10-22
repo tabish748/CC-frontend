@@ -22,6 +22,10 @@ import StatsDrugs from "./pages/statsDrugs/StatsDrugs";
 import SecuritySettings from "./pages/securitySettings/securitySettings";
 import AccountsSetting from "./pages/accountsSetting/AccountsSetting";
 import SettingAccounts from "./pages/accountsSetting/SettingAccounts";
+import CancerCenterConsultingCards from "./pages/cancerCenterConsulting/CancerCenterConsultingCards";
+import CustomModal from "./components/Modal/CustomModal";
+import About from "./pages/about/About";
+import UploadPicture from "./pages/uploadPicture/UploadPicture";
 
 function App() {
   return (
@@ -63,6 +67,7 @@ function App() {
         <Route exact path="/profile">
           <Profile/>
         </Route>
+        
         <Route exact path="/services-Packages">
           <ServicesPackages/>
         </Route>
@@ -99,6 +104,21 @@ function App() {
         <Route exact path="/settings-accounts">
           <SettingAccounts/>
         </Route>
+        <Route exact path="/CancerCenterConsultingCards">
+          <CancerCenterConsultingCards/>
+        </Route>
+
+        <Route exact path="/modal">
+          <CustomModal/>
+        </Route>
+        <Route exact path="/about">
+          <About/>
+        </Route>
+        <Route exact path="/UploadPicture">
+          <UploadPicture/>
+        </Route>
+
+        
 
       </Switch>
     </>

@@ -169,11 +169,7 @@ function Login() {
                             <img src={googleG} alt=""  onClick={GoogleAuth}/>
                           </div>
                         </Link>
-                        <Link href="#" target="_blank">
-                          <div className="social-icon-circle">
-                            <i className="fab fa-instagram"></i>
-                          </div>
-                        </Link>
+                     
                         <Link href="#" target="_blank">
                           <div className="social-icon-circle" onClick={TwitterAuth}>
                             <i className="fa-brands fa-twitter"></i>

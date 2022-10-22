@@ -2,29 +2,30 @@ import React, { useState } from "react";
 import logo from "../../images/logo.png";
 import birds from "../../images/birds.png";
 import leafs from "../../images/leafs.png";
-import "font-awesome/css/font-awesome.min.css";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Header from "../../components/Header/Header";
-import team from '../../images/team.png'
-import calendar from '../../images/calendar.png'
-import plans from '../../images/plans.png'
-import medals from '../../images/medals.png'
-import coordinator from '../../images/coordinator.png'
-import checklist from '../../images/checklist.png'
-import settings from '../../images/settings.png'
-import profilePic from '../../images/profilePic.png'
-function Profile() {
-  const [header, setHeader] = useState(false);
-  const [sideBar, setSideBar] = useState(false);
-  function handleHeader() {
-    setHeader((t) => !t);
-  }
-  function handleSideBar() {
-    setSideBar((t) => !t);
-  }
-  return (
-    <>
-      <div className="mobile-header-section">
+
+import operations from '../../images/cancerConsulting/operations.png'
+import credentiality from '../../images/cancerConsulting/credentiality.svg'
+import review from '../../images/cancerConsulting/review.svg'
+import revenue from '../../images/cancerConsulting/reveniew.svg'
+import recruitment from '../../images/cancerConsulting/recruitment.svg'
+import Program from '../../images/cancerConsulting/program.svg'
+import billing from '../../images/cancerConsulting/billing.svg'
+import staff from '../../images/cancerConsulting/staff.svg'
+import { Link } from "react-router-dom";
+const CancerCenterConsultingCards = () => {
+    const [header, setHeader] = useState(false);
+    const [sideBar, setSideBar] = useState(false);
+    function handleHeader() {
+      setHeader((t) => !t);
+    }
+    function handleSideBar() {
+      setSideBar((t) => !t);
+    }
+    return (
+       <>
+          <div className="mobile-header-section">
         <div
           id="nav-icon4"
           className={!sideBar ? "hamburger" : "hamburger open"}
@@ -45,6 +46,7 @@ function Profile() {
           <span></span>
         </div>
       </div>
+
       <div className="profile-section-wrapper">
         <Sidebar
           sideBar={sideBar}
@@ -55,15 +57,15 @@ function Profile() {
           <Header header={header} />
             <div className="profile-main-area mt-4">
 
-            <h1 class="text-center mb-4 site-heading">My Profile</h1>
+            <h1 class="text-center mb-4 site-heading">Cancer Center Consulting</h1>
                 <div className="row">
                     <div className="col-lg-3 col-xs-6 col-sm-6 mt-2">
                     <div class="service-card-parent  w-80 mx-auto">
                             <div class="service-card-wrapper align-items-end">
-                                <img src={team} alt=""/>
+                                <img src={operations} alt=""/>
                             </div>
                             <p class="text-center">
-                                Team
+                                Operations
                             </p>
                         </div>
                     </div>
@@ -71,10 +73,10 @@ function Profile() {
                     <div className="col-lg-3 col-xs-6 col-sm-6 mt-2">
                     <div class="service-card-parent  w-80 mx-auto">
                             <div class="service-card-wrapper">
-                                <img src={calendar} alt=""/>
+                                <img src={credentiality} alt=""/>
                             </div>
                             <p class="text-center">
-                                Calendar
+                                  Credentialing
                             </p>
                         </div>
                     </div>
@@ -83,12 +85,10 @@ function Profile() {
 
                     <div class="service-card-parent  w-80 mx-auto">
                             <div class="service-card-wrapper ">
-                                <img src={plans} alt=""/>
+                                <img src={review} alt=""/>
                             </div>
                             <p class="text-center">
-                                My Saved
-                                <br />
-                                Treatment Plans
+                                Outside Peer Review
                             </p>
                         </div>
                     </div>
@@ -97,10 +97,10 @@ function Profile() {
 
                     <div class="service-card-parent  w-80 mx-auto">
                             <div class="service-card-wrapper align-items-end">
-                                <img src={medals} alt=""/>
+                                <img src={revenue} alt=""/>
                             </div>
                             <p class="text-center">
-                                My Saved Trials
+                               Revenue Generation
                             </p>
                         </div>
                     </div>
@@ -109,12 +109,10 @@ function Profile() {
                     <div className="col-lg-3 col-xs-6 col-sm-6 mt-2">
                     <div class="service-card-parent  w-80 mx-auto">
                             <div class="service-card-wrapper align-items-end">
-                                <img src={coordinator} alt=""/>
+                                <img src={recruitment} alt=""/>
                             </div>
                             <p class="text-center">
-                                My Trial  
-                                <br />
-                                Coordinator
+                               Recruitment
                             </p>
                         </div>
                     </div>
@@ -122,10 +120,10 @@ function Profile() {
                     <div className="col-lg-3 col-xs-6 col-sm-6 mt-2">
                     <div class="service-card-parent  w-80 mx-auto">
                             <div class="service-card-wrapper align-items-end">
-                                <img src={checklist} alt=""/>
+                                <img src={Program} alt=""/>
                             </div>
                             <p class="text-center">
-                                Checklists
+                                Clinical Trial Program
                             </p>
                         </div>
                     </div>
@@ -133,10 +131,10 @@ function Profile() {
                     <div className="col-lg-3 col-xs-6 col-sm-6 mt-2">
                     <div class="service-card-parent  w-80 mx-auto">
                             <div class="service-card-wrapper align-items-end">
-                                <img src={settings} alt=""/>
+                                <img src={billing} alt=""/>
                             </div>
                             <p class="text-center">
-                                Account Settings
+                              Billing/Revenue Cycle
                             </p>
                         </div>
                     </div>
@@ -144,15 +142,22 @@ function Profile() {
                     <div className="col-lg-3 col-xs-6 col-sm-6 mt-2">
                     <div class="service-card-parent  w-80 mx-auto">
                             <div class="service-card-wrapper align-items-end">
-                                <img src={profilePic} alt=""/>
+                                <img src={staff} alt=""/>
                             </div>
                             <p class="text-center">
-                                Add Profile Picture
+                                Staff Training
                             </p>
                         </div>
                     </div>
 
                 </div>
+                {/* row */}
+
+           <Link to='contactUs'>
+           <button className="blue-button mx-auto d-block mt-4" style={{width:'fit-content'}}>
+                Contact Us
+            </button>
+           </Link>
             </div>
         </div>
         {/* profile-inner-parent */}
@@ -169,8 +174,8 @@ function Profile() {
           alt=""
         />
       </div>
-    </>
-  );
+       </>
+    );
 }
 
-export default Profile;
+export default CancerCenterConsultingCards;
