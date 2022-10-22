@@ -1,9 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import 'font-awesome/css/font-awesome.min.css'; //import in react app
+import { useSelector } from "react-redux";
+
 
 function Header(props) {
   const header = props.header;
+  let isLogged = false
+  if (localStorage.getItem("user")) {
+     isLogged = true;
+  }
+
   return (
     <div
       className={
@@ -14,18 +21,20 @@ function Header(props) {
         <div className="d-flex align-items-center">
           <div className="content-wrapper w-auto h-auto">
             <i className="fas fa-user" style={{ marginRight: "5px" }}></i>
-            <Link
-              to="/login"
-              className="registration-links"
-              style={{ marginRight: "4px" }}
-            >
+            {!isLogged ? (<Link to="/login" className="registration-links" style={{ marginRight: "4px" }}>
               SIGN IN
-            </Link>&nbsp;
+            </Link>) : (<Link to="#" className="registration-links" style={{ marginRight: "4px" }}>
+              Hello
+            </Link>)}
+            
+            &nbsp;
             <span style={{ color: "#707070" }}>|</span>
             &nbsp;&nbsp;
-            <Link to="/signup" className="registration-links">
+            {!isLogged ? ( <Link to="/signup" className="registration-links">
               SIGN UP
-            </Link>
+            </Link>) : ( <Link to="#" className="registration-links">
+              {localStorage.getItem("user")}
+            </Link>)}
           </div>
         </div>
         <div>

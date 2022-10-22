@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../images/logo.png";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Header from "../../components/Header/Header";
@@ -6,38 +6,59 @@ import birds from "../../images/birds.png";
 import leafs from "../../images/leafs.png";
 import securitySettings from "../../images/security-settings.png";
 import { useDispatch } from "react-redux";
-import {edit_profile} from '../../redux/actions/edit_profile_action';
+import Swal from 'sweetalert2';
+import { useSelector } from "react-redux";
+import { backendCall } from "../../redux/slices/securitySetting";
 
 const SecuritySettings = () => {
   const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
 
   const dispatch = new useDispatch();
-
+  const response = useSelector(state => state.editProfile);
   /// states for attributes ////
-  const [email , setEmail] = useState("");
-  const [username , setUserName] = useState("");
-  const [oldPassword , setOldPassword] = useState("");
-  const [newPassword , setNewPassword] = useState("");
 
-  const handleSubmit = (event) =>{
+  const [oldPassword, setOldPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+
+  const handleSubmit = (event) => {
     event.preventDefault();
     let data = {}
-    if (email !== ""){
-      data["email"] = email
-    }
-    if (username !== ""){
-      data["username"] = username
-    }
-    if (oldPassword !== ""){
+    if (oldPassword !== "") {
       data["old_password"] = oldPassword
     }
-    if (newPassword !== ""){
+    if (newPassword !== "") {
       data["new_password"] = newPassword
     }
-    dispatch(edit_profile(data));
+    dispatch(backendCall(data))
+      .unwrap()
+      .then((packet) => {
+        if (packet.error === false) {
+          Swal.fire({
+            title: 'Sucessfull!',
+            text: packet.message,
+            icon: 'success',
+            confirmButtonText: 'ok'
+          })
+        }
+       else {
+          Swal.fire({
+            title: 'Error!',
+            text: packet.message,
+            icon: 'error',
+            confirmButtonText: 'ok'
+          })
+        }}).catch((rejectedResult)=>{
+          Swal.fire({
+            title: 'Error',
+            text: rejectedResult.message,
+            icon: 'error',
+            confirmButtonText: 'ok'
+          })
+        })
+    console.log(response);
+
   }
-  ///
 
 
   function handleHeader() {
@@ -86,6 +107,7 @@ const SecuritySettings = () => {
                   <div className="security-settings-form-wrapper">
                     {/* <h2>Edit Profile</h2> */}
                     <form action="">
+<<<<<<< HEAD
                       <label htmlFor="">First Name:</label>
                       <input type="text" className="custom-form-control mb-2" onChange={(event)=> setUserName(event.target.value)}/>
                       <label htmlFor="">Last Name:</label>
@@ -95,20 +117,23 @@ const SecuritySettings = () => {
                         onChange={(event)=>setEmail(event.target.value)}
                       />
                     <h2 className="mt-2">Change Password</h2>
+=======
+                      <h2 className="mt-2">Change Password</h2>
+>>>>>>> d0551db0067e4fda3874521e0a8932b0864872e3
                       <label htmlFor="">Old Password:</label>
                       <input
                         type="password"
                         className="custom-form-control mb-2"
-                        onChange={(event)=> setOldPassword(event.target.value)}
+                        onChange={(event) => setOldPassword(event.target.value)}
                       />
                       <label htmlFor="">New Password:</label>
                       <input
                         type="password"
                         className="custom-form-control  mb-2"
-                        onChange={(event)=>setNewPassword(event.target.value)}
+                        onChange={(event) => setNewPassword(event.target.value)}
                       />
                       <div className="form-btns-wrapper">
-                      <input
+                        <input
                           type="button"
                           value="Cancel"
                           className="gray-button"
@@ -120,13 +145,13 @@ const SecuritySettings = () => {
                           className="blue-button"
                           onClick={handleSubmit}
                         />
-                        
+
                       </div>
                     </form>
                   </div>
                 </div>
                 <div className="col-lg-6">
-                    <img src={securitySettings} className="w-100" alt="" />
+                  <img src={securitySettings} className="w-100" alt="" />
                 </div>
               </div>
             </div>

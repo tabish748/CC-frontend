@@ -1,4 +1,4 @@
-import React, { useState , useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../../images/logo.png";
 import signupBirds from "../../images/signup-birds.png";
 import signupGround from "../../images/signup-ground.png";
@@ -7,60 +7,56 @@ import "font-awesome/css/font-awesome.min.css";
 import { Link } from "react-router-dom";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Header from "../../components/Header/Header";
-import { GoogleAuth ,FacebookAuth ,TwitterAuth} from "../../firebase/authentication";
+import { GoogleAuth, FacebookAuth, TwitterAuth } from "../../firebase/authentication";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { login } from "../../redux/slices/userAuth";
+import Swal from 'sweetalert2';
+import { Navigate } from "react-router-dom";
 
 function Login() {
   const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
 
-  const [email , setEmail] = useState("");
-  const [password , setPassword] = useState("");
-  const [state , setState] = useState(0)
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
+
+  const dispatch = new useDispatch();
+  const response = useSelector((state=>state.userAuth))
 
   ///form handler ///
 
-  const submit =(event) =>{
+  const submit = (event) => {
     event.preventDefault();
-    console.log(email , password)
-    asyncCall();
+    const data = { "email": email,"password": password}
+    dispatch(login(data))
+      .unwrap()
+      .then((originalPromiseResult) => {
+        if (originalPromiseResult.error === false) {
+          Swal.fire({
+            title: 'Sucessfull!',
+            text: originalPromiseResult.message,
+            icon: 'success',
+            confirmButtonText: 'Cool'
+          })
+        } else {
+          Swal.fire({
+            title: 'Error!',
+            text: originalPromiseResult.message,
+            icon: 'error',
+            confirmButtonText: 'Try again'
+          })}
+        }).catch((rejectedValueOrSerializedError) => {
+          Swal.fire({
+            title: 'SERVER ERROR',
+            text: rejectedValueOrSerializedError.message,
+            icon: 'error',
+            confirmButtonText: 'ok'
+          });})
+
+        console.log(response)
   };
-
-
-  ///backend call //
-
-  const asyncCall = async () =>{
-    const url = "http://127.0.0.1:8000/user/login";
-
-    const data = {
-      "email" : email,
-      "password" : password,
-    };
-
-    console.log(data)
-
-    const requestOptions = {
-      method : 'POST',
-      headers : {'Content-Type': 'application/json'},
-      body : JSON.stringify(data)
-    };
-    
-    let response = await fetch(url,requestOptions);
-    let responseData = await response.json();
-    console.log(responseData.data.token);
-    if (responseData.error ===false && responseData.data.token) {
-      sessionStorage.setItem("token" , responseData.data.token)
-    }
-
-  }
-
-  /// use effect  /// 
-  useEffect(()=>{
-    if (sessionStorage.getItem("token")){
-      
-    }
-    console.log(state);
-  })
 
   ///toggle handlers ///
   function handleHeader() {
@@ -70,6 +66,10 @@ function Login() {
     setSideBar((t) => !t);
   }
 
+  if (localStorage.getItem("token")){
+    return <Navigate to="/" />
+  }
+  else{
   return (
     <div>
       <div className="mobile-header-section">
@@ -116,7 +116,7 @@ function Login() {
                         className="signup-box-input loginfields"
                         placeholder="Email"
                         id=""
-                        onChange={(event)=>{setEmail(event.target.value)}}
+                        onChange={(event) => { setEmail(event.target.value) }}
                       />
                     </div>
                   </div>
@@ -128,7 +128,7 @@ function Login() {
                         className="signup-box-input loginfields"
                         placeholder="Password"
                         id=""
-                        onChange={(event)=>{setPassword(event.target.value)}}
+                        onChange={(event) => { setPassword(event.target.value) }}
                       />
                     </div>
                   </div>
@@ -166,10 +166,9 @@ function Login() {
                             className="social-icon-circle"
                             style={{ backgroundColor: "whitesmoke" }}
                           >
-                            <img src={googleG} alt=""  onClick={GoogleAuth}/>
+                            <img src={googleG} alt="" onClick={GoogleAuth} />
                           </div>
                         </Link>
-                     
                         <Link href="#" target="_blank">
                           <div className="social-icon-circle" onClick={TwitterAuth}>
                             <i className="fa-brands fa-twitter"></i>
@@ -188,6 +187,7 @@ function Login() {
       </div>
     </div>
   );
+  }
 }
 
 export default Login;

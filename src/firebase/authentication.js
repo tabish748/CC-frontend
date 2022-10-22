@@ -3,7 +3,7 @@ import { auth } from "./firebase";
 import { GoogleAuthProvider,TwitterAuthProvider } from "firebase/auth";
 import { signInWithPopup } from "firebase/auth";
 import { FacebookAuthProvider } from "firebase/auth";
-
+import { Navigate } from "react-router-dom";
 
 const GoogleProvider = new GoogleAuthProvider();
 const FacebookProvider = new FacebookAuthProvider();
@@ -21,10 +21,11 @@ export const encodeJWT = async (payload) => {
     const data = await response.json();
 
     if (data.error === false){
-        sessionStorage.setItem("token",data.data)
+        localStorage.setItem("token",data.data.token);
+        localStorage.setItem("user",data.data.email);
+        return <Navigate to="/" />
     }
 }
-
 
 export const GoogleAuth = () => {
     signInWithPopup(auth, GoogleProvider).then(

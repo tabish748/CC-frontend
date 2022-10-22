@@ -8,6 +8,12 @@ function Sidebar(props) {
   const sidebar = props.sideBar;
   const marginTopH6 = props.marginTopH6;
   const margintop2rem = props.margintop2rem;
+
+  let isLogged = false
+  if (localStorage.getItem("user")) {
+     isLogged = true;
+  }
+  
   return (
     <div
       className={
@@ -15,7 +21,7 @@ function Sidebar(props) {
       }
     >
       <div className="logo-wrapper hideInMobile">
-        <img src={logo} alt="" />
+      <Link to="/"> <img src={logo} alt="" /></Link>
       </div>
 
       <div className={margintop2rem ?"sidebar-list-area margintop2rem" : "sidebar-list-area"}>
@@ -50,15 +56,21 @@ function Sidebar(props) {
               Cancer Center Consulting
             </Link>
           </li>
+<<<<<<< HEAD
           <li>
             <Link to="profile">
+=======
+          {isLogged ? (<li>
+            <Link to="#">
+>>>>>>> d0551db0067e4fda3874521e0a8932b0864872e3
               <div
                 className="sidebar-list-bullet"
                 style={{ backgroundColor: "#00dea9" }}
               ></div>
               My Profile
             </Link>
-          </li>
+          </li>) : null}
+          
         </ul>
 
         <h6 className={marginTopH6 ?`px-3 mt-4 marginTopH6` :`px-3 mt-4`} style={{ fontWeight: "600" }}>

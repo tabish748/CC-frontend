@@ -1,15 +1,12 @@
-import { createStore, applyMiddleware } from 'redux'
-import thunkMiddleware from 'redux-thunk'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import { combineReducers } from 'redux'
-import { QuestionReducer } from './reducers/questionReducer'
-import { editProfileReducer } from './reducers/editProfileReducer'
+import  authSlice  from './slices/userAuth';
+import userRegSlice from  './slices/userSignup';
+import { configureStore } from '@reduxjs/toolkit' ; 
+import securitySetting from './slices/securitySetting';
 
-
-const composedEnhancer = composeWithDevTools(applyMiddleware(thunkMiddleware));
-const rootReducer = combineReducers({
-    questionAir : QuestionReducer,
-    editProfile : editProfileReducer
+export const store = configureStore({
+    reducer: {
+        userAuth:authSlice,
+        userReg:userRegSlice,
+        changePassword:securitySetting,
+},
 });
-
-export const store = createStore(rootReducer, composedEnhancer )
