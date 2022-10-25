@@ -39,7 +39,7 @@ function Header(props) {
             {!isLogged ? ( <Link to="/signup" className="registration-links">
               SIGN UP
             </Link>) : ( <Link to="#" className="registration-links" onClick={handleLogout}>
-              Logout
+              SIGN OUT
             </Link>)}
           </div>
         </div>

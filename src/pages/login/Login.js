@@ -35,7 +35,7 @@ function Login() {
       .then((originalPromiseResult) => {
         if (originalPromiseResult.error === false) {
           Swal.fire({
-            title: 'Sucessfull!',
+            title: 'Sucessful!',
             text: originalPromiseResult.message,
             icon: 'success',
             confirmButtonText: 'Cool'

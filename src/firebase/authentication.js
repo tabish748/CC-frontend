@@ -23,7 +23,7 @@ export const encodeJWT = async (payload) => {
     if (data.error === false){
         localStorage.setItem("token",data.data.token);
         localStorage.setItem("user",data.data.email);
-        return <Navigate to="/" />
+        window.location.reload();
     }
 }
 

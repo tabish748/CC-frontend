@@ -56,13 +56,8 @@ function Sidebar(props) {
               Cancer Center Consulting
             </Link>
           </li>
-<<<<<<< HEAD
-          <li>
-            <Link to="profile">
-=======
           {isLogged ? (<li>
             <Link to="#">
->>>>>>> d0551db0067e4fda3874521e0a8932b0864872e3
               <div
                 className="sidebar-list-bullet"
                 style={{ backgroundColor: "#00dea9" }}
