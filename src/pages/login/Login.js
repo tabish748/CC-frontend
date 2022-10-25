@@ -13,7 +13,7 @@ import { useSelector } from "react-redux";
 import { login } from "../../redux/slices/userAuth";
 import Swal from 'sweetalert2';
 import { Navigate } from "react-router-dom";
-
+import TrialCriteria from "../trailCriteria/trialCriteria";
 function Login() {
   const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
@@ -106,7 +106,8 @@ function Login() {
                 Welcome!
               </h1>
               <p className="marginZero BluetextUnderHeading">Sign into your account</p>
-              <form action="" className="login-form" onSubmit={submit}>
+              {/* <form action="" className="login-form" onSubmit={submit}> */}
+              <form action="" className="login-form" >
                 <div className="row">
                   <div className="col-lg-12 px-1">
                     <div className="input-box-wrapper mb-3">
@@ -143,11 +144,13 @@ function Login() {
 
                   <div className="col-lg-12 px-1">
                     <div className="input-box-wrapper mb-3">
-                      <input
+                     <Link to='/trial-criteria'>
+                     <input
                         type="submit"
                         className="gray-button submit-btn w-100"
                         value="SIGN IN"
                       />
+                     </Link>
                       <p className="or-txt">or</p>
                       <p className="text-center mt-1">
                         Sign in with Social accounts

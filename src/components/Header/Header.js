@@ -55,7 +55,7 @@ function Header(props) {
         </div>
         <div className="d-flex align-items-center">
           <div className="content-wrapper">
-            <Link to="" className="gray-button">
+            <Link to="/about-us" className="gray-button">
               About Us
             </Link>
           </div>

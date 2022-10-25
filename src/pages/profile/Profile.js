@@ -13,6 +13,7 @@ import coordinator from '../../images/coordinator.png'
 import checklist from '../../images/checklist.png'
 import settings from '../../images/settings.png'
 import profilePic from '../../images/profilePic.png'
+import {Link} from 'react-router-dom'
 function Profile() {
   const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
@@ -58,14 +59,16 @@ function Profile() {
             <h1 class="text-center mb-4 site-heading">My Profile</h1>
                 <div className="row">
                     <div className="col-lg-3 col-xs-6 col-sm-6 mt-2">
-                    <div class="service-card-parent  w-80 mx-auto">
-                            <div class="service-card-wrapper align-items-end">
+                 <Link to='/my-team'>
+                 <div class="service-card-parent  w-80 mx-auto">
+                            <div class="service-card-wrapper ">
                                 <img src={team} alt=""/>
                             </div>
                             <p class="text-center">
                                 Team
                             </p>
                         </div>
+                 </Link>
                     </div>
 
                     <div className="col-lg-3 col-xs-6 col-sm-6 mt-2">
@@ -81,7 +84,8 @@ function Profile() {
 
                     <div className="col-lg-3 col-xs-6 col-sm-6 mt-2">
 
-                    <div class="service-card-parent  w-80 mx-auto">
+                 <Link to='/saved-treatment-plans'>
+                 <div class="service-card-parent  w-80 mx-auto">
                             <div class="service-card-wrapper ">
                                 <img src={plans} alt=""/>
                             </div>
@@ -91,24 +95,26 @@ function Profile() {
                                 Treatment Plans
                             </p>
                         </div>
+                 </Link>
                     </div>
 
                     <div className="col-lg-3 col-xs-6 col-sm-6 mt-2">
-
+        <Link to='/saved-trials'>
                     <div class="service-card-parent  w-80 mx-auto">
-                            <div class="service-card-wrapper align-items-end">
+                            <div class="service-card-wrapper ">
                                 <img src={medals} alt=""/>
                             </div>
                             <p class="text-center">
                                 My Saved Trials
                             </p>
                         </div>
+                        </Link>
                     </div>
 
 
                     <div className="col-lg-3 col-xs-6 col-sm-6 mt-2">
                     <div class="service-card-parent  w-80 mx-auto">
-                            <div class="service-card-wrapper align-items-end">
+                            <div class="service-card-wrapper">
                                 <img src={coordinator} alt=""/>
                             </div>
                             <p class="text-center">
@@ -121,7 +127,7 @@ function Profile() {
 
                     <div className="col-lg-3 col-xs-6 col-sm-6 mt-2">
                     <div class="service-card-parent  w-80 mx-auto">
-                            <div class="service-card-wrapper align-items-end">
+                            <div class="service-card-wrapper">
                                 <img src={checklist} alt=""/>
                             </div>
                             <p class="text-center">
@@ -131,19 +137,21 @@ function Profile() {
                     </div>
 
                     <div className="col-lg-3 col-xs-6 col-sm-6 mt-2">
+                    <Link to='/settings-accounts'>
                     <div class="service-card-parent  w-80 mx-auto">
-                            <div class="service-card-wrapper align-items-end">
+                            <div class="service-card-wrapper ">
                                 <img src={settings} alt=""/>
                             </div>
                             <p class="text-center">
                                 Account Settings
                             </p>
                         </div>
+                        </Link>
                     </div>
 
                     <div className="col-lg-3 col-xs-6 col-sm-6 mt-2">
                     <div class="service-card-parent  w-80 mx-auto">
-                            <div class="service-card-wrapper align-items-end">
+                            <div class="service-card-wrapper ">
                                 <img src={profilePic} alt=""/>
                             </div>
                             <p class="text-center">

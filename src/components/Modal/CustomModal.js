@@ -7,13 +7,13 @@ const CustomModal = () => {
             <p>Please Login or Sign Up to continue  your Cancer Clarity Journey</p>
           <div className='modal-btns-wrapper'>
 
-        <Link to='login'>
+        <Link to='/login'>
         <button className='blue-button'> 
                 Login
             </button>
         </Link>
             <p>or</p>
-           <Link to='signup'>
+           <Link to='/signup'>
            <button className='blue-button'>
                 SignUp
             </button>

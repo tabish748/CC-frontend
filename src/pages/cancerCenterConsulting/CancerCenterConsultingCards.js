@@ -61,7 +61,7 @@ const CancerCenterConsultingCards = () => {
                 <div className="row">
                     <div className="col-lg-3 col-xs-6 col-sm-6 mt-2">
                     <div class="service-card-parent  w-80 mx-auto">
-                            <div class="service-card-wrapper align-items-end">
+                            <div class="service-card-wrapper ">
                                 <img src={operations} alt=""/>
                             </div>
                             <p class="text-center">
@@ -96,7 +96,7 @@ const CancerCenterConsultingCards = () => {
                     <div className="col-lg-3 col-xs-6 col-sm-6 mt-2">
 
                     <div class="service-card-parent  w-80 mx-auto">
-                            <div class="service-card-wrapper align-items-end">
+                            <div class="service-card-wrapper ">
                                 <img src={revenue} alt=""/>
                             </div>
                             <p class="text-center">
@@ -108,7 +108,7 @@ const CancerCenterConsultingCards = () => {
 
                     <div className="col-lg-3 col-xs-6 col-sm-6 mt-2">
                     <div class="service-card-parent  w-80 mx-auto">
-                            <div class="service-card-wrapper align-items-end">
+                            <div class="service-card-wrapper">
                                 <img src={recruitment} alt=""/>
                             </div>
                             <p class="text-center">
@@ -119,7 +119,7 @@ const CancerCenterConsultingCards = () => {
 
                     <div className="col-lg-3 col-xs-6 col-sm-6 mt-2">
                     <div class="service-card-parent  w-80 mx-auto">
-                            <div class="service-card-wrapper align-items-end">
+                            <div class="service-card-wrapper">
                                 <img src={Program} alt=""/>
                             </div>
                             <p class="text-center">
@@ -130,7 +130,7 @@ const CancerCenterConsultingCards = () => {
 
                     <div className="col-lg-3 col-xs-6 col-sm-6 mt-2">
                     <div class="service-card-parent  w-80 mx-auto">
-                            <div class="service-card-wrapper align-items-end">
+                            <div class="service-card-wrapper ">
                                 <img src={billing} alt=""/>
                             </div>
                             <p class="text-center">
@@ -141,7 +141,7 @@ const CancerCenterConsultingCards = () => {
 
                     <div className="col-lg-3 col-xs-6 col-sm-6 mt-2">
                     <div class="service-card-parent  w-80 mx-auto">
-                            <div class="service-card-wrapper align-items-end">
+                            <div class="service-card-wrapper ">
                                 <img src={staff} alt=""/>
                             </div>
                             <p class="text-center">
@@ -153,7 +153,7 @@ const CancerCenterConsultingCards = () => {
                 </div>
                 {/* row */}
 
-           <Link to='contactUs'>
+           <Link to='/contactUs'>
            <button className="blue-button mx-auto d-block mt-4" style={{width:'fit-content'}}>
                 Contact Us
             </button>
