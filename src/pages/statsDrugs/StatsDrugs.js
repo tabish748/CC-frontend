@@ -7,9 +7,11 @@ import leafs from "../../images/leafs.png";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import StatsCard from "../../components/statsCard/StatsCard";
-import Therapeutics from './Therapeutics'
-import Analytics from "./Analytics";
-
+import Therapeutics from "./Therapeutics";
+import ClinicalTrials from "./ClinicalTrials";
+import Table from "react-bootstrap/Table";
+import heart from "../../images/heart.svg";
+import download from "../../images/download.svg";
 function StatsDrugs() {
   const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
@@ -19,6 +21,12 @@ function StatsDrugs() {
   }
   function handleSideBar() {
     setSideBar((t) => !t);
+  }
+  function handleAnalyticTab() {
+    document
+      .querySelector(".analytics-drug-table-container")
+      .classList.add("active");
+    document.querySelector("#analytics-Container").classList.add("hide");
   }
   return (
     <>
@@ -63,17 +71,18 @@ function StatsDrugs() {
                   <Tab>Therapeutics</Tab>
                 </TabList>
 
-            
                 <TabPanel>
                   <div className="tab-content-wrapper-drugs mt-4">
-                   
-                   <Analytics/>
+                    <ClinicalTrials />
                   </div>
                 </TabPanel>
                 <TabPanel>
-                  <div className="tab-content-wrapper-drugs mt-4">
+                  <div
+                    className="tab-content-wrapper-drugs mt-4"
+                    id="analytics-Container"
+                  >
                     <div className="row">
-                      <div className="col mb-4">
+                      <div className="col mb-4" onClick={handleAnalyticTab}>
                         <StatsCard
                           text="Number of Unique Drugs"
                           stats="25482"
@@ -137,11 +146,166 @@ function StatsDrugs() {
                       </div>
                     </div>
                   </div>
+
+                  <div className="analytics-drug-table-container">
+                    <div
+                      style={{
+                        overflowX: "auto",
+                        overflowY: "auto",
+                        maxHeight: "370px",
+                      }}
+                      className="drugstatusTable-wrapper"
+                    >
+                      <Table hover className="drugsTable">
+                        <thead>
+                          <tr>
+                            <th>S NO</th>
+                            <th>DRUGS</th>
+                            <th>SPONCOR</th>
+                            <th>NO OF TRIALS</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>01</td>
+                            <td className="drugName">Name of Drug</td>
+                            <td>
+                              <p>abc</p>
+                            </td>
+                            <td>34</td>
+
+                            <td>
+                              <button className="blue-button">
+                                See Details
+                              </button>
+
+                              <img
+                                src={download}
+                                className="drugstableIcon"
+                                alt=""
+                              />
+
+                              <img
+                                src={heart}
+                                className="drugstableIcon"
+                                alt=""
+                              />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>02</td>
+                            <td className="drugName">Name of Drug</td>
+                            <td>
+                              <p>abc</p>
+                            </td>
+                            <td>34</td>
+
+                            <td>
+                              <button className="blue-button">
+                                See Details
+                              </button>
+
+                              <img
+                                src={download}
+                                className="drugstableIcon"
+                                alt=""
+                              />
+
+                              <img
+                                src={heart}
+                                className="drugstableIcon"
+                                alt=""
+                              />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>03</td>
+                            <td className="drugName">Name of Drug</td>
+                            <td>
+                              <p>abc</p>
+                            </td>
+                            <td>34</td>
+
+                            <td>
+                              <button className="blue-button">
+                                See Details
+                              </button>
+
+                              <img
+                                src={download}
+                                className="drugstableIcon"
+                                alt=""
+                              />
+
+                              <img
+                                src={heart}
+                                className="drugstableIcon"
+                                alt=""
+                              />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>04</td>
+                            <td className="drugName">Name of Drug</td>
+                            <td>
+                              <p>abc</p>
+                            </td>
+                            <td>34</td>
+
+                            <td>
+                              <button className="blue-button">
+                                See Details
+                              </button>
+
+                              <img
+                                src={download}
+                                className="drugstableIcon"
+                                alt=""
+                              />
+
+                              <img
+                                src={heart}
+                                className="drugstableIcon"
+                                alt=""
+                              />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>05</td>
+                            <td className="drugName">Name of Drug</td>
+                            <td>
+                              <p>abc</p>
+                            </td>
+                            <td>34</td>
+
+                            <td>
+                              <button className="blue-button">
+                                See Details
+                              </button>
+
+                              <img
+                                src={download}
+                                className="drugstableIcon"
+                                alt=""
+                              />
+
+                              <img
+                                src={heart}
+                                className="drugstableIcon"
+                                alt=""
+                              />
+                            </td>
+                          </tr>
+                        </tbody>
+                      </Table>
+                    </div>
+                  </div>
+                  {/* analytics-drug-table-container */}
                 </TabPanel>
                 <TabPanel>
                   <div className="tab-content-wrapper-drugs mt-4">
-                   <Therapeutics/>
-                    
+                    <Therapeutics />
                   </div>
                 </TabPanel>
               </Tabs>

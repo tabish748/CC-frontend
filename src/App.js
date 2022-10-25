@@ -23,6 +23,11 @@ import SecuritySettings from "./pages/securitySettings/securitySettings";
 import AccountsSetting from "./pages/accountsSetting/AccountsSetting";
 import SettingAccounts from "./pages/accountsSetting/SettingAccounts";
 import ProtectedRoute from "./components/ProtectedRoute/protectedRoute";
+import AddTeam from "./pages/addTeam/AddTeam";
+import SavedTreatmentPlan from "./pages/savedTreatmentPlan/SavedTreatmentPlan";
+import SavedTrials from "./pages/savedTrials/SavedTrials";
+import About from "./pages/about/About";
+import CancerCenterConsultingCards from "./pages/cancerCenterConsulting/CancerCenterConsultingCards";
 function App() {
   return (
     <>
@@ -43,31 +48,53 @@ function App() {
         </Route>
         <Route path="/contactus" element={<ContactUs />}>
         </Route>
-        <Route element={<ProtectedRoute />} >
+
+        {/* *************** */}
+        <Route path="/profile" element={<Profile />}>
+          </Route>
+          <Route path="/stats-drugs" element={<StatsDrugs />}>
+          </Route>
+         
+          <Route path="/trial-criteria" element={<TrialCriteria />}>
+          </Route>
+          <Route path="/clinical-questions" element={<ClinicalQuestions />}>
+          </Route>
+          <Route path="/my-team" element={<AddTeam />}>
+          </Route>
+          <Route path="/saved-treatment-plans" element={<SavedTreatmentPlan />}>
+          </Route>
+          <Route path="/saved-trials" element={<SavedTrials />}>
+          </Route>
+          <Route path="/settings-accounts" element={<SettingAccounts />}>
+          </Route>
+          
+          <Route path="/about-us" element={<About />}>
+          </Route>
+
+          <Route path="/cancer-consulting-cards" element={<CancerCenterConsultingCards/>}>
+          </Route>
           <Route path="/clinicalTrialFinderMenu" element={<ClinicalTrialFinderMenu />}>
-          </Route>
-          <Route path="/profile" element={<Profile />}>
-          </Route>
+          </Route>   
+        <Route element={<ProtectedRoute />} >
+        
+       
           <Route path="/services-Packages" element={<ServicesPackages />}>
           </Route>
           <Route path="/pharma-Packages" element={<PharmaPackages />}>
           </Route>
-          <Route path="/clinical-questions" element={<ClinicalQuestions />}>
-          </Route>
-          <Route path="/trial-criteria" element={<TrialCriteria />}>
-          </Route>
+          
+        
           <Route path="/trial-menu" element={<TrialMenuThree />}>
           </Route>
           <Route path="/accounts" element={<MyAccount />}>
           </Route>
-          <Route path="/stats-drugs" element={<StatsDrugs />}>
-          </Route>
+         
           <Route path="/security-settings" element={<SecuritySettings />}>
           </Route>
           <Route path="/accounts-settings" element={<AccountsSetting />}>
           </Route>
-          <Route path="/settings-accounts" element={<SettingAccounts />}>
-          </Route>
+
+          
         </Route>
       </Routes>
     </>

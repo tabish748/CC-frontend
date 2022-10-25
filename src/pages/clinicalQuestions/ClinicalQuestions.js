@@ -16,6 +16,7 @@ import Q6 from "./questions/q6";
 import Q7 from "./questions/q7";
 import Q8 from "./questions/q8";
 import Q9 from "./questions/q9";
+import { Link } from "react-router-dom";
 // import { Prev } from "react-bootstrap/esm/PageItem";
 
 const useForceRender = () => {
@@ -110,6 +111,8 @@ function ClinicalQuestions() {
       }
     },
   };
+
+
   return (
     <>
       <div className="mobile-header-section">
@@ -184,7 +187,8 @@ function ClinicalQuestions() {
                 <form action="">
                   {renderActiveSections()}
                   <div className="questions-both-btn-wrapper">
-                    <button
+                  <Link>
+                  <button
                       className="blue-button"
                       onClick={() => {
                         setCurSection((prev) => {
@@ -204,9 +208,12 @@ function ClinicalQuestions() {
                     >
                       Next
                     </button>
-                    <button className="blue-button" type="button">
+                  </Link>
+                    <Link to='/stats-drugs'>
+                    <button className="blue-button" type="button" >
                       Finish
                     </button>
+                    </Link>
                   </div>
                 </form>
               </div>

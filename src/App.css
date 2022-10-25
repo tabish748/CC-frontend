@@ -1,5 +1,7 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap'); */
-
+a{
+  color:#333
+}
 @font-face {
   font-family: "Segoe UI Regular";
   font-style: normal;
@@ -35,6 +37,9 @@ body {
 }
 p {
   margin: 0;
+}
+.hide{
+  display: none!important;
 }
 /* *******Modal box********** */
 .modal-section {
@@ -279,7 +284,10 @@ p {
 .input-box-wrapper {
   width: 100%;
   height: auto;
+  position: relative;
+  
 }
+
 .input-box-wrapper p {
   font-size: 16px;
   font-weight: 600;
@@ -389,6 +397,13 @@ a:hover {
 }
 .react-date-picker {
   width: 100%;
+}
+.password-eye-icon{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  cursor: pointer;
 }
 /* *************mobile-header-section************************ */
 .mobile-header-section {
@@ -588,10 +603,14 @@ a:hover {
 .welcomeCol-wrapper {
   height: 100%;
   width: 100%;
+  padding: 1px;
   position: relative;
 }
 .welcomeCol-wrapper h2 {
   letter-spacing: 0px;
+  margin-top: -9px;
+}
+.welcomeCol-wrapper h1{
   margin-top: -9px;
 }
 .welcomeCol-wrapper p {
@@ -610,7 +629,7 @@ a:hover {
   width: fit-content;
   border: none;
   position: absolute;
-  bottom: -12px;
+  bottom: 0;
 }
 
 .welcome-img-video-wrapper {
@@ -682,9 +701,9 @@ a:hover {
   -moz-box-shadow: 0px 6px 33px -6px rgba(56, 32, 32, 0.28);
   overflow: hidden;
 }
-.service-card-wrapper img {
-  width: 80%;
-  height: 80%;
+.service-card-wrapper img{
+  width: 70%;
+  height: 70%;
   object-fit: contain;
 }
 
@@ -933,8 +952,11 @@ a:hover {
   margin-top: 30px;
 }
 .questions-both-btn-wrapper button {
-  width: 48%;
+  width: 100%;
   text-transform: uppercase;
+}
+.questions-both-btn-wrapper a{
+  width: 48%;
 }
 /* ***************trial-criteria-main-area********** */
 .trial-criteria-main-area {
@@ -1382,6 +1404,134 @@ a:hover {
   height: 100px;
   
 }
+/* ********************** */
+.analytics-drug-table-container{
+  display: none;
+}
+.analytics-drug-table-container.active{
+  display: block!important;
+}
+/* ******************** */
+.dropdown-eligibilty-container{
+  width: 100%;
+  max-width: 80%;
+  margin: 0 auto;
+}
+.dropdown-eligibilty-container button:nth-of-type(1){
+  height: fit-content;
+  padding: 10px;
+  font-weight: normal!important;
+}
+.dropdown-eligibilty-container input{
+  height: fit-content;
+  width: 100%;
+  padding: 5px 5px 5px 35px;
+  margin-top: 10px;
+  border: 2px solid var(--blue);
+  color: var(--blue);
+  border-radius: 0.8rem;
+  outline: none;
+  font-size: 16px;
+}
+.search-box-area{
+  width: 100%;
+  height: fit-content;
+  position: relative;
+}
+.dropdown-eligibilty-container .search-box-area i{
+  position: absolute;
+  top: 22px;
+  left: 10px;
+  color: var(--blue);
+}
+.dropdown-eligibilty-container input::placeholder{
+  color: var(--blue);
+  font-weight: normal;
+
+}
+/* ***************Team page*********** */
+.team-content-wrapper{
+  width: 100%;
+  height: auto;
+  padding: 20px;
+}
+.team-upload-btn{
+  width: 140px;
+  height: 140px;
+  background-color: var(--skyblue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.team-upload-btn i{
+  font-size: 30px;
+  font-weight: normal;
+  color: white;
+
+}
+.team-content-wrapper .cta-wrapper{
+  width: fit-content;
+  height: auto;
+  background-color: transparent;
+}
+.add-team-popup-wrapper{
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(8px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right:0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center ;
+}
+.addteam-popup-inner-area{
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  background-color: white;
+  border-radius: 18px;
+  border: 2px solid var(--blue);
+  display: flex;
+  padding: 20px;
+  position: relative;
+}
+.addteam-popup-inner-area .img-area{
+    width: 100%;
+    max-width: 200px;
+}
+.addteam-popup-inner-area .img-area img{
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+}
+.addteam-popup-inner-area .addteam-form-area{
+  width: -webkit-fill-available;
+  height: auto;
+}
+.add-team-popup-wrapper .addteam-popup-inner-area .close-popup-button{
+  width: 50px;
+  height: 50px;
+  background-color: var(--blue);
+  color: white;
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  z-index: 10;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+
 
 
 
@@ -1495,5 +1645,8 @@ a:hover {
     height: auto;
     font-size: 14px;
     padding: 5px 2px;
+  }
+  .aboutPageWrapper .main-area-inner-wrapper{
+    margin: 0;
   }
 }

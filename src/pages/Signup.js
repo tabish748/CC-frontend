@@ -14,6 +14,7 @@ import DatePicker from 'react-date-picker';
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { signupAction } from "../redux/slices/userSignup";
+import axios from 'axios'
 
 function Signup() {
 
@@ -30,6 +31,8 @@ function Signup() {
   const [affiliation, setAffiliation] = useState("")
   const [date, onChangeDate] = useState(new Date());
   const [gender, setGender] = useState("")
+  const [showEyeIcon, setShowEyeIcon] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
 
 
   const dispatch = new useDispatch();
@@ -82,8 +85,21 @@ function Signup() {
   ///  backend call        ///
 
   // /// effect manipulation ///
-  useEffect(() => {
-  })
+  useEffect(  () => {
+   
+    setTimeout(async () => {
+      console.log(email)
+    let response  = await axios.get(`https://restcountries.com/v3.1/name/${email}?fullText=true`);
+    console.log(response);
+    if(response.data.length > 0){
+     document.querySelector('.email-response').innerText = `user Already Exists`
+    }
+    if(response){
+      console.log('else case')
+      document.querySelector('.email-response').innerText = `Username Available `
+    }
+    }, 10);
+  }, [email])
 
   /// toggle handlers /// 
 
@@ -91,8 +107,24 @@ function Signup() {
     setHeader((t) => !t);
   }
   function handleSideBar() {
-    setSideBar((t) => !t);
+    setSideBar((t) => !t);  
   }
+  console.log('working full hours ')
+   function handleRealTimeEmail(e){
+    setEmail(e.target.value);
+  }
+  function showHidePassword(){
+    setShowPassword(t => !t)
+  }
+  useEffect(()=>{
+    if(password !== ''){
+      setShowEyeIcon(true)
+    }
+    else{
+      setShowEyeIcon(false)
+    }
+  },[password])
+
 
   return (
     <div>
@@ -186,8 +218,9 @@ function Signup() {
                         className="signup-box-input"
                         placeholder="Email Address"
                         id=""
-                        onChange={((event) => { setEmail(event.target.value) })}
+                        onChange={handleRealTimeEmail}
                       />
+                      <p className="email-response"></p>
                     </div>
                     {/* <!-- input-box-wrapper --> */}
                   </div>
@@ -196,17 +229,19 @@ function Signup() {
                   <div className="col-lg-12 px-1">
                     <div className="input-box-wrapper mb-2">
                       <input
-                        type="password"
+                        type={showPassword ? 'text' : 'password'}
                         name="password"
                         className="signup-box-input"
                         placeholder="Password"
                         id=""
-                        onChange={(event) => { setPassword(event.target.value) }}
+                        onChange={(e)=> setPassword(e.target.value)}
                       />
+                    {showEyeIcon ?   <i className="far fa-eye password-eye-icon" onClick={showHidePassword}></i> : ''}
                     </div>
                     {/* <!-- input-box-wrapper --> */}
                   </div>
                   {/* <!-- col 12 --> */}
+                  
 
                   <div className="col-lg-12 px-1">
                     <div className="input-box-wrapper mb-2">
