@@ -34,6 +34,7 @@ function Signup() {
   const [gender, setGender] = useState("")
   const [showEyeIcon, setShowEyeIcon] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
+  const [password2 , setPassword2] = useState("");
 
 
   const dispatch = new useDispatch();
@@ -49,7 +50,8 @@ function Signup() {
       "status": "1",
       "user_type": affiliation,
       "date_of_birth": date,
-      "gender": gender
+      "gender": gender,
+      "password2" : password2 
 
     };
 
@@ -88,17 +90,25 @@ function Signup() {
 
   // /// effect manipulation ///
   useEffect(  () => {
-   
     setTimeout(async () => {
       console.log(email)
-    let response  = await axios.get(`https://restcountries.com/v3.1/name/${email}?fullText=true`);
-    console.log(response);
-    if(response.data.length > 0){
-     document.querySelector('.email-response').innerText = `user Already Exists`
-    }
-    if(response){
-      console.log('else case')
-      document.querySelector('.email-response').innerText = `Username Available `
+      const payload = {
+        "email" : email
+      }
+
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+       };
+    if(email !== ""){
+      let response  = await fetch(`http://127.0.0.1:8000/user/check-email` , requestOptions);
+      response = await response.json();
+      console.log(response)
+      if (response.error === true || response.error === false){
+        document.querySelector('.email-response').innerText = response.message 
+      }
+      console.log("data: " , response)
     }
     }, 10);
   }, [email])
@@ -254,14 +264,15 @@ function Signup() {
                   <div className="col-lg-12 px-1">
                     <div className="input-box-wrapper mb-2">
                       <input
-                        type="text"
+                        type={showPassword ? 'text' : 'password'}
                         name="password"
                         className="signup-box-input"
                         placeholder="Confirm Password"
                         id=""
-                        onChange={(event)=>{setPassword(event.target.value)}}
+                        onChange={(event)=>{setPassword2(event.target.value)}}
                       />
                     </div>
+                    {showEyeIcon ?   <i className="far fa-eye password-eye-icon" onClick={showHidePassword}></i> : ''}
                     {/* <!-- input-box-wrapper --> */}
                   </div>
                   {/* <!-- col 12 --> */}
@@ -280,6 +291,7 @@ function Signup() {
                             <option value="">Select Gender</option>
                             <option value="1">Male</option>
                             <option value="2">Female</option>
+                            <option value="2">I prefer not to say</option>
                           </select>
                         </div>
                         {/* <!-- input-box-wrapper --> */}
@@ -292,8 +304,8 @@ function Signup() {
                     <div className="input-box-wrapper mb-3">
                       <select name="" id="" onChange={(event) => { setAffiliation(event.target.value) }}>
                         <option value="">Select Affiliation</option>
-                        <option value="1">Patients</option>
-                        <option value="2">Care taker</option>
+                        <option value="1">Patient</option>
+                        <option value="2">Caregiver</option>
                         <option value="3">Researcher</option>
 
                       </select>
