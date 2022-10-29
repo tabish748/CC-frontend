@@ -7,6 +7,11 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Header from "../../components/Header/Header";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { call } from "../../redux/slices/contact";
+import Swal from 'sweetalert2';
+
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
@@ -29,12 +34,61 @@ const ContactSchema = Yup.object().shape({
   contactNo: Yup.string()
     .matches(phoneRegExp, "Invalid Number")
     .required("required"),
-    message: Yup.string().required("required")
+  message: Yup.string().required("required")
 });
 
 function ContactUs() {
   const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [orginzationName, setOrganizationName] = useState("");
+  const [role, setRole] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const dispatch = new useDispatch();
+  const submit = (event) => {
+    event.preventDefault()
+    const payload = {
+      "email": email,
+      "contact": phone,
+      "message": message,
+      "first_name": firstName,
+      "last_name": lastName,
+      "organization": orginzationName,
+      "role": role
+    }
+    dispatch(call(payload))
+      .unwrap()
+      .then((promiseResult) => {
+        if (promiseResult.error === false) {
+          Swal.fire({
+            title: 'Sucessfull!',
+            text: promiseResult.message,
+            icon: 'success',
+            confirmButtonText: 'Cool'
+          })
+        }
+        else {
+          Swal.fire({
+            title: 'Error!',
+            text: promiseResult.message,
+            icon: 'error',
+            confirmButtonText: 'Try again'
+          })
+        }
+      }).catch((serverRejection) => {
+        Swal.fire({
+          title: 'Error!',
+          text: serverRejection.message,
+          icon: 'error',
+          confirmButtonText: 'Try again'
+        })
+      })
+  }
+
   function handleHeader() {
     setHeader((t) => !t);
   }
@@ -88,7 +142,7 @@ function ContactUs() {
                 }}
               >
                 {({ errors, touched }) => (
-                  <Form action="" className="mt-3">
+                  <Form action="" className="mt-3" onSubmit={submit}>
                     <div className="row">
                       <div className="col-lg-6">
                         <div className="form-group mb-2">
@@ -96,6 +150,7 @@ function ContactUs() {
                           <Field
                             name="firstName"
                             className="custom-form-control"
+                            onChange={(event) => setFirstName(event.target.value)}
                           />
                           {errors.firstName && touched.firstName ? (
                             <div>
@@ -113,6 +168,7 @@ function ContactUs() {
                           <Field
                             name="lastName"
                             className="custom-form-control"
+                            onChange={(event) => setLastName(event.target.value)}
                           />
                           {errors.lastName && touched.lastName ? (
                             <div>
@@ -131,6 +187,7 @@ function ContactUs() {
                           <Field
                             className="custom-form-control"
                             name="orginzationName"
+                            onChange={(event) => setOrganizationName(event.target.value)}
                           />
                           {errors.orginzationName && touched.orginzationName ? (
                             <div>
@@ -146,7 +203,7 @@ function ContactUs() {
                       <div className="col-lg-6">
                         <div className="form-group mb-2">
                           <label htmlFor="">Role:</label>
-                          <Field className="custom-form-control" name="role" />
+                          <Field className="custom-form-control" name="role" onChange={(event) => setRole(event.target.value)} />
                           {errors.role && touched.role ? (
                             <div>
                               <p className="formvalidation-error-text">
@@ -161,8 +218,8 @@ function ContactUs() {
                     <div className="row">
                       <div className="col-lg-6">
                         <div className="form-group mb-2">
-                          <label htmlFor="">Email*:</label>
-                          <Field className="custom-form-control" name="email" />
+                          <label htmlFor="">Email:</label>
+                          <Field className="custom-form-control" name="email" onChange={(event) => setEmail(event.target.value)} />
                           {errors.email && touched.email ? (
                             <div>
                               <p className="formvalidation-error-text">
@@ -179,6 +236,7 @@ function ContactUs() {
                           <Field
                             className="custom-form-control"
                             name="contactNo"
+                            onChange={(event) => setPhone(event.target.value)}
                           />
                           {errors.contactNo && touched.contactNo ? (
                             <div>
@@ -199,14 +257,15 @@ function ContactUs() {
                           name="message"
                           rows="6"
                           className="custom-form-control"
+                          onChange={(event) => setMessage(event.target.value)}
                         />
-                         {errors.message && touched.message ? (
-                            <div>
-                              <p className="formvalidation-error-text">
-                                {errors.message}
-                              </p>
-                            </div>
-                          ) : null}
+                        {errors.message && touched.message ? (
+                          <div>
+                            <p className="formvalidation-error-text">
+                              {errors.message}
+                            </p>
+                          </div>
+                        ) : null}
                       </div>
                     </div>
 

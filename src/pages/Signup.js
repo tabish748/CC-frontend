@@ -320,7 +320,7 @@ function Signup() {
                   <div className="col-lg-12 px-1">
                     <div className="input-box-wrapper mb-2">
                       <input
-                        type="text"
+                        type="email"
                         name="email"
                         className="signup-box-input"
                         placeholder="Email Address"
@@ -334,6 +334,8 @@ function Signup() {
                         (emailAvailable) ? <p className="email-response">Email Available</p> : '' 
                       }
                     </div>
+                    
+                    
                     {/* <!-- input-box-wrapper --> */}
                   </div>
                   {/* <!-- col 12 --> */}
@@ -388,6 +390,7 @@ function Signup() {
                       )}
                       <small id="error-container"></small>
                     </div>
+                    {showEyeIcon ?   <i className="far fa-eye password-eye-icon" onClick={showHidePassword}></i> : ''}
                     {/* <!-- input-box-wrapper --> */}
                   </div>
                   {/* <!-- col 12 --> */}
@@ -410,11 +413,9 @@ function Signup() {
                             onChange={(event) => setGender(event.target.value)}
                           >
                             <option value="">Select Gender</option>
-                            <option value="male" selected>
-                              Male
-                            </option>
-                            <option value="female">Female</option>
-                            <option value="not listen">not listed</option>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                            <option value="2">I prefer not to say</option>
                           </select>
                           <small className="error-container"></small>
                         </div>

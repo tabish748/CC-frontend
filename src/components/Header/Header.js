@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import 'font-awesome/css/font-awesome.min.css'; //import in react app
-import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 
 
 function Header(props) {
@@ -11,6 +11,12 @@ function Header(props) {
      isLogged = true;
   }
 
+  const handleLogout = () =>{
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    window.location.reload(true);
+
+  }
   return (
     <div
       className={
@@ -24,7 +30,7 @@ function Header(props) {
             {!isLogged ? (<Link to="/login" className="registration-links" style={{ marginRight: "4px" }}>
               SIGN IN
             </Link>) : (<Link to="#" className="registration-links" style={{ marginRight: "4px" }}>
-              Hello
+            {localStorage.getItem("user")}
             </Link>)}
             
             &nbsp;
@@ -32,8 +38,8 @@ function Header(props) {
             &nbsp;&nbsp;
             {!isLogged ? ( <Link to="/signup" className="registration-links">
               SIGN UP
-            </Link>) : ( <Link to="#" className="registration-links">
-              {localStorage.getItem("user")}
+            </Link>) : ( <Link to="#" className="registration-links" onClick={handleLogout}>
+              SIGN OUT
             </Link>)}
           </div>
         </div>

@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-export const login = createAsyncThunk(
-    'auth/login',
+export const BackendCall = createAsyncThunk(
+    'contact/call',
     async (payload, thunkAPI) => {
-        const url = "http://127.0.0.1:8000/user/login";
+        const url = "http://127.0.0.1:8000/user/questionair";
 
         const requestOptions = {
             method: 'POST',
@@ -13,10 +13,6 @@ export const login = createAsyncThunk(
 
         const response = await fetch(url, requestOptions);
         const responseData = await response.json();
-        if (responseData.error === false && responseData.data.token) {
-            localStorage.setItem("token", responseData.data.token);
-            localStorage.setItem("user",responseData.data.name)
-        }
         return responseData
     }
 )
@@ -26,27 +22,20 @@ const initialState = {
     isAuthenticated :false
 }
 
-const authSlice = createSlice({
-    name: "auth",
+const questionAir = createSlice({
+    name: "questionAir",
     initialState,
-    // reducers:{
-    //     login
-    // },
     extraReducers : (builder) => {
-        builder.addCase(login.pending,(state,action)=>{
+        builder.addCase(BackendCall.pending,(state,action)=>{
             state.isLoading = true;
         })
-        builder.addCase(login.fulfilled , (state,action) => {
+        builder.addCase(BackendCall.fulfilled , (state,action) => {
              state.isLoading = false;
              state.data = action.payload;
-             if (action.payload.error === false){
-                state.isAuthenticated = true;
-             }
-              
         })
-        builder.addCase(login.rejected,(state,action)=>{
+        builder.addCase(BackendCall.rejected,(state,action)=>{
             state.isLoading = "error"
         })
     }
 });
-export default authSlice.reducer;
+export default questionAir.reducer;
