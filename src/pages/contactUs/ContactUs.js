@@ -31,6 +31,7 @@ const ContactSchema = Yup.object().shape({
     .required("required"),
     message: Yup.string().required("required")
 });
+
 function ContactUs() {
   const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
