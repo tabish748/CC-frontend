@@ -85,7 +85,7 @@ function Signup() {
             if (promiseResult.error === false) {
               setLoading(false);
               Swal.fire({
-                title: "Sucessfull!",
+                title: "Sucessful!",
                 text: promiseResult.message,
                 icon: "success",
                 confirmButtonText: "Cool",
@@ -445,10 +445,10 @@ function Signup() {
                       >
                         <option value="">Select Affiliation</option>
                         <option value="1">Patient</option>
-                        <option value="2">caregiver</option>
-                        <option value="3">physician/provider</option>
-                        <option value="4">research</option>
-                        <option value="5">pharmaceutical</option>
+                        <option value="2">Caregiver</option>
+                        <option value="3">Physician/Provider</option>
+                        <option value="4">Research</option>
+                        <option value="5">Pharmaceutical</option>
                       </select>
                       <small className="error-container"></small>
                     </div>
