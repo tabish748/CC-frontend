@@ -390,7 +390,7 @@ function Signup() {
                       )}
                       <small id="error-container"></small>
                     </div>
-                    {showEyeIcon ?   <i className="far fa-eye password-eye-icon" onClick={showHidePassword}></i> : ''}
+                    {/* {showEyeIcon ?   <i className="far fa-eye password-eye-icon" onClick={showHidePassword}></i> : ''} */}
                     {/* <!-- input-box-wrapper --> */}
                   </div>
                   {/* <!-- col 12 --> */}
