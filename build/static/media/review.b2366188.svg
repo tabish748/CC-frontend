@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="205.096" height="147.799" viewBox="0 0 205.096 147.799">
+    <defs>
+        <linearGradient id="341wx3xhma" x1=".482" y1="-2.942" x2=".529" y2="5.943" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#fff"/>
+            <stop offset="1" stop-color="#1a1718"/>
+        </linearGradient>
+        <linearGradient id="ndvkk6d48b" x1=".482" y1="-2.942" x2=".529" y2="5.943" xlink:href="#341wx3xhma"/>
+        <linearGradient id="ht8iob7l9c" x1=".469" y1="-2.505" x2=".549" y2="5.252" xlink:href="#341wx3xhma"/>
+    </defs>
+    <g data-name="Group 2791">
+        <ellipse data-name="Ellipse 42" cx="32.423" cy="3.029" rx="32.423" ry="3.029" transform="translate(0 102.167)" style="fill:url(#341wx3xhma);opacity:.46;mix-blend-mode:multiply;isolation:isolate"/>
+        <ellipse data-name="Ellipse 43" cx="32.423" cy="3.029" rx="32.423" ry="3.029" transform="translate(72.386 141.742)" style="fill:url(#ndvkk6d48b);opacity:.46;mix-blend-mode:multiply;isolation:isolate"/>
+        <ellipse data-name="Ellipse 44" cx="32.423" cy="3.029" rx="32.423" ry="3.029" transform="translate(140.249 100.552)" style="fill:url(#341wx3xhma);opacity:.46;mix-blend-mode:multiply;isolation:isolate"/>
+        <ellipse data-name="Ellipse 45" cx="21.113" cy="3.836" rx="21.113" ry="3.836" transform="translate(82.189 51.285)" style="fill:url(#ht8iob7l9c);opacity:.46;mix-blend-mode:multiply;isolation:isolate"/>
+        <path data-name="Path 1945" d="M1418.167 889.737s56.158-14.579 74.272 37.152" transform="translate(-1316.373 -882.468)" style="stroke:#006fb9;fill:none;stroke-miterlimit:10;stroke-width:4px"/>
+        <path data-name="Path 1946" d="M1424.552 969.412s20.517-54.92 73.3-44.42" transform="translate(-1316.885 -882.994)" style="stroke:#57c0cd;fill:none;stroke-miterlimit:10;stroke-width:4px"/>
+        <path data-name="Path 1947" d="M1342.74 927.47s53.989-1.615 70.736 41.19" transform="translate(-1310.333 -883.049)" style="stroke:#f46e21;fill:none;stroke-miterlimit:10;stroke-width:4px"/>
+        <path data-name="Path 1948" d="M1342.74 926.909s14.631-51.988 70.736-33.784" transform="translate(-1310.333 -882.489)" style="stroke:#16225e;fill:none;stroke-miterlimit:10;stroke-width:4px"/>
+        <g data-name="Group 2786" transform="translate(7.374 30.691)">
+            <ellipse data-name="Ellipse 46" cx="12.818" cy="13.73" rx="12.818" ry="13.73" transform="translate(12.216)" style="fill:#16225e"/>
+            <path data-name="Path 1949" d="m1356.4 985.7 9.2-22.421c0-9.329-16.325-16.961-25.035-16.961-8.709 0-25.034 7.632-25.034 16.961l9.2 22.421z" transform="translate(-1315.527 -914.017)" style="fill:#16225e"/>
+        </g>
+        <g data-name="Group 2787" transform="translate(151.031 30.691)">
+            <ellipse data-name="Ellipse 47" cx="12.818" cy="13.73" rx="12.818" ry="13.73" transform="translate(12.216)" style="fill:#57c0cd"/>
+            <path data-name="Path 1950" d="m1512.56 985.7 9.2-22.421c0-9.329-16.325-16.961-25.034-16.961s-25.034 7.632-25.034 16.961l9.2 22.421z" transform="translate(-1471.691 -914.017)" style="fill:#57c0cd"/>
+        </g>
+        <g data-name="Group 2790">
+            <g data-name="Group 2788" transform="translate(83.751)">
+                <ellipse data-name="Ellipse 48" cx="9.93" cy="10.636" rx="9.93" ry="10.636" transform="translate(9.463)" style="fill:#006fb9"/>
+                <path data-name="Path 1951" d="m1430.213 938.3 7.126-17.369c0-7.226-12.646-13.139-19.393-13.139s-19.393 5.913-19.393 13.139l7.126 17.369z" transform="translate(-1398.553 -882.761)" style="fill:#006fb9"/>
+            </g>
+            <g data-name="Group 2789" transform="translate(78.11 71.88)">
+                <ellipse data-name="Ellipse 49" cx="12.818" cy="13.73" rx="12.818" ry="13.73" transform="translate(12.215)" style="fill:#f46e21"/>
+                <path data-name="Path 1952" d="m1433.289 1027.508 9.2-22.421c0-9.328-16.325-16.96-25.033-16.96-8.709 0-25.034 7.632-25.034 16.96l9.2 22.421z" transform="translate(-1392.421 -955.82)" style="fill:#f46e21"/>
+            </g>
+        </g>
+    </g>
+</svg>
