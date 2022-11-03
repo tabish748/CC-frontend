@@ -4,7 +4,7 @@ import { createSlice , createAsyncThunk } from "@reduxjs/toolkit";
 export const backendCall = createAsyncThunk(
     'security/change_password',
     async (payload) =>{
-        const url = "http://127.0.0.1:8000/user/edit-profile";
+        const url = "http://127.0.0.1:8082/user/edit-profile";
 
         const requestOptions = {
             method: 'POST',
