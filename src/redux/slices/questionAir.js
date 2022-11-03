@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 export const BackendCall = createAsyncThunk(
     'contact/call',
     async (payload, thunkAPI) => {
-        const url = "http://127.0.0.1:8082/user/questionair";
+        const url = "http://45.58.35.11:8082/user/questionair";
 
         const requestOptions = {
             method: 'POST',

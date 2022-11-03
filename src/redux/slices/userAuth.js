@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 export const login = createAsyncThunk(
     'auth/login',
     async (payload, thunkAPI) => {
-        const url = "http://127.0.0.1:8082/user/login";
+        const url = "http://45.58.35.11:8082/user/login";
 
         const requestOptions = {
             method: 'POST',

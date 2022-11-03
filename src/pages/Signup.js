@@ -208,7 +208,7 @@ function Signup() {
         const payload = {
           "email" : email
         }
-        const url = "http://127.0.0.1:8082/user/check-email"
+        const url = "http://45.58.35.11:8082/user/check-email"
         const requestOptions = {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -387,14 +387,14 @@ function Signup() {
                           setConfirmPassword(event.target.value);
                         }}
                       />
-                        {showEyeIconConfirm ? (
+                        {/* {showEyeIconConfirm ? (
                         <i
                           className="far fa-eye password-eye-icon"
                           onClick={showHideConfirmPassword}
                         ></i>
                       ) : (
                         ""
-                      )}
+                      )} */}
                       <small id="error-container"></small>
                     </div>
                     {showEyeIcon ?   <i className="far fa-eye password-eye-icon" onClick={showHidePassword}></i> : ''}
