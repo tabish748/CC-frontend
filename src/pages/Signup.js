@@ -76,6 +76,7 @@ function Signup() {
           user_type: affiliation,
           date_of_birth: date,
           gender: gender,
+          confirm_password : confirmPassword,
         };
 
         dispatch(signupAction(data))
@@ -84,7 +85,7 @@ function Signup() {
             if (promiseResult.error === false) {
               setLoading(false);
               Swal.fire({
-                title: "Sucessfull!",
+                title: "Sucessful!",
                 text: promiseResult.message,
                 icon: "success",
                 confirmButtonText: "Cool",
@@ -204,19 +205,25 @@ function Signup() {
     if (email !== "") {
       setTimeout(async () => {
         console.log(email);
-        let response = await axios.get(
-          `https://restcountries.com/v3.1/name/${email}?fullText=true`
-        );
-        console.log(response);
-        
-        if (response?.status == 200) {
-          setEmailAvailable(true)
-         
+        const payload = {
+          "email" : email
         }
-        else{
-          setEmailAvailable(false)
-        } 
-      }, 10);
+        const url = "http://127.0.0.1:8000/user/check-email"
+        const requestOptions = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+      };
+        let response = await fetch(url,requestOptions);
+        let data = await response.json();
+
+        console.log(response);
+        if (data.error === false || data.error ===true) {
+          setEmailAvailable(true)
+          document.querySelector('.email-response').innerHTML = (data.message).toLowerCase();
+          document.querySelector('.email-response').style.color = "red";
+        }
+      }, 1000);
     }
   }, [email]);
 
@@ -415,7 +422,7 @@ function Signup() {
                             <option value="">Select Gender</option>
                             <option value="1">Male</option>
                             <option value="2">Female</option>
-                            <option value="2">I prefer not to say</option>
+                            <option value="3">I prefer not to say</option>
                           </select>
                           <small className="error-container"></small>
                         </div>
@@ -437,11 +444,11 @@ function Signup() {
                         }}
                       >
                         <option value="">Select Affiliation</option>
-                        <option value="1">Patients</option>
-                        <option value="2">caregiver</option>
-                        <option value="3">physician/provider</option>
-                        <option value="4">research</option>
-                        <option value="5">pharmaceutical</option>
+                        <option value="1">Patient</option>
+                        <option value="2">Caregiver</option>
+                        <option value="3">Physician/Provider</option>
+                        <option value="4">Research</option>
+                        <option value="5">Pharmaceutical</option>
                       </select>
                       <small className="error-container"></small>
                     </div>

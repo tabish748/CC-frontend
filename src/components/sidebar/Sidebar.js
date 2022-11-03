@@ -56,7 +56,7 @@ function Sidebar(props) {
               Cancer Center Consulting
             </Link>
           </li>
-          {!isLogged ? (<li>
+          {isLogged ? (<li>
             <Link to="/profile">
               <div
                 className="sidebar-list-bullet"

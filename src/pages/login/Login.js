@@ -144,13 +144,13 @@ function Login() {
 
                   <div className="col-lg-12 px-1">
                     <div className="input-box-wrapper mb-3">
-                     <Link to='/trial-criteria'>
+
                      <input
                         type="submit"
                         className="gray-button submit-btn w-100"
                         value="SIGN IN"
+                        onClick={submit}
                       />
-                     </Link>
                       <p className="or-txt">or</p>
                       <p className="text-center mt-1">
                         Sign in with Social accounts
