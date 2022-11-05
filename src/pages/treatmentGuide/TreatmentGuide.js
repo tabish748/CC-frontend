@@ -18,7 +18,6 @@ function TreatmentGuide(){
       buttonLink:'clinical-questions',
       loginRequired: true
     }
-
     const [header, setHeader] = useState(false);
     const [sideBar, setSideBar] = useState(false);
     function handleHeader() {
@@ -27,7 +26,6 @@ function TreatmentGuide(){
     function handleSideBar() {
       setSideBar((t) => !t);
     }
-
     return (
         <>
          <div className="mobile-header-section">
