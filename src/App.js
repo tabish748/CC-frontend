@@ -31,6 +31,7 @@ import SavedTreatmentPlan from "./pages/savedTreatmentPlan/SavedTreatmentPlan";
 import SavedTrials from "./pages/savedTrials/SavedTrials";
 import About from "./pages/about/About";
 import CancerCenterConsultingCards from "./pages/cancerCenterConsulting/CancerCenterConsultingCards";
+import UserVerification from "./pages/userVerification/userVerification";
 function App() {
   return (
     <>
@@ -58,7 +59,8 @@ function App() {
         </Route>
         <Route path="/contactus" element={<ContactUs />}>
         </Route>
-
+        <Route path="/user-verification" element={<UserVerification />}>
+        </Route>
         {/* *************** */}
         <Route path="/profile" element={<Profile />}>
           </Route>
