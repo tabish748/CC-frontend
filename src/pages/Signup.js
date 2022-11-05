@@ -41,6 +41,7 @@ function Signup() {
   const [emailCheck, setEmailCheck] = useState(false);
   const [emailAvailable, setEmailAvailable] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [termsConditions, setTermsConditions] = useState(false);
 
   const dispatch = new useDispatch();
   const response = useSelector((state) => state.userReg);
@@ -387,17 +388,18 @@ function Signup() {
                           setConfirmPassword(event.target.value);
                         }}
                       />
-                        {/* {showEyeIconConfirm ? (
+                         {/* {showEyeIconConfirm ? (
                         <i
                           className="far fa-eye password-eye-icon"
                           onClick={showHideConfirmPassword}
                         ></i>
                       ) : (
                         ""
-                      )} */}
+                      )}  */}
                       <small id="error-container"></small>
+                      {showEyeIconConfirm ?   <i className="far fa-eye password-eye-icon" onClick={showHideConfirmPassword}></i> : ''}
                     </div>
-                    {showEyeIcon ?   <i className="far fa-eye password-eye-icon" onClick={showHidePassword}></i> : ''}
+                   
                     {/* <!-- input-box-wrapper --> */}
                   </div>
                   {/* <!-- col 12 --> */}
@@ -406,7 +408,7 @@ function Signup() {
                     <div className="row">
                       <div className="col-lg-6 px-1">
                         <div className="input-box-wrapper mb-3">
-                          <DatePicker onChange={onChangeDate} value={date} />
+                          <DatePicker onChange={onChangeDate} format='MM-dd-yyyy' value={date} />
                         </div>
                         {/* <!-- input-box-wrapper --> */}
                       </div>
@@ -460,7 +462,7 @@ function Signup() {
                     <div className="input-box-wrapper mb-4">
                       <input type="checkbox" name="checkbox" />
                       <label>
-                        I have read and agree to the terms and conditions
+                        I have read and agree to the <span className="login-link" onClick={ () => setTermsConditions(true)}>terms and conditions</span>
                       </label>
                     </div>
                     {/* <!-- input-box-wrapper --> */}
@@ -524,6 +526,23 @@ function Signup() {
       </div>
       {loading && <Loader />}
       {/* <Loader/> */}
+
+   {termsConditions && 
+    <div className="dialog_box">
+              <div className="dialog-box-body">
+                    <h2>Terms & Conditions</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam id consequatur odit maiores perspiciatis sit voluptate, cum a, error eum fuga eos ducimus voluptas deleniti aperiam nostrum exercitationem voluptatibus, quam minus facere nobis veniam dignissimos inventore? Ipsa dicta, quibusdam deserunt aut modi voluptatem nemo ducimus consequatur ipsum, at rerum! Suscipit nihil, amet magnam iusto fugit at repellat, molestiae ex corporis autem libero in nam impedit dolorum illum quos a rem neque reprehenderit quidem distinctio iure harum, earum laudantium. Libero recusandae voluptates eligendi placeat fugit odio molestias suscipit? Quos at, aliquid placeat repellat omnis possimus, ratione dolorem nesciunt nobis tenetur, consequatur nemo dolore dolores ab.</p>
+                    <button className="blue-button d-block mx-auto mt-3 w-100">
+                      Accept
+                    </button>
+                    <div className="dialog-box-close" onClick={()=> setTermsConditions(false)}>
+                        <i className="fa fa-close"></i>
+                    </div>
+              </div>
+      </div>
+      }
+
+
     </div>
   );
 }

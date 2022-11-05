@@ -14,7 +14,9 @@ function TreatmentGuide(){
       heading1:{headingForCCCLine1},
       heading2:{headingForCCCLine2},
       img:{intro},
-      buttonText:"Enter The Site"
+      buttonText:"Enter The Site",
+      buttonLink:'clinical-questions',
+      loginRequired: true
     }
 
     const [header, setHeader] = useState(false);

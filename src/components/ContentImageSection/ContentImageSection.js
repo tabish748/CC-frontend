@@ -1,12 +1,18 @@
 import React, {useState} from 'react';
 import CustomModal from '../Modal/CustomModal';
+import { Link } from 'react-router-dom';
 function ContentImageSection(props) {
 
   const [showModal, setShowModal] = useState(false)
   function openLoginModal(){
     setShowModal(true);
   }
-    const {heading1, heading2, img, buttonText, textUnderHeading} =props.obj
+  let isLogged = false
+  if (localStorage.getItem("user")) {
+     isLogged = true;
+  }
+    const {heading1, heading2, img, buttonText, textUnderHeading, buttonLink, loginRequired} =props.obj
+    
     return (
         <div className="welcome-row-wrapper mt-5">
            <div className="row">
@@ -28,8 +34,10 @@ function ContentImageSection(props) {
                    MD, PhD, and MBA, and has participated in nearly 100 clinical
                    trials. He has three papers in the NEJM and two in Lancet.
                  </p>
- 
-                 <button className="gray-button welcome-btn"onClick={openLoginModal}>{buttonText}</button>
+              {/* {loginRequired && } */}
+              <Link to={ loginRequired && isLogged ? `/${buttonLink}`: loginRequired && !isLogged ? '' : `/${buttonLink}` }>
+              <button className="gray-button welcome-btn"onClick={openLoginModal}>{buttonText}</button>
+              </Link>
                </div>
              </div>
              <div className="col-lg-7">

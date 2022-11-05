@@ -20,14 +20,7 @@ const TrialCriteria = () => {
   }
   function handleDropdownButton() {
     setShowDropdown((t) => !t);
-    if (showDropdown) {
-      document
-        .querySelector("#determine-eligibilty")
-        .querySelector("i").style.transform = "none";
-    } else
-      document
-        .querySelector("#determine-eligibilty")
-        .querySelector("i").style.transform = "rotate(85deg)";
+    
   }
 
   return (
@@ -87,9 +80,12 @@ const TrialCriteria = () => {
               </button>
               {showDropdown && (
                 <div className="dropdown-eligibilty-container">
+                
+                  <Link to='/saved-trials'>
                   <button className="light-theme-btn w-100">
                     My saved Trials
                   </button>
+                  </Link>
 
                   <div className="search-box-area">
                     <i className="fa fa-search"></i>
