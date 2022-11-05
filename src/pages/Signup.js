@@ -16,10 +16,11 @@ import {
 } from "../firebase/authentication";
 import DatePicker from "react-date-picker";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 import { signupAction } from "../redux/slices/userSignup";
-import axios from "axios";
 import Loader from "../components/Loader/Loader";
+import { useNavigate } from "react-router-dom";
+
+
 function Signup() {
   const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
@@ -43,7 +44,7 @@ function Signup() {
   const [loading, setLoading] = useState(false);
 
   const dispatch = new useDispatch();
-  const response = useSelector((state) => state.userReg);
+  const navigate = useNavigate();
 
   const submit = (event) => {
     event.preventDefault();
@@ -72,7 +73,7 @@ function Signup() {
           last_name: lastName,
           email: email,
           password: password,
-          status: "1",
+          status: "2",
           user_type: affiliation,
           date_of_birth: date,
           gender: gender,
@@ -90,6 +91,8 @@ function Signup() {
                 icon: "success",
                 confirmButtonText: "Cool",
               });
+              sessionStorage.setItem("user_verification",email);
+              navigate('/user-verification')
             } else {
               setLoading(false);
               Swal.fire({
@@ -113,8 +116,6 @@ function Signup() {
         console.log("both false");
       }
     }, 100);
-
-    // event.preventDefault();
   };
 
   function checkRequired(inputArray) {
