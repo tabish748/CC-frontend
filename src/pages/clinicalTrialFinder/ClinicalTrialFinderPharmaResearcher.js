@@ -6,14 +6,15 @@ import birds from "../../images/birds.png";
 import signupGround from "../../images/signup-ground.png";
 import logo from "../../images/logo.png";
 import intro from '../../images/intro.png'
-
-function PharmaConsulting(){
-    const headingForCCCLine1 = 'Pharmaceutical Consulting'
+function ClinicalTrialFinderPharmaResearcher() {
+    const headingForCCCLine1 = 'Clinical Trial Finder'
     const contentObj ={
       heading1:{headingForCCCLine1},
       img:{intro},
-      buttonText:"Enter The Site",
-      buttonLink:'pharma-Packages'
+      buttonText:"Find Clinical Trials",
+      textUnderHeading: "Pharmaceutical and Researcher",
+      buttonLink: 'trial-menu',
+      loginRequired: true
     }
 
     const [header, setHeader] = useState(false);
@@ -49,7 +50,7 @@ function PharmaConsulting(){
      </div>
 
     <div class="welcome-section">
-     <Sidebar sideBar={sideBar} marginTopH6='mt3point5rem' margintop2rem = 'margintop2rem'/>
+    <Sidebar sideBar={sideBar} marginTopH6='mt3point5rem' margintop2rem = 'margintop2rem'/>
 
       <div class="welcome-main-area">
       <Header header={header}/>
@@ -73,4 +74,4 @@ function PharmaConsulting(){
     );
 }
 
-export default PharmaConsulting;
+export default ClinicalTrialFinderPharmaResearcher;

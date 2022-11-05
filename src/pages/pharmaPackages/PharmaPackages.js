@@ -8,7 +8,7 @@ import dctr from '../../images/dctr.png'
 import trailDesign from '../../images/trialDesign.png'
 import mapPointer from '../../images/mapPointer.png'
 import plus from '../../images/plus.png'
-
+import { Link } from 'react-router-dom';
 function PharmaPackages() {
     const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
@@ -140,9 +140,11 @@ function PharmaPackages() {
                     </div>
                 </div>
             </div>
+            <Link to='/contactus'>
             <button className='gray-button submit-btn mt-4' style={{color:"white"}}>
                 Contact Us
             </button>
+            </Link>
         </div>
 
         <img

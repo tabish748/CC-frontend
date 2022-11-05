@@ -132,8 +132,7 @@ function ContactUs() {
               <h1 class="text-center site-heading">Contact Us</h1>
               <Formik
                 initialValues={{
-                  firstName: "",
-                  lastName: "",
+                  
                 }}
                 validationSchema={ContactSchema}
                 onSubmit={(values) => {

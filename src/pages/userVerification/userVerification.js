@@ -10,29 +10,28 @@ import Header from "../../components/Header/Header";
 import { GoogleAuth, FacebookAuth, TwitterAuth } from "../../firebase/authentication";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { login } from "../../redux/slices/userAuth";
+import { verification } from "../../redux/slices/verification";
 import Swal from 'sweetalert2';
 import { Navigate } from "react-router-dom";
 import TrialCriteria from "../trailCriteria/trialCriteria";
-function Login() {
+import { useNavigate } from "react-router-dom";
+
+function UserVerification() {
   const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [showEyeIcon, setShowEyeIcon] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
+  const [verificationPin, setVerificationPin] = useState("");
+
+  const navigate = useNavigate();
   const dispatch = new useDispatch();
-  const response = useSelector((state=>state.userAuth))
+
 
   ///form handler ///
-  function showHidePassword() {
-    setShowPassword((t) => !t);
-  }
+
   const submit = (event) => {
     event.preventDefault();
-    const data = { "email": email,"password": password}
-    dispatch(login(data))
+    const data = { "email": sessionStorage.getItem("user_verification"),"verification_pin" : verificationPin}
+    dispatch(verification(data))
       .unwrap()
       .then((originalPromiseResult) => {
         if (originalPromiseResult.error === false) {
@@ -42,6 +41,8 @@ function Login() {
             icon: 'success',
             confirmButtonText: 'Cool'
           })
+          sessionStorage.removeItem("user_verification")
+          navigate('/login')
         } else {
           Swal.fire({
             title: 'Error!',
@@ -56,16 +57,8 @@ function Login() {
             icon: 'error',
             confirmButtonText: 'ok'
           });})
-
-        console.log(response)
   };
-  useEffect(() => {
-    if (password !== "") {
-      setShowEyeIcon(true);
-    } else {
-      setShowEyeIcon(false);
-    }
-  }, [password]);
+
   ///toggle handlers ///
   function handleHeader() {
     setHeader((t) => !t);
@@ -111,10 +104,9 @@ function Login() {
           <div className="signup-form-main-area">
             <div className="signup-form-wrapper mt-5">
               <h1 className="marginZero site-heading">
-                Welcome!
+              Account Verification
               </h1>
-
-              <p className="marginZero BluetextUnderHeading">Sign into your account</p>
+              <p className="marginZero BluetextUnderHeading">Verify Your Account</p>
               {/* <form action="" className="login-form" onSubmit={submit}> */}
               <form action="" className="login-form" >
                 <div className="row">
@@ -124,41 +116,14 @@ function Login() {
                         type="text"
                         name="userName"
                         className="signup-box-input loginfields"
-                        placeholder="Email"
+                        placeholder="Enter Your Verification Pin"
                         id=""
-                        onChange={(event) => { setEmail(event.target.value) }}
+                        onChange={(event) => { setVerificationPin(event.target.value) }}
                       />
-                      
                     </div>
                   </div>
 
                   <div className="col-lg-12 px-1">
-                    <div className="input-box-wrapper mb-3">
-                      <input
-                         type={showPassword ? "text" : "password"}
-                        name="password"
-                        className="signup-box-input loginfields"
-                        placeholder="Password"
-                        id=""
-                        onChange={(event) => { setPassword(event.target.value) }}
-                      />
-                       {showEyeIcon ? (
-                        <i
-                          className="far fa-eye password-eye-icon"
-                          onClick={showHidePassword}
-                        ></i>
-                      ) : (
-                        ""
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="col-lg-12 px-1">
-                    <div className="input-box-wrapper d-flex justify-content-center mb-3">
-                      <Link href="#" className="text-center forgotPass">
-                        Forgot Password?
-                      </Link>
-                    </div>
                   </div>
 
                   <div className="col-lg-12 px-1">
@@ -167,36 +132,9 @@ function Login() {
                      <input
                         type="submit"
                         className="gray-button submit-btn w-100"
-                        value="SIGN IN"
+                        value="VERIFY"
                         onClick={submit}
                       />
-                      <p className="or-txt">or</p>
-                      <p className="text-center mt-1">
-                        Sign in with Social accounts
-                      </p>
-                      <div
-                        className="d-flex mx-auto"
-                        style={{ width: "fit-content" }}
-                      >
-                        <Link href="#" target="_blank">
-                          <div className="social-icon-circle align-items-end" onClick={FacebookAuth}>
-                            <i className="fa fa-facebook-f"></i>
-                          </div>
-                        </Link>
-                        <Link href="#" target="_blank">
-                          <div
-                            className="social-icon-circle"
-                            style={{ backgroundColor: "whitesmoke" }}
-                          >
-                            <img src={googleG} alt="" onClick={GoogleAuth} />
-                          </div>
-                        </Link>
-                        <Link href="#" target="_blank">
-                          <div className="social-icon-circle" onClick={TwitterAuth}>
-                            <i className="fa-brands fa-twitter"></i>
-                          </div>
-                        </Link>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -212,4 +150,4 @@ function Login() {
   }
 }
 
-export default Login;
+export default UserVerification;

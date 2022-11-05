@@ -10,6 +10,9 @@ import PharmaConsulting from "./pages/pharmaConsulting/PharmaConsulting";
 import TreatmentGuide from "./pages/treatmentGuide/TreatmentGuide";
 import Services from "./pages/services/Services";
 import ClinicalTrialFinderMenu from "./pages/clinicalTrialFinderMenu/ClinicalTrialFinderMenu";
+import ClinicalTrialFinderPatient from "./pages/clinicalTrialFinder/ClinicalTrialFinderPatient";
+import ClinicalTrialFinderHealthCare  from "./pages/clinicalTrialFinder/ClinicalTrialFinderHealthCare";
+import ClinicalTrialFinderPharmaResearcher  from "./pages/clinicalTrialFinder/ClinicalTrialFinderPharmaResearcher";
 import ContactUs from "./pages/contactUs/ContactUs";
 import Profile from "./pages/profile/Profile";
 import ServicesPackages from "./pages/servicesPackages/ServicesPackages";
@@ -28,6 +31,7 @@ import SavedTreatmentPlan from "./pages/savedTreatmentPlan/SavedTreatmentPlan";
 import SavedTrials from "./pages/savedTrials/SavedTrials";
 import About from "./pages/about/About";
 import CancerCenterConsultingCards from "./pages/cancerCenterConsulting/CancerCenterConsultingCards";
+import UserVerification from "./pages/userVerification/userVerification";
 function App() {
   return (
     <>
@@ -42,13 +46,21 @@ function App() {
         </Route>
         <Route path="/clinicalTrialFinder" element={<ClinicalTrialFinder />}>
         </Route>
+        <Route path="/ClinicalTrialFinderPatient" element={<ClinicalTrialFinderPatient/>}>
+        </Route>
+        <Route path="/ClinicalTrialFinderHealthCare" element={<ClinicalTrialFinderHealthCare />}>
+        </Route>
+        <Route path="/ClinicalTrialFinderPharmaResearcher" element={<ClinicalTrialFinderPharmaResearcher />}>
+        </Route>
+        
         <Route path="/pharmaConsulting" element={<PharmaConsulting />}>
         </Route>
         <Route path="/treatmentGuide" element={<TreatmentGuide />}>
         </Route>
         <Route path="/contactus" element={<ContactUs />}>
         </Route>
-
+        <Route path="/user-verification" element={<UserVerification />}>
+        </Route>
         {/* *************** */}
         <Route path="/profile" element={<Profile />}>
           </Route>

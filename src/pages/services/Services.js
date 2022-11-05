@@ -8,6 +8,7 @@ import Sidebar from '../../components/sidebar/Sidebar';
 import trialFinderimg from '../../images/trial-finder.png'
 import pharmapic from '../../images/pharma.png'
 import cancerGuide from '../../images/center-guide.png'
+import { Link } from 'react-router-dom';
 function Services(){
   
     const [header, setHeader] = useState(false);
@@ -55,7 +56,8 @@ function Services(){
                         <div className="service-cards-area">
                             <div className="row">
                                 <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 px-4">
-                                    <div className="service-card-parent">
+                                  <Link to='/clinicalTrialFinder'>
+                                  <div className="service-card-parent">
                                         <div className="service-card-wrapper">
                                             <img src={trialFinderimg} alt=""/>
                                         </div>
@@ -63,8 +65,10 @@ function Services(){
                                             Clinical Trial <br/> Finder
                                         </p>
                                     </div>
+                                  </Link>
                                 </div>
                                 <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 px-4">
+                                <Link to='/treatmentGuide'>
                                     <div className="service-card-parent">
                                         <div className="service-card-wrapper">
                                             <img src={treatmentguidepic} alt=""/>
@@ -73,9 +77,11 @@ function Services(){
                                             Cancer Clarity <br/> Tratement Guide
                                         </p>
                                     </div>
+                                    </Link>
                                 </div>
                                 <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 px-4">
-                                    <div className="service-card-parent">
+                                   <Link to='/pharmaConsulting'>
+                                   <div className="service-card-parent">
                                         <div className="service-card-wrapper">
                                             <img src={pharmapic} alt=""/>
                                         </div>
@@ -84,9 +90,11 @@ function Services(){
                                             <br/>Consulting
                                         </p>
                                     </div>
+                                   </Link>
                                 </div>
                                 <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 px-4">
-                                    <div className="service-card-parent">
+                                  <Link to='/cancerCenterConsulting'>
+                                  <div className="service-card-parent">
                                         <div className="service-card-wrapper">
                                             <img src={cancerGuide} alt=""/>
                                         </div>
@@ -94,6 +102,7 @@ function Services(){
                                         Cancer Center <br/> Consulting
                                         </p>
                                     </div>
+                                  </Link>
                                 </div>
                             </div>
                         </div>

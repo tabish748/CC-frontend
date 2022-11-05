@@ -12,7 +12,8 @@ function ClinicalTrialFinder() {
       heading1:{headingForCCCLine1},
       img:{intro},
       buttonText:"Enter The Site",
-      textUnderHeading: "Patients"
+      buttonLink: 'clinicalTrialFinderMenu',
+      loginRequired: false,
     }
 
     const [header, setHeader] = useState(false);
