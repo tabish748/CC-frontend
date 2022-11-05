@@ -12,7 +12,8 @@ function PharmaConsulting(){
     const contentObj ={
       heading1:{headingForCCCLine1},
       img:{intro},
-      buttonText:"Enter The Site"
+      buttonText:"Enter The Site",
+      buttonLink:'pharma-Packages'
     }
 
     const [header, setHeader] = useState(false);

@@ -11,7 +11,7 @@ const TwitterProvider = new TwitterAuthProvider();
 
 
 export const encodeJWT = async (payload) => {
-    const api = "http://127.0.0.1:8000/user/social-auth-token"
+    const api = "http://45.58.35.11:8082/user/social-auth-token"
     const requestOption = {
         method : "POST",
         headers: {'Content-Type':'application/json'},

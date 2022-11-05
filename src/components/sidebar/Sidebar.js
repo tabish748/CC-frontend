@@ -27,7 +27,7 @@ function Sidebar(props) {
       <div className={margintop2rem ?"sidebar-list-area margintop2rem" : "sidebar-list-area"}>
         <ul>
           <li>
-            <Link to="/clinicalTrialFinderMenu">
+            <Link to="/clinicalTrialFinder">
               <div className="sidebar-list-bullet"></div>
               Clinincal Trial Finder
             </Link>
@@ -51,7 +51,7 @@ function Sidebar(props) {
             </Link>
           </li>
           <li>
-            <Link to="/cancer-consulting-cards">
+            <Link to="/cancerCenterConsulting">
               <div className="sidebar-list-bullet"></div>
               Cancer Center Consulting
             </Link>

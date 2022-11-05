@@ -20,13 +20,15 @@ function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-
+  const [showEyeIcon, setShowEyeIcon] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const dispatch = new useDispatch();
   const response = useSelector((state=>state.userAuth))
 
   ///form handler ///
-
+  function showHidePassword() {
+    setShowPassword((t) => !t);
+  }
   const submit = (event) => {
     event.preventDefault();
     const data = { "email": email,"password": password}
@@ -57,7 +59,13 @@ function Login() {
 
         console.log(response)
   };
-
+  useEffect(() => {
+    if (password !== "") {
+      setShowEyeIcon(true);
+    } else {
+      setShowEyeIcon(false);
+    }
+  }, [password]);
   ///toggle handlers ///
   function handleHeader() {
     setHeader((t) => !t);
@@ -105,6 +113,7 @@ function Login() {
               <h1 className="marginZero site-heading">
                 Welcome!
               </h1>
+
               <p className="marginZero BluetextUnderHeading">Sign into your account</p>
               {/* <form action="" className="login-form" onSubmit={submit}> */}
               <form action="" className="login-form" >
@@ -119,18 +128,28 @@ function Login() {
                         id=""
                         onChange={(event) => { setEmail(event.target.value) }}
                       />
+                      
                     </div>
                   </div>
+
                   <div className="col-lg-12 px-1">
                     <div className="input-box-wrapper mb-3">
                       <input
-                        type="password"
+                         type={showPassword ? "text" : "password"}
                         name="password"
                         className="signup-box-input loginfields"
                         placeholder="Password"
                         id=""
                         onChange={(event) => { setPassword(event.target.value) }}
                       />
+                       {showEyeIcon ? (
+                        <i
+                          className="far fa-eye password-eye-icon"
+                          onClick={showHidePassword}
+                        ></i>
+                      ) : (
+                        ""
+                      )}
                     </div>
                   </div>
 

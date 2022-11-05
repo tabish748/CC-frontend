@@ -54,7 +54,7 @@ const SavedTrials = () => {
             <h1 className="site-heading mb-4">My saved Trials</h1>
             <div className="d-flex justify-content-end">
             <button class="blue-button mb-3">
-                Download
+                Download All
             </button>
             </div>
             <div style={{overflowX: "auto",overflowY:"auto",maxHeight:"370px"}} className="drugstatusTable-wrapper">

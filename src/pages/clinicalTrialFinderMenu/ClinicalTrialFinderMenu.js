@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React, {useState} from 'react';
 import birds from "../../images/birds.png";
 import signupGround from "../../images/leafs.png";
@@ -30,7 +31,7 @@ function ClinicalTrialFinderMenu(){
       <span></span>
       <span></span>
     </div>
-    <img src={logo} style={{ height: "60px" }} alt="" />
+    <img src={logo} style={{height:"60px"}} alt=""/>
     <div
       id="nav-icon3"
       onClick={handleHeader}
@@ -54,6 +55,8 @@ function ClinicalTrialFinderMenu(){
                 <h1 class="text-center site-heading">Clinical Trial Finder</h1>
                 <div class="row mt-custom">
                     <div class="col-md-4 col-sm-12 px-5">
+                    
+                        <Link to = '/ClinicalTrialFinderPatient'>
                         <div class="service-card-parent  w-90 mx-auto">
                             <div class="service-card-wrapper align-items-end">
                                 <img src={trialFinderimg} alt=""/>
@@ -62,9 +65,11 @@ function ClinicalTrialFinderMenu(){
                                 Patients
                             </p>
                         </div>
+                        </Link>
                     </div>
                     
                     <div class="col-md-4 col-sm-12 px-5">
+                        <Link to='/ClinicalTrialFinderHealthCare'>
                         <div class="service-card-parent  w-90  mx-auto">
                             <div class="service-card-wrapper align-items-end">
                                 <img src={trialFinderimg2} alt="" style={{width: "100%",objectFit: "fill",height: "auto"}}/>
@@ -74,10 +79,13 @@ function ClinicalTrialFinderMenu(){
                                 Health Care Providers
                             </p>
                         </div>
+                        </Link>
                         
                     </div>
                     
                     <div class="col-md-4 col-sm-12 px-5">
+                    
+                        <Link to='/ClinicalTrialFinderPharmaResearcher'>
                         <div class="service-card-parent w-90  mx-auto">
                             <div class="service-card-wrapper align-items-end">
                                 <img src={trialFinderimg3}  style={{width: "100%",objectFit: "fill",height: "auto"}} alt=""/>
@@ -86,6 +94,7 @@ function ClinicalTrialFinderMenu(){
                             <p class="text-center">
                                 Pharmaceuticals <br/>and Researchers </p>
                         </div>
+                        </Link>
                         
                     </div>
                     

@@ -11,7 +11,8 @@ function CancerCenterConsulting() {
     const contentObj ={
       heading1:{headingForCCCLine1},
       img:{intro},
-      buttonText:"Enter The Site"
+      buttonText:"Enter The Site",
+      buttonLink:'cancer-consulting-cards'
     }
 
     const [header, setHeader] = useState(false);
