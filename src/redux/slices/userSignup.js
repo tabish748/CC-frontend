@@ -1,9 +1,9 @@
 import { createSlice , createAsyncThunk } from "@reduxjs/toolkit";
-
+import {STAGGING_BACKEND , LOCAL_BACKEND} from '../../common/helper';
 export const signupAction = createAsyncThunk(
     'registration/signup',
     async (payload) => {
-        const url = "http://45.58.35.11:8082/user/signup";
+        const url = STAGGING_BACKEND+"user/signup";
 
         const requestOptions = {
             method: 'POST',

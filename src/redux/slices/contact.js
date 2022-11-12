@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-
+import {STAGGING_BACKEND , LOCAL_BACKEND} from '../../common/helper';
 export const call = createAsyncThunk(
     'contact/call',
     async (payload) => {
-        const url = "http://45.58.35.11:8082//user/contact";
+        const url = STAGGING_BACKEND+"user/contact";
 
         const requestOptions = {
             method: 'POST',
