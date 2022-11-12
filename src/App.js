@@ -11,8 +11,8 @@ import TreatmentGuide from "./pages/treatmentGuide/TreatmentGuide";
 import Services from "./pages/services/Services";
 import ClinicalTrialFinderMenu from "./pages/clinicalTrialFinderMenu/ClinicalTrialFinderMenu";
 import ClinicalTrialFinderPatient from "./pages/clinicalTrialFinder/ClinicalTrialFinderPatient";
-import ClinicalTrialFinderHealthCare  from "./pages/clinicalTrialFinder/ClinicalTrialFinderHealthCare";
-import ClinicalTrialFinderPharmaResearcher  from "./pages/clinicalTrialFinder/ClinicalTrialFinderPharmaResearcher";
+import ClinicalTrialFinderHealthCare from "./pages/clinicalTrialFinder/ClinicalTrialFinderHealthCare";
+import ClinicalTrialFinderPharmaResearcher from "./pages/clinicalTrialFinder/ClinicalTrialFinderPharmaResearcher";
 import ContactUs from "./pages/contactUs/ContactUs";
 import Profile from "./pages/profile/Profile";
 import ServicesPackages from "./pages/servicesPackages/ServicesPackages";
@@ -46,68 +46,64 @@ function App() {
         </Route>
         <Route path="/clinicalTrialFinder" element={<ClinicalTrialFinder />}>
         </Route>
-        <Route path="/ClinicalTrialFinderPatient" element={<ClinicalTrialFinderPatient/>}>
+        <Route path="/ClinicalTrialFinderPatient" element={<ClinicalTrialFinderPatient />}>
         </Route>
         <Route path="/ClinicalTrialFinderHealthCare" element={<ClinicalTrialFinderHealthCare />}>
         </Route>
         <Route path="/ClinicalTrialFinderPharmaResearcher" element={<ClinicalTrialFinderPharmaResearcher />}>
         </Route>
-        
+
         <Route path="/pharmaConsulting" element={<PharmaConsulting />}>
         </Route>
         <Route path="/treatmentGuide" element={<TreatmentGuide />}>
         </Route>
         <Route path="/contactus" element={<ContactUs />}>
         </Route>
-        <Route path="/user-verification" element={<UserVerification />}>
-        </Route>
+
         {/* *************** */}
         <Route path="/profile" element={<Profile />}>
-          </Route>
-          <Route path="/stats-drugs" element={<StatsDrugs />}>
-          </Route>
-         
-          <Route path="/trial-criteria" element={<TrialCriteria />}>
-          </Route>
-          <Route path="/clinical-questions" element={<ClinicalQuestions />}>
-          </Route>
-          <Route path="/my-team" element={<AddTeam />}>
-          </Route>
-          <Route path="/saved-treatment-plans" element={<SavedTreatmentPlan />}>
-          </Route>
-          <Route path="/saved-trials" element={<SavedTrials />}>
-          </Route>
-          <Route path="/settings-accounts" element={<SettingAccounts />}>
-          </Route>
-          
-          <Route path="/about-us" element={<About />}>
-          </Route>
+        </Route>
+        <Route path="/stats-drugs" element={<StatsDrugs />}>
+        </Route>
 
-          <Route path="/cancer-consulting-cards" element={<CancerCenterConsultingCards/>}>
-          </Route>
-          <Route path="/clinicalTrialFinderMenu" element={<ClinicalTrialFinderMenu />}>
-          </Route>   
+        <Route path="/trial-criteria" element={<TrialCriteria />}>
+        </Route>
+        <Route path="/clinical-questions" element={<ClinicalQuestions />}>
+        </Route>
+        <Route path="/my-team" element={<AddTeam />}>
+        </Route>
+        <Route path="/saved-treatment-plans" element={<SavedTreatmentPlan />}>
+        </Route>
+        <Route path="/saved-trials" element={<SavedTrials />}>
+        </Route>
+        <Route path="/settings-accounts" element={<SettingAccounts />}>
+        </Route>
+
+        <Route path="/about-us" element={<About />}>
+        </Route>
+
+        <Route path="/cancer-consulting-cards" element={<CancerCenterConsultingCards />}>
+        </Route>
+        <Route path="/clinicalTrialFinderMenu" element={<ClinicalTrialFinderMenu />}>
+        </Route>
         <Route element={<ProtectedRoute />} >
-        
-       
           <Route path="/services-Packages" element={<ServicesPackages />}>
           </Route>
           <Route path="/pharma-Packages" element={<PharmaPackages />}>
           </Route>
-          
-        
           <Route path="/trial-menu" element={<TrialMenuThree />}>
           </Route>
           <Route path="/accounts" element={<MyAccount />}>
           </Route>
-         
+
           <Route path="/security-settings" element={<SecuritySettings />}>
           </Route>
           <Route path="/accounts-settings" element={<AccountsSetting />}>
           </Route>
-
-          
         </Route>
+
+        <Route path="/user-verification/:id" exact element={<UserVerification />} />
+
       </Routes>
     </>
   );

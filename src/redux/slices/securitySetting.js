@@ -1,10 +1,10 @@
 import { createSlice , createAsyncThunk } from "@reduxjs/toolkit";
-
+import {STAGGING_BACKEND , LOCAL_BACKEND} from '../../common/helper';
 
 export const backendCall = createAsyncThunk(
     'security/change_password',
     async (payload) =>{
-        const url = "http://45.58.35.11:8082//user/edit-profile";
+        const url = STAGGING_BACKEND+"user/edit-profile";
 
         const requestOptions = {
             method: 'POST',
