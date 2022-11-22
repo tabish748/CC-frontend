@@ -79,12 +79,12 @@ function UserVerification() {
           <div className="signup-form-main-area" style={{ display: "flex", justifyContent: "center", float: "left", marginTop: "50px" }}>
             <div className="signup-form-wrapper mt-5">
               <div style={{display:"flex" , justifyContent:"center"}}>
-                <h1 className="marginZero site-heading" >
-                  Verified
+                <h1 className="marginZero site-heading" style={{marginLeft:"20px"}}>
+                  Account Verified
                 </h1>
                 <img src={success} style={{ height: "60px", paddingBottom:"15px" }} alt="" />
               </div>
-              <p className="marginZero BluetextUnderHeading" >Your account is succesfully verified.</p>
+              {/* <p className="marginZero BluetextUnderHeading" >Your account has been succesfully verified.</p> */}
               {/* <form action="" className="login-form" onSubmit={submit}> */}
               <form action="" className="login-form" >
                 <div className="row">
@@ -97,7 +97,7 @@ function UserVerification() {
                   </div>
 
                   <div className="col-lg-12 px-1">
-                    <div className="input-box-wrapper mb-3">
+                    <div className="input-box-wrapper mb-3" style={{transform:"translateY(-25px)"}}>
 
                       <input
                         type="submit"
