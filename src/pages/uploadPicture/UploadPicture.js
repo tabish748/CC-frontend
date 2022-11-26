@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import Sidebar from "../../components/sidebar/Sidebar";
 import Header from "../../components/Header/Header";
 import birds from "../../images/birds.png";
@@ -14,6 +14,13 @@ const UploadPicture = () => {
     function handleSideBar() {
       setSideBar((t) => !t);
     }
+ function loadFile(event) {
+	var image = document.getElementById('output');
+	image.src = URL.createObjectURL(event.target.files[0]);
+  };
+
+
+  
     return (
         <>
   <div className="mobile-header-section">
@@ -54,10 +61,17 @@ const UploadPicture = () => {
             <h2>Upload Picture</h2>
         <div className="upload-picture-form-wrapper">
         <div className="image-wrapper shadow">
-        
+        <img id="output" width="200" />	
         </div>
-        <div className="cta-wrapper">
+        <div className="cta-wrapper" style={{marginLeft: '50px'}}>
+        <button className='blue-button  d-block mb-4' >
+        <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; 
+        Upload Picture
+         <input type='file' onchange={loadFile} name="image" id="file"  /> </button>
 
+        
+        <button className='blue-button  d-block'>
+        <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Remove Picture</button>
         </div>
         {/* cta-wrapper */}
         {/* image-wrapper */}

@@ -458,8 +458,8 @@ function Signup() {
                   {/* <!-- col 12 --> */}
 
                   <div className="col-lg-12 px-1">
-                    <div className="input-box-wrapper mb-4">
-                      <input type="checkbox" name="checkbox" />
+                    <div className="input-box-wrapper mb-4 d-flex">
+                      <input type="checkbox" name="checkbox" /> &nbsp;
                       <label>
                         I have read and agree to the <span className="login-link" onClick={ () => setTermsConditions(true)}>terms and conditions</span>
                       </label>
