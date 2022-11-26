@@ -1,3 +1,4 @@
+
 /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap'); */
 a{
   color:#333
@@ -661,7 +662,7 @@ a:hover {
   width: 100%;
   max-width: 92%;
   margin: 0 auto;
-  margin-top: 4.3rem !important;
+  margin-top: 4.3rem;
 }
 .welcomeCol-wrapper {
   height: 100%;
@@ -1833,3 +1834,6 @@ a:hover {
 .selectedItemClass{
   background-color: gray;
 }
+
+
+@import url('./Media.css');
