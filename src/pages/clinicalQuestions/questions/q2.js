@@ -9,7 +9,7 @@ const Q2 = () => {
   
   // const [selectedItems, setSelectedItems] = useState([])
   const [showdropDown, setShowdropDown] = useState(false)
-  const [selectedItem, setSelectedItem] = useState(false)
+  const [selectedItem, setSelectedItem] = useState()
 
 const options = [
   {value: 'tabish', 'text':'tabish'},
@@ -29,7 +29,7 @@ function Handle_Click_Item(selected)
   }
   else{
     selected_options.push(selected);
-    setSelectedItem(true)
+    // setSelectedItem(true)
   }
   
   console.log(selected_options)

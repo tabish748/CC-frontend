@@ -18,7 +18,8 @@ import DatePicker from "react-date-picker";
 import { useDispatch } from "react-redux";
 import { signupAction } from "../redux/slices/userSignup";
 import Loader from "../components/Loader/Loader";
-import { useNavigate } from "react-router-dom";
+
+import {STAGGING_BACKEND , LOCAL_BACKEND} from '../common/helper';
 
 
 function Signup() {
@@ -45,7 +46,6 @@ function Signup() {
   const [termsConditions, setTermsConditions] = useState(false);
 
   const dispatch = new useDispatch();
-  const navigate = useNavigate();
 
   const submit = (event) => {
     event.preventDefault();
@@ -92,8 +92,6 @@ function Signup() {
                 icon: "success",
                 confirmButtonText: "Cool",
               });
-              sessionStorage.setItem("user_verification",email);
-              navigate('/user-verification')
             } else {
               setLoading(false);
               Swal.fire({
@@ -210,7 +208,7 @@ function Signup() {
         const payload = {
           "email" : email
         }
-        const url = "http://45.58.35.11:8082/user/check-email"
+        const url = STAGGING_BACKEND+"user/check-email"
         const requestOptions = {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
