@@ -13,7 +13,8 @@ function PharmaConsulting(){
       heading1:{headingForCCCLine1},
       img:{intro},
       buttonText:"Enter The Site",
-      buttonLink:'pharma-Packages'
+      buttonLink:'pharma-Packages',
+      loginRequired: true
     }
 
     const [header, setHeader] = useState(false);

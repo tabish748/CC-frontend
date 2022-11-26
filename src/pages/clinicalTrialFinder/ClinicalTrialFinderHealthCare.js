@@ -12,7 +12,7 @@ function ClinicalTrialFinderHealthCare() {
       heading1:{headingForCCCLine1},
       img:{intro},
       buttonText:"Find Clinical Trials",
-      textUnderHeading: "Health Care",
+      textUnderHeading: "Health Care Provider",
       buttonLink: 'trial-menu',
       loginRequired: true
     }

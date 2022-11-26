@@ -32,6 +32,7 @@ import SavedTrials from "./pages/savedTrials/SavedTrials";
 import About from "./pages/about/About";
 import CancerCenterConsultingCards from "./pages/cancerCenterConsulting/CancerCenterConsultingCards";
 import UserVerification from "./pages/userVerification/userVerification";
+import UploadPicture from "./pages/uploadPicture/UploadPicture";
 function App() {
   return (
     <>
@@ -89,7 +90,8 @@ function App() {
           </Route>   
         <Route element={<ProtectedRoute />} >
         
-       
+        <Route path="/upload-picture" element={<UploadPicture />}>
+          </Route>
           <Route path="/services-Packages" element={<ServicesPackages />}>
           </Route>
           <Route path="/pharma-Packages" element={<PharmaPackages />}>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../../images/logo.png";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Header from "../../components/Header/Header";
@@ -111,7 +111,6 @@ function ClinicalQuestions() {
       }
     },
   };
-
 
   return (
     <>
