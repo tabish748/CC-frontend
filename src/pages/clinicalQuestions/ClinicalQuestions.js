@@ -57,12 +57,12 @@ function ClinicalQuestions() {
     const response = await fetch(url, requestOptions);
     // console.log('response is', response)
     const responseData = await response.json();
-    console.log("p23poooo", responseData.data);
     setSubtypeCData(responseData.data);
   };
 
-  const handleEvent2 = async (item) => {
+   const handleEvent2 = async (item) => {
     const url = STAGGING_BACKEND + "cancer/create/";
+    console.log('cancertype: ', cancerType)
     const payload = {
       userId: 4,
       questionId: 2,
@@ -70,7 +70,7 @@ function ClinicalQuestions() {
       cancertype: cancerType,
       subtype: item,
     };
-    setCancerType(item);
+
     const requestOptions = {
       method: "POST",
       headers: {
@@ -81,7 +81,12 @@ function ClinicalQuestions() {
     };
     const response = await fetch(url, requestOptions);
     const responseData = await response.json();
+    console.log('tabishhhh', responseData.data)
     setSubtypeBData(responseData.data);
+
+    // setTimeout(() => {
+    //   setCancerType(item);
+    // }, 500);
   };
 
   const handleEvent1 = async (item) => {
@@ -104,6 +109,7 @@ function ClinicalQuestions() {
 
     const response = await fetch(url, requestOptions);
     const responseData = await response.json();
+  
     setSubtypeData(responseData.data);
   };
 
@@ -171,7 +177,7 @@ function ClinicalQuestions() {
   };
 
   console.log("data", data);
-  console.log("gggg", subtypeData);
+  console.log("aaa", subtypeData);
   console.log("bbb", subtypeBData);
   console.log("ccc", subtypeCData);
 
