@@ -260,6 +260,14 @@
     .tabs-drugs-parent ul li{
         padding: 24px!important;
         height: auto!important;
+        font-size: 2.5em!important;
+    }
+    .stats-drug-card-area{
+        height: 400px!important;
+    }
+    .stats-drug-card-area button{
+        height: 100px!important;
+        font-size: 2.5em!important;
     }
     .welcomeCol-wrapper .gray-button{
         font-size: 2.4em!important;
@@ -275,7 +283,11 @@
         font-size: 1.1em!important;
     }
     .blue-button{
-        font-size: 2.1em!important;
+        font-size: 34px!important;
+        margin-right: 10px;
+    }
+    .drugstableIcon {
+        width: 46px!important;
     }
     .drugsTable tbody td,.drugsTable tbody th {
         font-size: 2.2em!important;
@@ -288,11 +300,14 @@
         height: 400px!important;
     }
     .stats-drug-card-area .text-area{
-        height: 235px!important;
+        height: 300px!important;
     }
     .stats-drug-card-area .text-area p{
         font-size: 2.3em!important;
         max-width: unset!important;
+    }
+    .drugsTable tr span{
+        font-size: 1em!important;
     }
     .tab-content-wrapper-drugs {
         margin-top: 4em!important;
@@ -310,23 +325,62 @@
     .signup-header-area{
         height: 165px!important;
     }
+
     /* ******************** */
     .contact-form-wrapper {
-        max-width: 900px!important;
-        margin-top: 3em!important;
+        max-width: 1500px!important;
+        margin-top: 4em!important;
+    }
+    .contact-form-wrapper label{
+        font-size: 2.5em!important;
+    }
+    .submit-btn {
+        padding: 10px 60px!important;
+        width: fit-content!important;
+        font-size: 2em!important;
     }
     .contact-form-wrapper .custom-form-control{
         padding: 24px 20px!important;
+        margin-bottom: 0em;
+        font-size: 2em!important;
     }
     .drugstatusTable-wrapper{
-        max-height: 700px!important;
+        max-height: 1000px!important;
+    }
+
+    /* *******team****** */
+    .team-upload-btn{
+        width: 340px!important;
+        height: 340px!important;
+    }
+    .team-content-wrapper p{
+        font-size: 3em!important;
+    }
+    .addteam-popup-inner-area{
+        max-width: 700px!important;
+    }
+    /* ********table****** */
+    .drugsTable th {
+        padding: 1em;
+        font-size: 2em;
+    }
+
+    /* *************** */
+    .dropdown-eligibilty-container input{
+        font-size: 2em!important;
+        padding-left: 50px!important;
+    }
+    .dropdown-eligibilty-container .search-box-area i {
+        top: 50%!important;
+        font-size: 1.7em!important;
+        margin-top: -0.3em!important;
     }
     /* **************** */
     .service-cards-area{
-        max-width: 1660px!important;
+        max-width: 2000px!important;
     }
     .service-card-wrapper{
-        height: 320px!important;
+        height: 420px!important;
     }
     .service-card-parent p{
         font-size: 2.4em!important;

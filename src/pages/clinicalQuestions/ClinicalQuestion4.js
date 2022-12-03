@@ -7,10 +7,7 @@ import leafs from "../../images/leafs.png";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-
 import { Link, useNavigate } from "react-router-dom";
-import { object } from "yup";
-import { STAGGING_BACKEND, LOCAL_BACKEND } from "../../common/helper";
 // import { Prev } from "react-bootstrap/esm/PageItem";
 
 const useForceRender = () => {
@@ -18,116 +15,18 @@ const useForceRender = () => {
   return () => setValue((val) => val + 1);
 };
 
-function ClinicalQuestions() {
+function ClinicalQuestion4() {
   const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
-  const [data, setData] = useState([]);
-  const [subtypeData, setSubtypeData] = useState([]);
-  const [subtypeBData, setSubtypeBData] = useState([]);
-  const [subtypeCData, setSubtypeCData] = useState([]);
-  const [cancerType, setCancerType] = useState("");
-
-  const navigate = useNavigate();
-
+  const [isDrug, setIsDrug] = useState(false);
+  const [isDevice, setIsDevice] = useState(false);
   function handleHeader() {
     setHeader((t) => !t);
   }
   function handleSideBar() {
     setSideBar((t) => !t);
   }
-
-  const handleEvent3 = async (item) => {
-    const url = STAGGING_BACKEND + "cancer/create/";
-    const payload = {
-      userId: 4,
-      questionId: 3,
-      next_question: 4,
-      cancertype: cancerType,
-      subtypeb: item,
-    };
-    setCancerType(item);
-    const requestOptions = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "token " + localStorage.getItem("token"),
-      },
-      body: JSON.stringify(payload),
-    };
-    const response = await fetch(url, requestOptions);
-    // console.log('response is', response)
-    const responseData = await response.json();
-    console.log("p23poooo", responseData.data);
-    setSubtypeCData(responseData.data);
-  };
-
-  const handleEvent2 = async (item) => {
-    const url = STAGGING_BACKEND + "cancer/create/";
-    const payload = {
-      userId: 4,
-      questionId: 2,
-      next_question: 2,
-      cancertype: cancerType,
-      subtype: item,
-    };
-    setCancerType(item);
-    const requestOptions = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "token " + localStorage.getItem("token"),
-      },
-      body: JSON.stringify(payload),
-    };
-    const response = await fetch(url, requestOptions);
-    const responseData = await response.json();
-    setSubtypeBData(responseData.data);
-  };
-
-  const handleEvent1 = async (item) => {
-    const url = STAGGING_BACKEND + "cancer/create/";
-    const payload = {
-      userId: 4,
-      questionId: 1,
-      next_question: 2,
-      cancertype: item,
-    };
-    setCancerType(item);
-    const requestOptions = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "token " + localStorage.getItem("token"),
-      },
-      body: JSON.stringify(payload),
-    };
-
-    const response = await fetch(url, requestOptions);
-    const responseData = await response.json();
-    setSubtypeData(responseData.data);
-  };
-
-  useEffect(async () => {
-    const url = STAGGING_BACKEND + "cancer/create/";
-    const payload = {
-      userId: 4,
-      questionId: "",
-      next_question: 1,
-    };
-    const requestOptions = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "token " + localStorage.getItem("token"),
-      },
-      body: JSON.stringify(payload),
-    };
-
-    const response = await fetch(url, requestOptions);
-    const responseData = await response.json();
-    setData(responseData.data);
-  }, []);
-
+  const navigate = useNavigate();
   const names = [
     { text: "Cancer Type & Stage", route: "/clinical-questions" },
     { text: "Demographics", route: "/clinical-question2" },
@@ -169,14 +68,8 @@ function ClinicalQuestions() {
       },
     },
   };
-
-  console.log("data", data);
-  console.log("gggg", subtypeData);
-  console.log("bbb", subtypeBData);
-  console.log("ccc", subtypeCData);
-
   const OnSubmitForm = () => {
-    navigate("/clinical-question2");
+    navigate("/clinical-question5");
   };
   return (
     <>
@@ -228,7 +121,7 @@ function ClinicalQuestions() {
                         <div className="item" key={index}>
                           <div
                             className={` ${
-                              e.route == "/clinical-questions"
+                              e.route == "/clinical-question4"
                                 ? "activebtn"
                                 : ""
                             } question-tab-button `}
@@ -248,64 +141,116 @@ function ClinicalQuestions() {
             <div className="activeSection-wrapper">
               <div className="question-form-wrapper">
                 <form action="">
-                  <h2>Cancer Type & Stage</h2>
+                  <h2>Trial Type & Sponcer</h2>
                   <p>Please input the following data</p>
 
-                  <label htmlFor="">What cancer are you interested in? </label>
+                  <label htmlFor="">
+                    What type of trial are you interested in?{" "}
+                  </label>
+                  <select name="" id="">
+                    <option value="">Choose below</option>
+                    <option value="">Drug </option>
+                    <option value="">Medical Device</option>
+                    <option value="">Observational</option>
+                    <option value="">Screening</option>
+                    <option value="">Imaging</option>
+                  </select>
+
+                  <label htmlFor="">
+                    Are you interested in a specific drug?{" "}
+                  </label>
                   <select
                     name=""
                     id=""
-                    onChange={(item) => handleEvent1(item.target.value)}
+                    onChange={(event) => {
+                      if (event.target.value == 1) {
+                        setIsDrug(true);
+                      }
+                      if (event.target.value != 1) {
+                        setIsDrug(false);
+                      }
+                    }}
                   >
                     <option value="">Choose below</option>
-                    {data?.map((item) => {
-                      return <option value={item}>{item}</option>;
-                    })}
+                    <option value="1">yes </option>
+                    <option value="0">no</option>
+                  </select>
+                  {isDrug ? (
+                    <>
+                      <label htmlFor="">
+                        What is the name fo the drug you're interested in?
+                        (enter){" "}
+                      </label>
+                      <input
+                        type="text"
+                        name="userName"
+                        className="signup-box-input loginfields"
+                        placeholder="Enter drug"
+                        id=""
+                      />{" "}
+                    </>
+                  ) : null}
+
+                  <label htmlFor="">
+                    Are you interested in a specific medical device?{" "}
+                  </label>
+                  <select
+                    name=""
+                    id=""
+                    onChange={(event) => {
+                      if (event.target.value == 1) {
+                        setIsDevice(true);
+                      }
+                      if (event.target.value != 1) {
+                        setIsDevice(false);
+                      }
+                    }}
+                  >
+                    <option value="">Choose below</option>
+                    <option value="1">yes </option>
+                    <option value="0">no</option>
                   </select>
 
-                  {subtypeData.length > 0 && (
+                  {isDevice ? (
                     <>
-                      <label htmlFor="">What subtype? </label>
-                      <select
-                        name=""
-                        id="subtype"
-                        onChange={(item) => handleEvent2(item.target.value)}
-                      >
-                        <option value="">Choose below</option>
-                        {subtypeData?.map((item) => {
-                          return <option value={item}>{item}</option>;
-                        })}
-                      </select>
+                      <label htmlFor="">
+                        What is the name of the medical device you're interested
+                        in? (enter){" "}
+                      </label>
+                      <input
+                        type="text"
+                        name="userName"
+                        className="signup-box-input loginfields"
+                        placeholder="Enter device"
+                        id=""
+                      />
                     </>
-                  )}
+                  ) : null}
 
-                  {subtypeBData.length > 0 && (
-                    <>
-                      <label htmlFor="">What subtype B? </label>
-                      <select
-                        name=""
-                        id="subtype2"
-                        onChange={(item) => handleEvent3(item.target.value)}
-                      >
-                        <option value="">Choose below</option>
-                        {subtypeBData?.map((item) => {
-                          return <option value={item}>{item}</option>;
-                        })}
-                      </select>
-                    </>
-                  )}
+                  <label htmlFor="">
+                    What phase trial are you intersted in?{" "}
+                  </label>
+                  <select name="" id="">
+                    <option value="">Choose below</option>
+                    <option value="">Phase 1</option>
+                    <option value="">Phase 2</option>
+                    <option value="">Phase 3</option>
+                    <option value="">Phase 4</option>
+                    <option value="">Any</option>
+                  </select>
 
-                  {subtypeCData.length > 0 && (
-                    <>
-                      <label htmlFor="">What stage is your cancer? </label>
-                      <select name="" id="">
-                        <option value="">Choose below</option>
-                        {subtypeCData?.map((item) => {
-                          return <option value={item}>{item}</option>;
-                        })}
-                      </select>
-                    </>
-                  )}
+                  <label htmlFor="">
+                    What trial satus are you looking for?{" "}
+                  </label>
+                  <select name="" id="">
+                    <option value="">Choose below</option>
+                    <option value="">Actively recruiting/enrolling</option>
+                    <option value="">Active, but not recruiting</option>
+                    <option value="">Terminated</option>
+                    <option value="">Completed</option>
+                    <option value="">Suspended</option>
+                    <option value="">all</option>
+                  </select>
 
                   <div className="questions-both-btn-wrapper">
                     <button
@@ -343,4 +288,4 @@ function ClinicalQuestions() {
   );
 }
 
-export default ClinicalQuestions;
+export default ClinicalQuestion4;
