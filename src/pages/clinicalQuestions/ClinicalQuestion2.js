@@ -10,6 +10,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 // import { Prev } from "react-bootstrap/esm/PageItem";
+import { STAGGING_BACKEND, LOCAL_BACKEND } from "../../common/helper";
 
 const useForceRender = () => {
   const [value, setValue] = useState(0);
@@ -22,6 +23,11 @@ function ClinicalQuestion2() {
   const [showdropDown, setShowdropDown] = useState(false);
   const [showdropDown2, setShowdropDown2] = useState(false);
   const [selectedItem, setSelectedItem] = useState([]);
+
+  const [gender,setGender] = useState("");
+  const [age,setAge] = useState("");
+  const [race,setRace] = useState("");
+  
   const navigate = useNavigate();
   function handleHeader() {
     setHeader((t) => !t);
@@ -106,9 +112,27 @@ function ClinicalQuestion2() {
     console.log("final", selectedItem);
   }
 
-  const OnSubmitForm = () => {
+  const OnSubmitForm = async () => {
+    const url = STAGGING_BACKEND + "cancer/questionair/demographics/";
+    const payload = {
+      "gender": gender,
+      "age": age,
+      "race": race,
+    };
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "token " + localStorage.getItem("token"),
+      },
+      body: JSON.stringify(payload),
+    };
+    const response = await fetch(url, requestOptions);
+    const responseData = await response.json();
+    console.log(responseData)
     navigate("/clinical-question3");
   };
+  
   return (
     <>
       <div className="mobile-header-section">
@@ -183,7 +207,7 @@ function ClinicalQuestion2() {
                   <p>Please input the following data</p>
 
                   <label htmlFor="">What gender do you identify with? </label>
-                  <select>
+                  <select onChange={(event)=> setGender(event.target.value)}>
                     <option> choose below</option>
                     {options.map((e) => {
                       return <option>{e.text}</option>;
@@ -197,10 +221,11 @@ function ClinicalQuestion2() {
                     className="signup-box-input loginfields"
                     placeholder="Enter your age"
                     id=""
+                    onChange={(event)=> setAge(event.target.value)}
                   />
 
                   <label htmlFor="">What race do you identify with? </label>
-                  <select>
+                  <select onChange={(event)=> setRace(event.target.value)}>
                     <option> choose below</option>
                     {race_options.map((e) => {
                       return <option>{e.text}</option>;

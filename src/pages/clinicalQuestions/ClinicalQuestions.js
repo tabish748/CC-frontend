@@ -27,6 +27,12 @@ function ClinicalQuestions() {
   const [subtypeCData, setSubtypeCData] = useState([]);
   const [cancerType, setCancerType] = useState("");
 
+  const [tumorType , setTypeType] = useState("");
+  const [subtype , setSubType] = useState("");
+  const [subtypeB , setSubTypeB] = useState("");
+  const [subtypeC , setSubTypeC] = useState("");
+  const [stage , setStage] = useState("");
+
   const navigate = useNavigate();
 
   function handleHeader() {
@@ -70,7 +76,7 @@ function ClinicalQuestions() {
       cancertype: cancerType,
       subtype: item,
     };
-    setCancerType(item);
+    // setCancerType(item);
     const requestOptions = {
       method: "POST",
       headers: {
@@ -175,7 +181,26 @@ function ClinicalQuestions() {
   console.log("bbb", subtypeBData);
   console.log("ccc", subtypeCData);
 
-  const OnSubmitForm = () => {
+  const OnSubmitForm = async () => {
+    const url = STAGGING_BACKEND + "cancer/questionair/cancer_type/";
+    const payload = {
+      "tumor_type": tumorType,
+      "subtype": subtype,
+      "subtypeB": subtypeB,
+      "subtypeC": subtypeC,
+      "stage":stage
+    };
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "token " + localStorage.getItem("token"),
+      },
+      body: JSON.stringify(payload),
+    };
+    const response = await fetch(url, requestOptions);
+    const responseData = await response.json();
+    console.log(responseData)
     navigate("/clinical-question2");
   };
   return (
@@ -255,7 +280,9 @@ function ClinicalQuestions() {
                   <select
                     name=""
                     id=""
-                    onChange={(item) => handleEvent1(item.target.value)}
+                    onChange={(item) => {
+                      handleEvent1(item.target.value)
+                      setTypeType(item.target.value)}}
                   >
                     <option value="">Choose below</option>
                     {data?.map((item) => {
@@ -269,7 +296,9 @@ function ClinicalQuestions() {
                       <select
                         name=""
                         id="subtype"
-                        onChange={(item) => handleEvent2(item.target.value)}
+                        onChange={(item) => {
+                          handleEvent2(item.target.value)
+                          setSubType(item.target.value)}}
                       >
                         <option value="">Choose below</option>
                         {subtypeData?.map((item) => {
@@ -285,7 +314,10 @@ function ClinicalQuestions() {
                       <select
                         name=""
                         id="subtype2"
-                        onChange={(item) => handleEvent3(item.target.value)}
+                        onChange={(item) => {
+                          handleEvent3(item.target.value)
+                          setSubTypeB(item.target.value)
+                                      }}
                       >
                         <option value="">Choose below</option>
                         {subtypeBData?.map((item) => {
@@ -298,7 +330,7 @@ function ClinicalQuestions() {
                   {subtypeCData.length > 0 && (
                     <>
                       <label htmlFor="">What stage is your cancer? </label>
-                      <select name="" id="">
+                      <select name="" id="" onChange={(event)=>setStage(event.target.value)}>
                         <option value="">Choose below</option>
                         {subtypeCData?.map((item) => {
                           return <option value={item}>{item}</option>;
