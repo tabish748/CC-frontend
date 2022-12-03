@@ -8,11 +8,11 @@ import logo from "../../images/logo.png";
 import intro from '../../images/intro.png'
 
 function TreatmentGuide(){
-    const headingForCCCLine1 = 'Cancer Clarity';
-    const headingForCCCLine2 = 'Treatment Guide';
+    const headingForCCCLine1 = 'CC Treatment Guide';
+    // const headingForCCCLine2 = '';
     const contentObj ={
       heading1:{headingForCCCLine1},
-      heading2:{headingForCCCLine2},
+      // heading2:{headingForCCCLine2},
       img:{intro},
       buttonText:"Enter The Site",
       buttonLink:'clinical-questions',

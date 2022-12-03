@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Header from '../../components/Header/Header';
 import Sidebar from '../../components/sidebar/Sidebar';
 import intro from '../../images/intro.png';
@@ -15,6 +15,8 @@ function Welcome() {
   function handleSideBar() {
     setSideBar((t) => !t);
   }
+  
+  
     return (
        <>
           <div className="mobile-header-section">

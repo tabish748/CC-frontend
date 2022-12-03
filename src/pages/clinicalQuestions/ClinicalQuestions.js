@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../../images/logo.png";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Header from "../../components/Header/Header";
@@ -7,16 +7,10 @@ import leafs from "../../images/leafs.png";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import Q1 from "./questions/q1";
-import Q2 from "./questions/q2";
-import Q3 from "./questions/q3";
-import Q4 from "./questions/q4";
-import Q5 from "./questions/q5";
-import Q6 from "./questions/q6";
-import Q7 from "./questions/q7";
-import Q8 from "./questions/q8";
-import Q9 from "./questions/q9";
-import { Link } from "react-router-dom";
+
+import { Link, useNavigate } from "react-router-dom";
+import { object } from "yup";
+import { STAGGING_BACKEND, LOCAL_BACKEND } from "../../common/helper";
 // import { Prev } from "react-bootstrap/esm/PageItem";
 
 const useForceRender = () => {
@@ -27,6 +21,19 @@ const useForceRender = () => {
 function ClinicalQuestions() {
   const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
+  const [data, setData] = useState([]);
+  const [subtypeData, setSubtypeData] = useState([]);
+  const [subtypeBData, setSubtypeBData] = useState([]);
+  const [subtypeCData, setSubtypeCData] = useState([]);
+  const [cancerType, setCancerType] = useState("");
+
+  const [tumorType, setTypeType] = useState("");
+  const [subtype, setSubType] = useState("");
+  const [subtypeB, setSubTypeB] = useState("");
+  const [subtypeC, setSubTypeC] = useState("");
+  const [stage, setStage] = useState("");
+
+  const navigate = useNavigate();
 
   function handleHeader() {
     setHeader((t) => !t);
@@ -35,55 +42,135 @@ function ClinicalQuestions() {
     setSideBar((t) => !t);
   }
 
-  const renderActiveSections = () => {
-    switch (curSection) {
-      case 0:
-        return <Q1 />;
-
-      case 1:
-        return <Q2 />;
-
-      case 2:
-        return <Q3 />;
-
-      case 3:
-        return <Q4 />;
-
-      case 4:
-        return <Q5 />;
-
-      case 5:
-        return <Q6 />;
-
-      case 6:
-        return <Q7 />;
-
-      case 7:
-        return <Q8 />;
-
-      case 8:
-        return <Q9 />;
-
-      default:
-        console.log("default");
-        break;
-    }
+  const handleEvent3 = async (item) => {
+    const url = STAGGING_BACKEND + "cancer/create/";
+    const payload = {
+      userId: 4,
+      questionId: 3,
+      next_question: 4,
+      cancertype: cancerType,
+      subtypeb: item,
+      subtype: subtype
+    };
+    // setCancerType(item);
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "token " + localStorage.getItem("token"),
+      },
+      body: JSON.stringify(payload),
+    };
+    const response = await fetch(url, requestOptions);
+    // console.log('response is', response)
+    const responseData = await response.json();
+    setSubtypeCData(responseData.data);
   };
 
+  const handleEvent2 = async (item) => {
+    const url = STAGGING_BACKEND + "cancer/create/";
+    console.log("cancertype: ", cancerType);
+    const payload = {
+      userId: 4,
+      questionId: 2,
+      next_question: 2,
+      cancertype: cancerType,
+      subtype: item,
+    };
+    // setCancerType(item);
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "token " + localStorage.getItem("token"),
+      },
+      body: JSON.stringify(payload),
+    };
+    const response = await fetch(url, requestOptions);
+    const responseData = await response.json();
+    console.log("tabishhhh", responseData.data);
+    setSubtypeBData(responseData.data);
+  };
+
+  const handleEvent1 = async (item) => {
+    const url = STAGGING_BACKEND + "cancer/create/";
+    const payload = {
+      userId: 4,
+      questionId: 1,
+      next_question: 2,
+      cancertype: item,
+    };
+    setCancerType(item);
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "token " + localStorage.getItem("token"),
+      },
+      body: JSON.stringify(payload),
+    };
+
+    const response = await fetch(url, requestOptions);
+    const responseData = await response.json();
+
+    setSubtypeData(responseData.data);
+  };
+
+  useEffect(async () => {
+    const url = STAGGING_BACKEND + "cancer/create/";
+    const payload = {
+      userId: 4,
+      questionId: "",
+      next_question: 1,
+    };
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "token " + localStorage.getItem("token"),
+      },
+      body: JSON.stringify(payload),
+    };
+
+    const response = await fetch(url, requestOptions);
+    const responseData = await response.json();
+    setData(responseData.data);
+  }, []);
+
   const names = [
-    "Cancer Type & Stage",
-    "Demographics",
-    "Location",
-    "Trial Type & Sponsor",
-    "Functional Status",
-    "Cancer Characteristics",
-    "Molecular Profile",
-    "Treatment History",
-    "Drug & Mechanism ",
+    { text: "Cancer Type & Stage", route: "/clinical-questions" },
+    { text: "Demographics", route: "/clinical-question2" },
+    { text: "Location", route: "/clinical-question3" },
+    { text: "Trial Type & Sponsor", route: "/clinical-question4" },
+    { text: "Functional Status", route: "/clinical-question5" },
+    { text: "Cancer Characteristics", route: "/clinical-question6" },
+    { text: "Molecular Profile", route: "/clinical-question7" },
+    { text: "Treatment History", route: "/clinical-question8" },
+    { text: "Drug & Mechanism", route: "/clinical-question9" },
+  ];
+
+  const stages = [
+    "Stage 0",
+    "Stage 1",
+    "Stage 1A1",
+    "Stage 1A2",
+    "Stage 1A3",
+    "Stage 1B",
+    "Stage 2",
+    "Stage 2A",
+    "Stage 2B",
+    "Stage 3",
+    "Stage 3A",
+    "Stage 3B",
+    "Stage 3C",
+    "Stage 4",
+    "Stage 4A",
+    "Stage 4B",
+    "Not Sure",
   ];
   const [curSection, setCurSection] = useState(0);
 
-  const forceUpdate = useForceRender();
+  // const forceUpdate = useForceRender();
 
   const responsive = {
     responsive: {
@@ -100,19 +187,45 @@ function ClinicalQuestions() {
         items: 5,
       },
       900: {
-        items:5,
+        items: 5,
       },
-      
+
       1000: {
         items: 5,
       },
-      1300:{
+      1300: {
         items: 9,
-      }
+      },
     },
   };
 
+  console.log("data", data);
+  console.log("aaa", subtypeData);
+  console.log("bbb", subtypeBData);
+  console.log("ccc", subtypeCData);
 
+  const OnSubmitForm = async () => {
+    const url = STAGGING_BACKEND + "cancer/questionair/cancer_type/";
+    const payload = {
+      tumor_type: tumorType,
+      subtype: subtype,
+      subtypeB: subtypeB,
+      subtypeC: subtypeC,
+      stage: stage,
+    };
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "token " + localStorage.getItem("token"),
+      },
+      body: JSON.stringify(payload),
+    };
+    const response = await fetch(url, requestOptions);
+    const responseData = await response.json();
+    console.log(responseData);
+    navigate("/clinical-question2");
+  };
   return (
     <>
       <div className="mobile-header-section">
@@ -159,24 +272,22 @@ function ClinicalQuestions() {
                   const isActive = index === curSection;
                   return (
                     <>
-                      <div className="item" key={index}>
-                        <div
-                          onClick={() => {
-                            setCurSection(index);
-                            setTimeout(() => {
-                              forceUpdate();
-                            }, 100);
-                          }}
-                          className={` ${
-                            isActive ? "activebtn" : ""
-                          } question-tab-button `}
-                        >
-                          <p>{e}</p>
+                      <Link to={e.route}>
+                        <div className="item" key={index}>
+                          <div
+                            className={` ${
+                              e.route == "/clinical-questions"
+                                ? "activebtn"
+                                : ""
+                            } question-tab-button `}
+                          >
+                            <p>{e.text}</p>
+                          </div>
+                          {!(names.length - 1 === index) && (
+                            <i class="fa-solid fa-arrow-right"></i>
+                          )}
                         </div>
-                        {!(names.length - 1 === index) && (
-                          <i class="fa-solid fa-arrow-right"></i>
-                        )}
-                      </div>
+                      </Link>
                     </>
                   );
                 })}
@@ -185,35 +296,106 @@ function ClinicalQuestions() {
             <div className="activeSection-wrapper">
               <div className="question-form-wrapper">
                 <form action="">
-                  {renderActiveSections()}
+                  <h2>Cancer Type & Stage</h2>
+                  <p>Please input the following data</p>
+
+                  <label htmlFor="">What cancer are you interested in? </label>
+                  <select
+                    name=""
+                    id=""
+                    onChange={(item) => {
+                      handleEvent1(item.target.value);
+                      setTypeType(item.target.value);
+                    }}
+                  >
+                    <option value="">Choose below</option>
+                    {data?.map((item) => {
+                      return <option value={item}>{item}</option>;
+                    })}
+                  </select>
+
+                  {subtypeData.length > 0 && (
+                    <>
+                      <label htmlFor="">What subtype? </label>
+                      <select
+                        name=""
+                        id="subtype"
+                        onChange={(item) => {
+                          handleEvent2(item.target.value);
+                          setSubType(item.target.value);
+                        }}
+                      >
+                        <option value="">Choose below</option>
+                        {subtypeData?.map((item) => {
+                          return <option value={item}>{item}</option>;
+                        })}
+                      </select>
+                    </>
+                  )}
+
+                  {subtypeBData.length > 0 && (
+                    <>
+                      <label htmlFor="">What subtype B? </label>
+                      <select
+                        name=""
+                        id="subtype2"
+                        onChange={(item) => {
+                          handleEvent3(item.target.value);
+                          setSubTypeB(item.target.value);
+                        }}
+                      >
+                        <option value="">Choose below</option>
+                        {subtypeBData?.map((item) => {
+                          return <option value={item}>{item}</option>;
+                        })}
+                      </select>
+                    </>
+                  )}
+
+                  {subtypeCData.length > 0 && (
+                    <>
+                      <label htmlFor="">What Subtype C? </label>
+                      <select
+                        name=""
+                        id=""
+                        onChange={(event) => { setSubTypeC(event.target.value); }}
+                      >
+                        <option value="">Choose below</option>
+                        {subtypeCData?.map((item) => {
+                          return <option value={item}>{item}</option>;
+                        })}
+                      </select>
+                    </>
+                  )}
+
+                  {subtypeData.length > 0 && (
+                    <>
+                      <label htmlFor="">What stage is your cancer? </label>
+                      <select
+                        name=""
+                        id=""
+                        onChange={(event) => setStage(event.target.value)}
+                      >
+                        <option value="">Choose below</option>
+                        {stages?.map((item) => {
+                          return <option value={item}>{item}</option>;
+                        })}
+                      </select>
+                    </>
+                  )}
+
                   <div className="questions-both-btn-wrapper">
-                  <Link>
-                  <button
+                    <button
                       className="blue-button"
-                      onClick={() => {
-                        setCurSection((prev) => {
-                          console.log("prev", prev);
-                          if (prev < names.length - 1) {
-                            prev = prev + 1;
-                          } else {
-                            prev = 0;
-                          }
-                          return prev;
-                        });
-                        setTimeout(() => {
-                          forceUpdate();
-                        }, 100);
-                      }}
+                      onClick={OnSubmitForm}
                       type="button"
                     >
                       Next
                     </button>
-                  </Link>
-                    <Link to='/stats-drugs'>
-                    <button className="blue-button" type="button" >
+
+                    <button className="blue-button" type="button">
                       Finish
                     </button>
-                    </Link>
                   </div>
                 </form>
               </div>

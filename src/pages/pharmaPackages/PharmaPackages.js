@@ -59,7 +59,7 @@ function PharmaPackages() {
 
                     <div className="col-lg-3 col-xs-6 col-sm-6 mt-2">
                     <div class="service-card-parent  w-90 mx-auto">
-                            <div class="service-card-wrapper align-items-end">
+                            <div class="service-card-wrapper">
                                 <img src={mapPointer} alt=""/>
                             </div>
                             <p class="text-center">
@@ -70,7 +70,7 @@ function PharmaPackages() {
 
                     <div className="col-lg-3 col-xs-6 col-sm-6 mt-2">
                     <div class="service-card-parent  w-90 mx-auto">
-                            <div class="service-card-wrapper align-items-end">
+                            <div class="service-card-wrapper">
                                 <img src={trailDesign} alt=""/>
                             </div>
                             <p class="text-center">
@@ -81,7 +81,7 @@ function PharmaPackages() {
 
                     <div className="col-lg-3 col-xs-6 col-sm-6 mt-2">
                     <div class="service-card-parent  w-90 mx-auto">
-                            <div class="service-card-wrapper align-items-end">
+                            <div class="service-card-wrapper">
                                 <img src={dctr} alt=""/>
                             </div>
                             <p class="text-center">
@@ -92,8 +92,8 @@ function PharmaPackages() {
 
                     <div className="col-lg-3 col-xs-6 col-sm-6 mt-2">
                     <div class="service-card-parent  w-90 mx-auto">
-                            <div class="service-card-wrapper align-items-end">
-                                <img src={plus} className="w-100 h-auto" alt=""/>
+                            <div class="service-card-wrapper">
+                                <img src={plus} className="h-auto" alt=""/>
                             </div>
                             <p class="text-center">
                                Commercial Development
@@ -104,7 +104,7 @@ function PharmaPackages() {
                 </div>
 
 
-            <h1 className="text-center site-heading">Packages</h1>
+            <h1 className="text-center site-heading packages-heading">Packages</h1>
             <div className="row">
                 <div className="col-lg-4 mt-3">
                     <div className="packages-card-wrapper">

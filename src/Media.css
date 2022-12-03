@@ -1,0 +1,394 @@
+@media only screen and (min-width: 1700px) {
+    .signup-header-content-wrapper{
+        font-size: 1.2em!important;
+    }
+    .sidebar-section {
+        max-width: 18%!important;
+    }
+    .site-heading{
+        font-size: 2.8em!important;
+    }
+    .welcomeCol-wrapper p{
+        font-size: 1.3em!important;
+    }
+    .sidebar-list-area ul li a {
+        font-size: 1.4em!important;
+    }    
+    .sidebar-list-area ul li{
+        padding: 8px 0!important;
+    }
+    .welcome-row-wrapper{
+        margin-top: 7.5rem!important;
+    }
+    /* ********profile***************** */
+    .profile-main-area .service-card-wrapper{
+        height: 185px!important;
+        margin-top: 1em!important;
+    }
+    .profile-main-area{
+        max-width: 2000px!important;
+        padding: 10px 50px!important;
+    }
+    .services-packages-inner-parent .service-card-wrapper{
+        height: 185px!important;
+        margin-top: 1em!important;
+    }
+    .service-packages-main-area{
+        max-width: 2000px!important;
+        padding: 10px 100px!important;
+    }
+    .packages-card-wrapper p{
+        font-size: 1em!important;
+    }
+    .packages-card-wrapper h2{
+        font-size: 2.8em!important;
+    }
+    .packages-card-wrapper{
+        padding: 20px!important;
+    }
+    .packages-heading{
+        margin-top: .5em!important;
+    }
+    /* ********question air screen********* */
+    .question-tab-button p{
+        font-size: 1em!important;
+    }
+    .question-tab-button{
+        width: 140px!important;
+        height: 60px!important;
+    }
+    .question-form-wrapper h2{
+        font-size: 2.5em!important;
+    }
+    .question-form-wrapper p{
+        font-size: 1.5em!important;
+    }
+    .question-form-wrapper {
+        max-width: 550px!important;
+        margin: 35px auto!important;
+    }
+    .question-form-wrapper input, .question-form-wrapper select{
+        height: 50px!important;
+    }
+    .clinical-question-main-area .slider-wrapper{
+        margin-top: 2em!important;
+    }
+    /* ******trial finder********* */
+    .tabs-drugs-parent{
+        max-width: 2000px!important;
+        padding: 10px 50px!important;
+    }
+    .tabs-drugs-parent ul li{
+        padding: 12px!important;
+        height: auto!important;
+    }
+    .gray-button{
+        font-size: 1.1em!important;
+    }
+    .blue-button{
+        font-size: 1.1em!important;
+    }
+    .drugsTable tbody td,.drugsTable tbody th {
+        font-size: 1.2em!important;
+        padding: 15px 10px!important;
+    }
+    .tab-content-wrapper-drugs table tbody{
+        max-height: 500px!important;
+    }
+    .stats-drug-card-area{
+        height: 200px!important;
+    }
+    .stats-drug-card-area .text-area{
+        height: 135px!important;
+    }
+    .stats-drug-card-area .text-area p{
+        font-size: 1.3em!important;
+        max-width: unset!important;
+    }
+    .tab-content-wrapper-drugs {
+        margin-top: 2em!important;
+    }
+    .input-box-wrapper .signup-box-input, select{
+        height: auto!important;
+        padding: 10px!important;
+    }
+    .BluetextUnderHeading{
+        font-size: 1.2em!important;
+    }
+    .signup-form-wrapper{
+        max-width: 430px!important;
+    }
+    .signup-header-area{
+        height: 85px!important;
+    }
+    /* ******************** */
+    .contact-form-wrapper {
+        max-width: 700px!important;
+        margin-top: 2em!important;
+    }
+    .contact-form-wrapper .custom-form-control{
+        padding: 12px 10px!important;
+    }
+    .drugstatusTable-wrapper{
+        max-height: 500px!important;
+    }
+    /* **************** */
+    .service-cards-area{
+        max-width: 1260px!important;
+    }
+    .service-card-wrapper{
+        height: 220px!important;
+    }
+    .service-card-parent p{
+        font-size: 1.4em!important;
+    }
+    .light-theme-btn{
+        width: 100%!important;
+        height: 80px!important;
+        font-size: 1.1em!important;
+        line-height: 26px!important;
+    }
+}
+
+
+
+@media only screen and (min-width: 3500px) {
+    .signup-header-content-wrapper{
+        font-size: 2.2em!important;
+    }
+    .sidebar-section {
+        max-width: 18%!important;
+    }
+    .site-heading{
+        font-size: 5em!important;
+    }
+    .welcomeCol-wrapper p{
+        font-size: 2.5em!important;
+    }
+    .welcomeCol-wrapper h2{
+        font-size: 5em!important;
+    }
+    .welcome-img-video-wrapper{
+        border: 12px solid var(--blue)!important;
+    }
+    .sidebar-list-area ul li a {
+        font-size: 3em!important;
+    }    
+    .sidebar-list-bullet-img img{
+        width: 80px!important;
+        height: 80px!important;
+    }
+    .sidebar-list-area ul li .sidebar-list-bullet{
+        width: 20px!important;
+        height: 20px!important;
+        margin:0 30px!important;
+    }
+    .signup-birds{
+        height: 300px!important;
+    }
+    .sidebar-list-area ul li{
+        padding: 25px 0!important;
+    }
+    .welcome-row-wrapper{
+        margin-top: 15.5rem!important;
+    }
+    .search-box {
+        width: 400px!important;
+        height: 61px!important;
+        font-size: 30px!important;
+        max-width: unset!important;
+        padding: 10px;
+    }
+    /* ********profile***************** */
+    .profile-main-area .service-card-wrapper{
+        height: 385px!important;
+        margin-top: 1em!important;
+    }
+    .profile-main-area{
+        max-width: 4000px!important;
+        padding: 10px 100px!important;
+    }
+    .services-packages-inner-parent .service-card-wrapper{
+        height: 385px!important;
+        margin-top: 1em!important;
+    }
+    .service-packages-main-area{
+        max-width: 4000px!important;
+        padding: 10px 200px!important;
+    }
+    .packages-card-wrapper p{
+        font-size: 2em!important;
+    }
+    .packages-card-wrapper h2{
+        font-size: 3.8em!important;
+    }
+    .packages-card-wrapper{
+        padding: 40px!important;
+    }
+    .packages-heading{
+        margin-top: 1em!important;
+    }
+    /* ********question air screen********* */
+    .question-tab-button p{
+        font-size: 2em!important;
+    }
+    .question-tab-button{
+        width: 240px!important;
+        height: 120px!important;
+    }
+    .question-form-wrapper h2{
+        font-size: 3.5em!important;
+    }
+    .question-form-wrapper p{
+        font-size: 2.5em!important;
+    }
+    .question-form-wrapper {
+        max-width: 750px!important;
+        margin: 65px auto!important;
+    }
+    .question-form-wrapper input, .question-form-wrapper select{
+        height: 80px!important;
+    }
+    .clinical-question-main-area .slider-wrapper{
+        margin-top: 4em!important;
+    }
+    /* ******trial finder********* */
+    .tabs-drugs-parent{
+        max-width: 4000px!important;
+        padding: 10px 100px!important;
+    }
+    .tabs-drugs-parent ul li{
+        padding: 24px!important;
+        height: auto!important;
+        font-size: 2.5em!important;
+    }
+    .stats-drug-card-area{
+        height: 400px!important;
+    }
+    .stats-drug-card-area button{
+        height: 100px!important;
+        font-size: 2.5em!important;
+    }
+    .welcomeCol-wrapper .gray-button{
+        font-size: 2.4em!important;
+    }
+    .signup-ground{
+        height: 400px!important;
+    }
+    .sidebar-list-area h6{
+        font-size: 3em;
+        margin-bottom: 1em;
+    }
+    .gray-button{
+        font-size: 1.1em!important;
+    }
+    .blue-button{
+        font-size: 34px!important;
+        margin-right: 10px;
+    }
+    .drugstableIcon {
+        width: 46px!important;
+    }
+    .drugsTable tbody td,.drugsTable tbody th {
+        font-size: 2.2em!important;
+        padding: 30px 20px!important;
+    }
+    .tab-content-wrapper-drugs table tbody{
+        max-height: 700px!important;
+    }
+    .stats-drug-card-area{
+        height: 400px!important;
+    }
+    .stats-drug-card-area .text-area{
+        height: 300px!important;
+    }
+    .stats-drug-card-area .text-area p{
+        font-size: 2.3em!important;
+        max-width: unset!important;
+    }
+    .drugsTable tr span{
+        font-size: 1em!important;
+    }
+    .tab-content-wrapper-drugs {
+        margin-top: 4em!important;
+    }
+    .input-box-wrapper .signup-box-input, select{
+        height: auto!important;
+        padding: 20px!important;
+    }
+    .BluetextUnderHeading{
+        font-size: 2.2em!important;
+    }
+    .signup-form-wrapper{
+        max-width: 730px!important;
+    }
+    .signup-header-area{
+        height: 165px!important;
+    }
+
+    /* ******************** */
+    .contact-form-wrapper {
+        max-width: 1500px!important;
+        margin-top: 4em!important;
+    }
+    .contact-form-wrapper label{
+        font-size: 2.5em!important;
+    }
+    .submit-btn {
+        padding: 10px 60px!important;
+        width: fit-content!important;
+        font-size: 2em!important;
+    }
+    .contact-form-wrapper .custom-form-control{
+        padding: 24px 20px!important;
+        margin-bottom: 0em;
+        font-size: 2em!important;
+    }
+    .drugstatusTable-wrapper{
+        max-height: 1000px!important;
+    }
+
+    /* *******team****** */
+    .team-upload-btn{
+        width: 340px!important;
+        height: 340px!important;
+    }
+    .team-content-wrapper p{
+        font-size: 3em!important;
+    }
+    .addteam-popup-inner-area{
+        max-width: 700px!important;
+    }
+    /* ********table****** */
+    .drugsTable th {
+        padding: 1em;
+        font-size: 2em;
+    }
+
+    /* *************** */
+    .dropdown-eligibilty-container input{
+        font-size: 2em!important;
+        padding-left: 50px!important;
+    }
+    .dropdown-eligibilty-container .search-box-area i {
+        top: 50%!important;
+        font-size: 1.7em!important;
+        margin-top: -0.3em!important;
+    }
+    /* **************** */
+    .service-cards-area{
+        max-width: 2000px!important;
+    }
+    .service-card-wrapper{
+        height: 420px!important;
+    }
+    .service-card-parent p{
+        font-size: 2.4em!important;
+    }
+    .light-theme-btn{
+        width: 100%!important;
+        height: 140px!important;
+        font-size: 2.1em!important;
+        line-height: 46px!important;
+    }
+}

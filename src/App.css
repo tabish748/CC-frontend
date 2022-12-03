@@ -1,3 +1,4 @@
+
 /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap'); */
 a{
   color:#333
@@ -261,7 +262,7 @@ p {
 .signup-birds {
   /* height: 220px; */
   width: auto;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 59%;
@@ -270,7 +271,7 @@ p {
 .signup-ground {
   width: auto;
   height: 180px;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
 }
@@ -661,7 +662,7 @@ a:hover {
   width: 100%;
   max-width: 92%;
   margin: 0 auto;
-  margin-top: 4.3rem !important;
+  margin-top: 4.3rem;
 }
 .welcomeCol-wrapper {
   height: 100%;
@@ -835,6 +836,10 @@ a:hover {
   height: 140px;
 }
 
+.upload-picture-form-wrapper{
+  display: flex;
+  align-items: flex-end;
+}
 /* ************Services packages************ */
 .services-packages-section {
   width: 100%;
@@ -1018,7 +1023,7 @@ a:hover {
   width: 100%;
   text-transform: uppercase;
 }
-.questions-both-btn-wrapper a{
+.questions-both-btn-wrapper button{
   width: 48%;
 }
 /* ***************trial-criteria-main-area********** */
@@ -1462,10 +1467,21 @@ a:hover {
 
 .cta-wrapper{
   width: 100%;
-  max-width: 200px;
-  background-color: lightblue;
   height: 100px;
   
+}
+.cta-wrapper button{
+  max-width: 250px;
+  position: relative;
+}
+.cta-wrapper button input{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  cursor: pointer;
 }
 /* ********************** */
 .analytics-drug-table-container{
@@ -1766,3 +1782,58 @@ a:hover {
   font-size: 14px;
   
 }
+
+
+/* ******************************* */
+
+.custom_multi_selector_container{
+  width: 100%;
+}
+.label_area{
+  width: 100%;
+  height: 40px;
+  background-color: white;
+  border: thin solid #dedede;
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 10px;
+  cursor: pointer;
+}
+.custom_dropdown_container{
+  width: 100%;
+  height: auto;
+  max-height: 150px;
+  background-color: whitesmoke;
+  overflow-y: auto;
+}
+.custom_dropdown_container ul{
+    list-style:none;
+    padding: 0;
+}
+.custom_dropdown_container ul li{
+  padding: 5px;
+  border-bottom: 1px solid gray;
+  cursor: pointer;
+}
+.custom_multiselect_item{
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start; 
+  border-bottom: thin solid #dedede;
+  cursor: pointer;
+}
+.custom_multiselect_item p{
+  margin: 0;
+  text-transform: capitalize;
+}
+.notSelectedItemClass{
+  background-color: transparent;
+}
+.selectedItemClass{
+  background-color: gray;
+}
+
+
+@import url('./Media.css');

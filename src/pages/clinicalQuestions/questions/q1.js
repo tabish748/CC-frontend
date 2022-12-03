@@ -1,35 +1,22 @@
-import React from 'react';
-
-const Q1 = () => {
-    return (
-        <>
-          
-        <h2>Cancer Type & Stage</h2>
-        <p>Please input the following data</p>
-
-        <label htmlFor="">Identify Tumor Type: </label>
-        <select name="" id="">
-          <option value="">Choose below</option>
-          <option value="">1</option>
-          <option value="">2</option>
-        </select>
-
-        <label htmlFor="">Tumor Stage: </label>
-        <select name="" id="">
-          <option value="">Choose below</option>
-          <option value="">1</option>
-          <option value="">2</option>
-        </select>
+// import React, { useEffect, useState } from "react";
+// import { object } from "yup";
+// import { Link } from "react-router-dom";
+// import { STAGGING_BACKEND, LOCAL_BACKEND } from "../../../common/helper";
+// const Q1 = () => {
 
 
-        <label htmlFor="">Caregiver or Patient: </label>
-        <select name="" id="">
-          <option value="">Choose below</option>
-          <option value="">1</option>
-          <option value="">2</option>
-        </select>
-      </>
-    );
-}
 
-export default Q1;
+
+  
+//   return (
+//     <>
+     
+
+
+
+
+//     </>
+//   );
+// };
+
+// export default Q1;

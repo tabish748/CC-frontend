@@ -32,6 +32,15 @@ import SavedTrials from "./pages/savedTrials/SavedTrials";
 import About from "./pages/about/About";
 import CancerCenterConsultingCards from "./pages/cancerCenterConsulting/CancerCenterConsultingCards";
 import UserVerification from "./pages/userVerification/userVerification";
+import UploadPicture from "./pages/uploadPicture/UploadPicture";
+import ClinicalQuestion2 from './pages/clinicalQuestions/ClinicalQuestion2'
+import ClinicalQuestion3 from './pages/clinicalQuestions/ClinicalQuestion3'
+import ClinicalQuestion4 from './pages/clinicalQuestions/ClinicalQuestion4'
+import ClinicalQuestion5 from './pages/clinicalQuestions/ClinicalQuestion5'
+import ClinicalQuestion6 from './pages/clinicalQuestions/ClinicalQuestion6'
+import ClinicalQuestion7 from './pages/clinicalQuestions/ClinicalQuestion7'
+import ClinicalQuestion8 from './pages/clinicalQuestions/ClinicalQuestion8'
+import ClinicalQuestion9 from './pages/clinicalQuestions/ClinicalQuestion9'
 function App() {
   return (
     <>
@@ -70,6 +79,25 @@ function App() {
         </Route>
         <Route path="/clinical-questions" element={<ClinicalQuestions />}>
         </Route>
+        <Route path="/clinical-question2" element={<ClinicalQuestion2 />}>
+        </Route>
+        <Route path="/clinical-question3" element={<ClinicalQuestion3 />}>
+        </Route>
+        <Route path="/clinical-question4" element={<ClinicalQuestion4 />}>
+        </Route>
+        <Route path="/clinical-question5" element={<ClinicalQuestion5 />}>
+        </Route>
+        <Route path="/clinical-question6" element={<ClinicalQuestion6 />}>
+        </Route>
+
+        <Route path="/clinical-question7" element={<ClinicalQuestion7 />}>
+        </Route>
+        <Route path="/clinical-question8" element={<ClinicalQuestion8 />}>
+        </Route>
+
+        <Route path="/clinical-question9" element={<ClinicalQuestion9 />}>
+        </Route>
+
         <Route path="/my-team" element={<AddTeam />}>
         </Route>
         <Route path="/saved-treatment-plans" element={<SavedTreatmentPlan />}>
@@ -87,6 +115,9 @@ function App() {
         <Route path="/clinicalTrialFinderMenu" element={<ClinicalTrialFinderMenu />}>
         </Route>
         <Route element={<ProtectedRoute />} >
+        
+        <Route path="/upload-picture" element={<UploadPicture />}>
+          </Route>
           <Route path="/services-Packages" element={<ServicesPackages />}>
           </Route>
           <Route path="/pharma-Packages" element={<PharmaPackages />}>

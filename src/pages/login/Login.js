@@ -25,7 +25,22 @@ function Login() {
   const dispatch = new useDispatch();
   const response = useSelector((state=>state.userAuth))
 
+  const params = new Proxy(new URLSearchParams(window.location.search), {
+    get: (searchParams, prop) => searchParams.get(prop),
+  });
+
   ///form handler ///
+  var foo = getParameterByName('backToURL'); // "lorem"
+
+  function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return '/';
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
   function showHidePassword() {
     setShowPassword((t) => !t);
   }
@@ -42,6 +57,7 @@ function Login() {
             icon: 'success',
             confirmButtonText: 'Cool'
           })
+          window.location.href= foo;
         } else {
           Swal.fire({
             title: 'Error!',
