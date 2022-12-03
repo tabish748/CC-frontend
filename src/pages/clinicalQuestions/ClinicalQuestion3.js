@@ -9,6 +9,7 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Link, useNavigate } from "react-router-dom";
 // import { Prev } from "react-bootstrap/esm/PageItem";
+import { STAGGING_BACKEND, LOCAL_BACKEND } from "../../common/helper";
 
 const useForceRender = () => {
   const [value, setValue] = useState(0);
@@ -19,6 +20,13 @@ function ClinicalQuestion3() {
   const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
   const [isInstitution, setIsInstitution] = useState(false);
+
+  const [city,setCity] = useState("");
+  const [zipcode,setZipCode] = useState("");
+  const [distance,setDistance] = useState("");
+  const [institution,setInstitution] = useState("");
+  
+
   function handleHeader() {
     setHeader((t) => !t);
   }
@@ -67,7 +75,25 @@ function ClinicalQuestion3() {
       },
     },
   };
-  const OnSubmitForm = () => {
+  const OnSubmitForm = async() => {
+    const url = STAGGING_BACKEND + "cancer/questionair/location/";
+    const payload = {
+      "city": city,
+      "zipcode": zipcode,
+      "distance": distance,
+      "specific_institute":institution
+    };
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "token " + localStorage.getItem("token"),
+      },
+      body: JSON.stringify(payload),
+    };
+    const response = await fetch(url, requestOptions);
+    const responseData = await response.json();
+    console.log(responseData)
     navigate("/clinical-question4");
   };
   return (
@@ -151,6 +177,7 @@ function ClinicalQuestion3() {
                       className="signup-box-input loginfields"
                       placeholder="Enter your city"
                       id=""
+                      onChange={(event)=>setCity(event.target.value)}
                     />
                   </div>
 
@@ -162,6 +189,7 @@ function ClinicalQuestion3() {
                       className="signup-box-input loginfields"
                       placeholder="Enter your zip code"
                       id=""
+                      onChange={(event)=>setZipCode(event.target.value)}
                     />
                   </div>
 
@@ -175,6 +203,7 @@ function ClinicalQuestion3() {
                       className="signup-box-input loginfields"
                       placeholder="Enter distance in miles"
                       id=""
+                      onChange={(event)=>setDistance(event.target.value)}
                     />
                   </div>
 
@@ -207,6 +236,7 @@ function ClinicalQuestion3() {
                           className="signup-box-input loginfields"
                           placeholder="Enter Institution"
                           id=""
+                          onChange={(event)=>setInstitution(event.target.value)}
                         />{" "}
                       </div>
                     </>

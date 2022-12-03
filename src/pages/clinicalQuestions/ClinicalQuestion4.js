@@ -9,6 +9,7 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Link, useNavigate } from "react-router-dom";
 // import { Prev } from "react-bootstrap/esm/PageItem";
+import { STAGGING_BACKEND, LOCAL_BACKEND } from "../../common/helper";
 
 const useForceRender = () => {
   const [value, setValue] = useState(0);
@@ -20,6 +21,13 @@ function ClinicalQuestion4() {
   const [sideBar, setSideBar] = useState(false);
   const [isDrug, setIsDrug] = useState(false);
   const [isDevice, setIsDevice] = useState(false);
+
+  const [trialType , setTrialType] = useState("");
+  const [drug , setDrug] = useState("");
+  const [device , setDevice] = useState("");
+  const [trialPhase , setTrialPhase] = useState("");
+  const [trialStatus , setTrialStatus] = useState("");
+
   function handleHeader() {
     setHeader((t) => !t);
   }
@@ -68,9 +76,30 @@ function ClinicalQuestion4() {
       },
     },
   };
-  const OnSubmitForm = () => {
+  const OnSubmitForm = async() => {
+    const url = STAGGING_BACKEND + "cancer/questionair/trial_type/";
+    const payload = {
+      "trial_type": trialType,
+      "drugs": drug,
+      "medical_device": device,
+      "trial_phase":trialPhase,
+      "trial_status":trialStatus
+    };
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "token " + localStorage.getItem("token"),
+      },
+      body: JSON.stringify(payload),
+    };
+    const response = await fetch(url, requestOptions);
+    const responseData = await response.json();
+    console.log(responseData)
     navigate("/clinical-question5");
   };
+
+
   return (
     <>
       <div className="mobile-header-section">
@@ -147,13 +176,13 @@ function ClinicalQuestion4() {
                   <label htmlFor="">
                     What type of trial are you interested in?{" "}
                   </label>
-                  <select name="" id="">
+                  <select name="" id="" onChange={(event)=>setTrialType(event.target.value)}>
                     <option value="">Choose below</option>
-                    <option value="">Drug </option>
-                    <option value="">Medical Device</option>
-                    <option value="">Observational</option>
-                    <option value="">Screening</option>
-                    <option value="">Imaging</option>
+                    <option value="drug">Drug </option>
+                    <option value="medical device">Medical Device</option>
+                    <option value="bservational">Observational</option>
+                    <option value="screening">Screening</option>
+                    <option value="imaging">Imaging</option>
                   </select>
 
                   <label htmlFor="">
@@ -187,6 +216,7 @@ function ClinicalQuestion4() {
                         className="signup-box-input loginfields"
                         placeholder="Enter drug"
                         id=""
+                        onChange={(event)=>setDrug(event.target.value)}
                       />{" "}
                     </>
                   ) : null}
@@ -223,6 +253,7 @@ function ClinicalQuestion4() {
                         className="signup-box-input loginfields"
                         placeholder="Enter device"
                         id=""
+                        onChange={(event)=>setDevice(event.target.value)}
                       />
                     </>
                   ) : null}
@@ -230,26 +261,26 @@ function ClinicalQuestion4() {
                   <label htmlFor="">
                     What phase trial are you intersted in?{" "}
                   </label>
-                  <select name="" id="">
+                  <select name="" id="" onChange={(event)=>setTrialPhase(event.target.value)}>
                     <option value="">Choose below</option>
-                    <option value="">Phase 1</option>
-                    <option value="">Phase 2</option>
-                    <option value="">Phase 3</option>
-                    <option value="">Phase 4</option>
-                    <option value="">Any</option>
+                    <option value="phase 1">Phase 1</option>
+                    <option value="phase 2">Phase 2</option>
+                    <option value="phase 3">Phase 3</option>
+                    <option value="phase 4">Phase 4</option>
+                    <option value=""any>Any</option>
                   </select>
 
                   <label htmlFor="">
                     What trial satus are you looking for?{" "}
                   </label>
-                  <select name="" id="">
+                  <select name="" id="" onChange={(event)=>setTrialStatus(event.target.value)}>
                     <option value="">Choose below</option>
-                    <option value="">Actively recruiting/enrolling</option>
-                    <option value="">Active, but not recruiting</option>
-                    <option value="">Terminated</option>
-                    <option value="">Completed</option>
-                    <option value="">Suspended</option>
-                    <option value="">all</option>
+                    <option value="actively recruiting/enrolling">Actively recruiting/enrolling</option>
+                    <option value="active, but not recruiting">Active, but not recruiting</option>
+                    <option value="terminated">Terminated</option>
+                    <option value="completed">Completed</option>
+                    <option value="suspended">Suspended</option>
+                    <option value="all">all</option>
                   </select>
 
                   <div className="questions-both-btn-wrapper">
