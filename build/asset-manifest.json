@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.4a88daf8.chunk.css",
-    "main.js": "/static/js/main.bdf6795a.chunk.js",
-    "main.js.map": "/static/js/main.bdf6795a.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.4be8a6b8.js",
-    "runtime-main.js.map": "/static/js/runtime-main.4be8a6b8.js.map",
+    "main.css": "/static/css/main.d60f87cb.chunk.css",
+    "main.js": "/static/js/main.054097c5.chunk.js",
+    "main.js.map": "/static/js/main.054097c5.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.7b78ada6.js",
+    "runtime-main.js.map": "/static/js/runtime-main.7b78ada6.js.map",
     "static/css/2.86525185.chunk.css": "/static/css/2.86525185.chunk.css",
-    "static/js/2.20b7feb9.chunk.js": "/static/js/2.20b7feb9.chunk.js",
-    "static/js/2.20b7feb9.chunk.js.map": "/static/js/2.20b7feb9.chunk.js.map",
-    "static/js/3.75458fa9.chunk.js": "/static/js/3.75458fa9.chunk.js",
-    "static/js/3.75458fa9.chunk.js.map": "/static/js/3.75458fa9.chunk.js.map",
+    "static/js/2.212f4537.chunk.js": "/static/js/2.212f4537.chunk.js",
+    "static/js/2.212f4537.chunk.js.map": "/static/js/2.212f4537.chunk.js.map",
+    "static/js/3.34c5b3ac.chunk.js": "/static/js/3.34c5b3ac.chunk.js",
+    "static/js/3.34c5b3ac.chunk.js.map": "/static/js/3.34c5b3ac.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.86525185.chunk.css.map": "/static/css/2.86525185.chunk.css.map",
-    "static/css/main.4a88daf8.chunk.css.map": "/static/css/main.4a88daf8.chunk.css.map",
-    "static/js/2.20b7feb9.chunk.js.LICENSE.txt": "/static/js/2.20b7feb9.chunk.js.LICENSE.txt",
+    "static/css/main.d60f87cb.chunk.css.map": "/static/css/main.d60f87cb.chunk.css.map",
+    "static/js/2.212f4537.chunk.js.LICENSE.txt": "/static/js/2.212f4537.chunk.js.LICENSE.txt",
     "static/media/App.css": "/static/media/Segoe UI.293e692f.woff",
     "static/media/accounts.f88ef9b1.png": "/static/media/accounts.f88ef9b1.png",
     "static/media/avatar.01496601.jpg": "/static/media/avatar.01496601.jpg",
@@ -50,10 +50,10 @@
     "static/media/trialDesign.bc9a435b.png": "/static/media/trialDesign.bc9a435b.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.4be8a6b8.js",
+    "static/js/runtime-main.7b78ada6.js",
     "static/css/2.86525185.chunk.css",
-    "static/js/2.20b7feb9.chunk.js",
-    "static/css/main.4a88daf8.chunk.css",
-    "static/js/main.bdf6795a.chunk.js"
+    "static/js/2.212f4537.chunk.js",
+    "static/css/main.d60f87cb.chunk.css",
+    "static/js/main.054097c5.chunk.js"
   ]
 }
