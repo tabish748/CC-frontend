@@ -8,6 +8,7 @@ import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Link, useNavigate } from "react-router-dom";
+import { STAGGING_BACKEND, LOCAL_BACKEND } from "../../common/helper";
 // import { Prev } from "react-bootstrap/esm/PageItem";
 
 const useForceRender = () => {
@@ -18,6 +19,13 @@ const useForceRender = () => {
 function ClinicalQuestion6() {
   const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
+
+  const[pdl1 , setPdl1] = useState(false);
+  const[cpc_tps , setCpcTpc] = useState("");
+  const[msi , setMsi] = useState(false);
+  const[tmb , setTmb] = useState(false);
+  const[actionable_mutation , setActionableMutation] = useState(false);
+  const[metastases , setMetastases] = useState(false);
 
   function handleHeader() {
     setHeader((t) => !t);
@@ -69,7 +77,28 @@ function ClinicalQuestion6() {
     },
   };
 
-  const OnSubmitForm = () => {
+  const OnSubmitForm = async() => {
+    const url = STAGGING_BACKEND + "cancer/questionair/cancer-characteristics//";
+    const payload = {
+      "pd_l1": pdl1,
+      "cps_tps": cpc_tps,
+      "msi_high": msi,
+      "tmb_high": tmb,
+      "actionable_mutation": actionable_mutation,
+      "metastases": metastases,
+    };
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "token " + localStorage.getItem("token"),
+      },
+      body: JSON.stringify(payload),
+    };
+    const response = await fetch(url, requestOptions);
+    const responseData = await response.json();
+
+    console.log(responseData)
     navigate("/clinical-question7");
   };
 
@@ -147,10 +176,17 @@ function ClinicalQuestion6() {
                   <p>Please input the following data</p>
 
                   <label htmlFor="">Is your cancer PD-L1 positive? </label>
-                  <select name="" id="">
+                  <select name="" id="" onChange={(event)=>{
+                    if (event.target.value == "1"){
+                    setPdl1(true)
+                    } 
+                    if (event.target.value == "0"){
+                      setPdl1(false)
+                      }
+                    }}>
                     <option value="">Choose below</option>
-                    <option value="">Yes</option>
-                    <option value="">No</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
                   </select>
                   <label htmlFor="">
                     What % positive or what is the CPS/TPS score? (enter
@@ -162,42 +198,71 @@ function ClinicalQuestion6() {
                     className="signup-box-input loginfields"
                     placeholder="Enter score"
                     id=""
+                    onChange={(event)=>setCpcTpc(event.target.value)}
                   />
 
                   <label htmlFor="">
                     Does your cancer have high microsatellite instability?
                     (MSI-high){" "}
                   </label>
-                  <select name="" id="">
+                  <select name="" id="" onChange={(event)=>{
+                    if (event.target.value == "1"){
+                    setMsi(true)
+                    } 
+                    if (event.target.value == "0"){
+                      setMsi(false)
+                      }
+                    }}>
                     <option value="">Choose below</option>
-                    <option value="">Yes</option>
-                    <option value="">No</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
                   </select>
 
                   <label htmlFor="">
                     Does your cancer have high tumor mutation burden (TMB-high)?{" "}
                   </label>
-                  <select name="" id="">
+                  <select name="" id="" onChange={(event)=>{
+                    if (event.target.value == "1"){
+                    setTmb(true)
+                    } 
+                    if (event.target.value == "0"){
+                      setTmb(false)
+                      }
+                    }}>
                     <option value="">Choose below</option>
-                    <option value="">Yes</option>
-                    <option value="">No</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
                   </select>
                   <label htmlFor="">
                     Does your cancer have an actionable mutation?{" "}
                   </label>
-                  <select name="" id="">
+                  <select name="" id="" onChange={(event)=>{
+                    if (event.target.value == "1"){
+                    setActionableMutation(true)
+                    } 
+                    if (event.target.value == "0"){
+                      setActionableMutation(false)
+                      }
+                    }}>
                     <option value="">Choose below</option>
-                    <option value="">Yes</option>
-                    <option value="">No</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
                   </select>
                   <label htmlFor="">
                     Do you have measurable cancer (metastases greater than 1
                     cm)?{" "}
                   </label>
-                  <select name="" id="">
+                  <select name="" id="" onChange={(event)=>{
+                    if (event.target.value == "1"){
+                    setMetastases(true)
+                    } 
+                    if (event.target.value == "0"){
+                      setMetastases(false)
+                      }
+                    }}>
                     <option value="">Choose below</option>
-                    <option value="">Yes</option>
-                    <option value="">No</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
                   </select>
 
                   <div className="questions-both-btn-wrapper">

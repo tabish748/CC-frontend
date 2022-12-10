@@ -8,6 +8,7 @@ import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Link, useNavigate } from "react-router-dom";
+import { STAGGING_BACKEND, LOCAL_BACKEND } from "../../common/helper";
 // import { Prev } from "react-bootstrap/esm/PageItem";
 
 const useForceRender = () => {
@@ -18,7 +19,10 @@ const useForceRender = () => {
 function ClinicalQuestion9() {
   const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
-
+  const [isDrug , setIsDrug] = useState(false);
+  const [isMechanism , setIsMechanism] = useState(false);
+  const [drug , setDrug] = useState("");
+  const [mechanism , setMechanism] = useState("");
   function handleHeader() {
     setHeader((t) => !t);
   }
@@ -69,7 +73,27 @@ function ClinicalQuestion9() {
       },
     },
   };
- 
+
+
+  const OnSubmitForm = async() => {
+    const url = STAGGING_BACKEND + "cancer/questionair/treatment-history/";
+    const payload = {
+      "drug": drug,
+      "moa": mechanism,
+    };
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "token " + localStorage.getItem("token"),
+      },
+      body: JSON.stringify(payload),
+    };
+    const response = await fetch(url, requestOptions);
+    const responseData = await response.json();
+
+    console.log(responseData)
+  };
 
   return (
     <>
@@ -147,43 +171,63 @@ function ClinicalQuestion9() {
                   <label htmlFor="">
                     Is there a particular drug you're interested in?{" "}
                   </label>
-                  <select name="" id="">
+                  <select name="" id="" onChange={(event)=>{
+                    if (event.target.value == "1"){
+                      setIsDrug(true);
+                    }
+                    if (event.target.value == "0"){
+                      setIsDrug(false);
+                    }
+                  }}>
                     <option value="">Choose below</option>
-                    <option value="">Yes</option>
-                    <option value="">No</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
                   </select>
 
-                  <label htmlFor="">
+
+                  { isDrug ? <><label htmlFor="">
                     Which drug would you like to know about?{" "}
                   </label>
-                  <select name="" id="">
+                  <select name="" id="" onChange={(event)=>setDrug(event.target.value)}>
                     <option value="">Choose below</option>
-                    <option value="">Drug1</option>
-                    <option value="">Drug2</option>
-                  </select>
+                    <option value="drug1">Drug1</option>
+                    <option value="drug2">Drug2</option>
+                  </select> 
+                  </>: null}
+                  
 
                   <label htmlFor="">
                     Is there a particular mechanism of action you're interested
                     in?{" "}
                   </label>
-                  <select name="" id="">
+                  <select name="" id="" onChange={(event)=>{
+                    if (event.target.value == "1"){
+                      setIsMechanism(true);
+                    }
+                    if (event.target.value == "0"){
+                      setIsMechanism(false);
+                    }
+                  }}>
                     <option value="">Choose below</option>
-                    <option value="">Yes</option>
-                    <option value="">No</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
                   </select>
 
-                  <label htmlFor="">
+                  {isMechanism ? <>
+                    <label htmlFor="">
                     Which mechanism of action are you interested in?{" "}
                   </label>
-                  <select name="" id="">
+                  <select name="" id="" onChange={(event)=>setMechanism(event.target.value)}>
                     <option value="">Choose below</option>
-                    <option value="">Yes</option>
-                    <option value="">No</option>
+                    <option value="Mechanism1">Mechanism1</option>
+                    <option value="Mechanism2">Mechanism2</option>
                   </select>
 
+                  </> : null}
+                  
                   <div className="questions-both-btn-wrapper">
                  
-                    <button className="blue-button" type="button">
+                    <button className="blue-button" type="button" onClick={OnSubmitForm}>
                       Finish
                     </button>
                   </div>
