@@ -60,7 +60,12 @@ const TrialMenuPR = () => {
               <p className="mb-5 BluetextUnderHeading">
                 Select your trial criteria you wish to filter by
               </p>
-
+              <Link to="/clinical-questions-options">
+                <button className="light-theme-btn mb-3">
+                  Research cancer realted topics by <br /> specific criteria
+                  <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </button>
+              </Link>
               <Link to="/clinical-questions">
                 <button className="light-theme-btn  mb-3">
                   Search cancer clarity for trials <br />a patient is eligible
@@ -94,12 +99,7 @@ const TrialMenuPR = () => {
                 </button>
               </Link>
 
-              <Link to="/clinical-questions-options">
-                <button className="light-theme-btn mb-3">
-                  Research cancer realted topics by <br /> specific criteria{" "}
-                  <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </button>
-              </Link>
+             
             </div>
           </div>
 

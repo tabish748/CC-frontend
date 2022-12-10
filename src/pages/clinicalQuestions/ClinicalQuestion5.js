@@ -8,6 +8,7 @@ import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Link, useNavigate } from "react-router-dom";
+import { STAGGING_BACKEND, LOCAL_BACKEND } from "../../common/helper";
 // import { Prev } from "react-bootstrap/esm/PageItem";
 
 const useForceRender = () => {
@@ -18,6 +19,17 @@ const useForceRender = () => {
 function ClinicalQuestion5() {
   const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
+  const[ecog , setEcog] = useState("");
+  const[karnosky , setKarnosky] = useState("");
+  const[kidneyFunction , setKidneyFunction] = useState("");
+  const[neutrophil , setNeutrophil] = useState("");
+  const[hemoglobin , setHemoglobin] = useState("");
+  const[plateletCount , setPlateletCount] = useState("");
+  const[ast , setAst] = useState("");
+  const[alt , setAlt] = useState("");
+  const[bilirubin , setBilirubin] = useState("");
+  const[albumin , setAlbumin] = useState("");
+  const[ alkalinePhosphatase , setAlkalinePhosphatase] = useState("");
 
   function handleHeader() {
     setHeader((t) => !t);
@@ -68,9 +80,36 @@ function ClinicalQuestion5() {
       }
     },
   };
-  const OnSubmitForm = () => {
+
+  const OnSubmitForm = async () => {
+    const url = STAGGING_BACKEND + "cancer/questionair/functional-status/";
+    const payload = {
+      "ecog_perf": ecog,
+      "karnosky_perf": karnosky,
+      "kidney_func": kidneyFunction,
+      "neutrophil": neutrophil,
+      "hemoglobin": hemoglobin,
+      "platelet_count": plateletCount,
+      "ast": ast,
+      "alt": alt,
+      "bilirubin": bilirubin,
+      "albumin": albumin,
+      "alkaline_phostate": albumin,
+    };
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "token " + localStorage.getItem("token"),
+      },
+      body: JSON.stringify(payload),
+    };
+    const response = await fetch(url, requestOptions);
+    const responseData = await response.json();
+    console.log(responseData)
     navigate("/clinical-question6");
   };
+
   return (
     <>
       <div className="mobile-header-section">
@@ -146,7 +185,7 @@ function ClinicalQuestion5() {
       <p>Please input the following data</p>
 
       <label htmlFor="">What is your ECOG performance status? </label>
-      <select name="" id="">
+      <select name="" id="" onChange={(event)=>{setEcog(event.target.value)}}>
         <option value="">Choose below</option>
         <option value="">ECOG 0 with description</option>
         <option value="">ECOG 1 with description</option>
@@ -157,7 +196,7 @@ function ClinicalQuestion5() {
       </select>
 
       <label htmlFor="">What is your Karnosky performance score? </label>
-      <select name="" id="">
+      <select name="" id="" onChange={(event)=>{setKarnosky(event.target.value)}}>
         <option value="">Choose below</option>
         <option value="">KPS 100 with description</option>
         <option value="">KPS 90 with description</option>
@@ -179,6 +218,7 @@ function ClinicalQuestion5() {
         className="signup-box-input loginfields"
         placeholder="Enter Function"
         id=""
+        onChange={(event)=>{setKidneyFunction(event.target.value)}}
       />
       <label htmlFor="">What is your neutrophil count? (enter) </label>
       <input
@@ -187,6 +227,7 @@ function ClinicalQuestion5() {
         className="signup-box-input loginfields"
         placeholder="Enter Count"
         id=""
+        onChange={(event)=>{setNeutrophil(event.target.value)}}
       />
       <label htmlFor="">What is your hemoglobin (enter) </label>
       <input
@@ -195,6 +236,7 @@ function ClinicalQuestion5() {
         className="signup-box-input loginfields"
         placeholder="Enter hemoglobin"
         id=""
+        onChange={(event)=>{setHemoglobin(event.target.value)}}
       />
       <label htmlFor="">What is your platelet count? (enter) </label>
       <input
@@ -203,6 +245,7 @@ function ClinicalQuestion5() {
         className="signup-box-input loginfields"
         placeholder="Enter Count"
         id=""
+        onChange={(event)=>{setPlateletCount(event.target.value)}}
       />
       <label htmlFor="">What is your AST? </label>
       <input
@@ -211,6 +254,7 @@ function ClinicalQuestion5() {
         className="signup-box-input loginfields"
         placeholder="Enter AST"
         id=""
+        onChange={(event)=>{setAst(event.target.value)}}
       />
       <label htmlFor="">What is your ALT? </label>
       <input
@@ -219,6 +263,7 @@ function ClinicalQuestion5() {
         className="signup-box-input loginfields"
         placeholder="Enter ALT"
         id=""
+        onChange={(event)=>{setAlt(event.target.value)}}
       />
       <label htmlFor="">What is your bilirubin? </label>
       <input
@@ -227,6 +272,7 @@ function ClinicalQuestion5() {
         className="signup-box-input loginfields"
         placeholder="Enter bilirubin"
         id=""
+        onChange={(event)=>{setBilirubin(event.target.value)}}
       />
       <label htmlFor="">What is your albumin? </label>
       <input
@@ -235,6 +281,7 @@ function ClinicalQuestion5() {
         className="signup-box-input loginfields"
         placeholder="Enter albumin"
         id=""
+        onChange={(event)=>{setAlbumin(event.target.value)}}
       />
       <label htmlFor="">What is your alkaline phosphatase? </label>
       <input
@@ -243,6 +290,7 @@ function ClinicalQuestion5() {
         className="signup-box-input loginfields"
         placeholder="Enter phosphatase"
         id=""
+        onChange={(event)=>{setAlkalinePhosphatase(event.target.value)}}
       />
 
 

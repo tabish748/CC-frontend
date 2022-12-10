@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import logo from "../../images/logo.png";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Header from "../../components/Header/Header";
@@ -18,6 +18,15 @@ const useForceRender = () => {
   return () => setValue((val) => val + 1);
 };
 
+
+const useForceUpdate = () => {
+  const [, setTick] = useState(0);
+  const update = useCallback(() => {
+    setTick((tick) => tick + 1);
+  }, []);
+  return update;
+};
+
 function ClinicalQuestions() {
   const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
@@ -26,6 +35,7 @@ function ClinicalQuestions() {
   const [subtypeBData, setSubtypeBData] = useState([]);
   const [subtypeCData, setSubtypeCData] = useState([]);
   const [cancerType, setCancerType] = useState("");
+  const [selectedElements, setSelectedElements] = useState([])
 
   const [tumorType, setTypeType] = useState("");
   const [subtype, setSubType] = useState("");
@@ -34,7 +44,7 @@ function ClinicalQuestions() {
   const [stage, setStage] = useState("");
 
   const navigate = useNavigate();
-
+  const update = useForceUpdate();
   function handleHeader() {
     setHeader((t) => !t);
   }
@@ -109,11 +119,13 @@ function ClinicalQuestions() {
       },
       body: JSON.stringify(payload),
     };
-
     const response = await fetch(url, requestOptions);
     const responseData = await response.json();
-
     setSubtypeData(responseData.data);
+    setSubtypeCData([])
+    setSubtypeBData([])
+    document.querySelector('#stagDropdown').value = '';
+    document.querySelector('#subtype').value = '';
   };
 
   useEffect(async () => {
@@ -168,9 +180,8 @@ function ClinicalQuestions() {
     "Stage 4B",
     "Not Sure",
   ];
+  
   const [curSection, setCurSection] = useState(0);
-
-  // const forceUpdate = useForceRender();
 
   const responsive = {
     responsive: {
@@ -199,11 +210,6 @@ function ClinicalQuestions() {
     },
   };
 
-  console.log("data", data);
-  console.log("aaa", subtypeData);
-  console.log("bbb", subtypeBData);
-  console.log("ccc", subtypeCData);
-
   const OnSubmitForm = async () => {
     const url = STAGGING_BACKEND + "cancer/questionair/cancer_type/";
     const payload = {
@@ -226,6 +232,7 @@ function ClinicalQuestions() {
     console.log(responseData);
     navigate("/clinical-question2");
   };
+
   return (
     <>
       <div className="mobile-header-section">
@@ -373,7 +380,7 @@ function ClinicalQuestions() {
                       <label htmlFor="">What stage is your cancer? </label>
                       <select
                         name=""
-                        id=""
+                        id="stagDropdown"
                         onChange={(event) => setStage(event.target.value)}
                       >
                         <option value="">Choose below</option>

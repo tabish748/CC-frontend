@@ -976,6 +976,24 @@ a:hover {
   max-width: 450px;
   width: 100%;
   margin: 10px auto;
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 12px;
+}
+.question-form-wrapper::-webkit-scrollbar {
+  width: 10px;
+  position: relative;
+  margin-left: 20px;
+  left: -100px;
+}
+.question-form-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border: 1px solid var(--skyblue);
+  border-radius: 0px;
+}
+.question-form-wrapper::-webkit-scrollbar-thumb {
+  background: var(--skyblue);
+  border-radius: 10px;
 }
 .question-form-wrapper h2 {
   text-align: center;
@@ -1495,6 +1513,8 @@ a:hover {
   width: 100%;
   max-width: 80%;
   margin: 0 auto;
+  padding: 10px;
+  padding-bottom: 20px;
 }
 .dropdown-eligibilty-container button:nth-of-type(1){
   height: fit-content;
@@ -1528,6 +1548,28 @@ a:hover {
   font-weight: normal;
 
 }
+/* ******question options*********** */
+
+.question-option-card{
+  width: 100%;
+  height: 110px;
+  background-color: #0c206e;
+  color: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 19px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+/* ******************** */
+/* .css-1s2u09g-control{
+  background-color: #6ac0e3!important;
+  color: white!important;
+} */
 /* ***************Team page*********** */
 .team-content-wrapper{
   width: 100%;

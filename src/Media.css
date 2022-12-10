@@ -1,4 +1,7 @@
 @media only screen and (min-width: 1700px) {
+    .clicnial-question-section .clicnial-question-wrapper{
+        max-width: 850px!important;
+    }
     .signup-header-content-wrapper{
         font-size: 1.2em!important;
     }

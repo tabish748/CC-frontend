@@ -8,7 +8,14 @@ import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Link, useNavigate } from "react-router-dom";
-// import { Prev } from "react-bootstrap/esm/PageItem";
+import Multiselect from "multiselect-react-dropdown";
+import Select from "react-select";
+
+const options = [
+  { value: "hammad", label: "Hammad" },
+  { value: "usman", label: "Usman" },
+  { value: "tabish", label: "Tabish" },
+];
 
 const useForceRender = () => {
   const [value, setValue] = useState(0);
@@ -39,7 +46,7 @@ function ClinicalQuestion7() {
     { text: "Drug & Mechanism", route: "/clinical-question9" },
   ];
   const [curSection, setCurSection] = useState(0);
-
+  const [selectedOption, setSelectedOption] = useState(null);
   const forceUpdate = useForceRender();
 
   const responsive = {
@@ -68,7 +75,7 @@ function ClinicalQuestion7() {
       },
     },
   };
-  
+
   const OnSubmitForm = () => {
     navigate("/clinical-question8");
   };
@@ -145,26 +152,14 @@ function ClinicalQuestion7() {
                   <h2>Molecular Profile</h2>
                   <p>Please input the following data</p>
 
-                  <label htmlFor="">Identify Tumor Type: </label>
-                  <select name="" id="">
-                    <option value="">Choose below</option>
-                    <option value="">1</option>
-                    <option value="">2</option>
-                  </select>
+                  <Select
+                    defaultValue={selectedOption}
+                    onChange={setSelectedOption}
+                    options={options}
+                    isMulti={true}
+                  />
 
-                  <label htmlFor="">Tumor Stage: </label>
-                  <select name="" id="">
-                    <option value="">Choose below</option>
-                    <option value="">1</option>
-                    <option value="">2</option>
-                  </select>
-
-                  <label htmlFor="">Caregiver or Patient: </label>
-                  <select name="" id="">
-                    <option value="">Choose below</option>
-                    <option value="">1</option>
-                    <option value="">2</option>
-                  </select>
+                 
 
                   <div className="questions-both-btn-wrapper">
                     <button

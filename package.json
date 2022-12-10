@@ -20,6 +20,7 @@
         "google-map-react": "^2.1.10",
         "google-maps-react": "^2.0.6",
         "moment-timezone": "^0.5.34",
+        "multiselect-react-dropdown": "^2.0.25",
         "react": "^17.0.2",
         "react-alert": "^7.0.3",
         "react-animation-on-scroll": "^5.1.0",
