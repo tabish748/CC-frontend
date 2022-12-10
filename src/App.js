@@ -43,6 +43,7 @@ import ClinicalQuestion8 from './pages/clinicalQuestions/ClinicalQuestion8'
 import ClinicalQuestion9 from './pages/clinicalQuestions/ClinicalQuestion9'
 import TrialMenuPR from "./pages/trailMenuThree/trialMenuPR";
 import ClinicalOptions from "./pages/clinicalQuestions/ClinicalOptions";
+import TrialMenuPatient from "./pages/trailMenuThree/trialMenuPatient";
 function App() {
   return (
     <>
@@ -123,6 +124,8 @@ function App() {
           <Route path="/services-Packages" element={<ServicesPackages />}>
           </Route>
           <Route path="/pharma-Packages" element={<PharmaPackages />}>
+          </Route>
+          <Route path="/trial-menu-patient" element={<TrialMenuPatient />}>
           </Route>
           <Route path="/trial-menu" element={<TrialMenuThree />}>
           </Route>

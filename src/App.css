@@ -976,6 +976,24 @@ a:hover {
   max-width: 450px;
   width: 100%;
   margin: 10px auto;
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 12px;
+}
+.question-form-wrapper::-webkit-scrollbar {
+  width: 10px;
+  position: relative;
+  margin-left: 20px;
+  left: -100px;
+}
+.question-form-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border: 1px solid var(--skyblue);
+  border-radius: 0px;
+}
+.question-form-wrapper::-webkit-scrollbar-thumb {
+  background: var(--skyblue);
+  border-radius: 10px;
 }
 .question-form-wrapper h2 {
   text-align: center;

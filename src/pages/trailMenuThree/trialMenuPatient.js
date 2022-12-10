@@ -6,7 +6,7 @@ import "font-awesome/css/font-awesome.min.css";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Header from "../../components/Header/Header";
 import { Link } from "react-router-dom";
-const TrialMenuPR = () => {
+const TrialMenuPatient = () => {
   const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -63,16 +63,21 @@ const TrialMenuPR = () => {
 
               <Link to="/clinical-questions">
                 <button className="light-theme-btn  mb-3">
-                  Search cancer clarity for trials <br />a patient is eligible
-                  for <i class="fa fa-angle-right" aria-hidden="true"></i>
+                Find Trials You're Eligible for <i class="fa fa-angle-right" aria-hidden="true"></i>
                 </button>
               </Link>
+              {/* <Link to="/clinical-questions-options"> */}
+                <button className="light-theme-btn mb-3">
+                Determine Eligibilty for Trials  <br /> I know
+                  <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </button>
+              {/* </Link> */}
               <button
                 className="light-theme-btn  mb-3"
                 onClick={handleDropdownButton}
               >
-                Assess a patient's eligibility for specific <br />
-                trials I know{" "}
+               Determine Patient's Eligibilty   <br />
+                for trials
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
               </button>
               {showDropdown && (
@@ -87,19 +92,9 @@ const TrialMenuPR = () => {
                 </div>
               )}
 
-              <Link to="/saved-trials">
-                <button className="light-theme-btn w-100 mb-3">
-                  Determine my patient's eligibility <br /> for trials on my
-                  saved list
-                </button>
-              </Link>
+            
 
-              <Link to="/clinical-questions-options">
-                <button className="light-theme-btn mb-3">
-                  Research cancer realted topics by <br /> specific criteria{" "}
-                  <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </button>
-              </Link>
+            
             </div>
           </div>
 
@@ -123,4 +118,4 @@ const TrialMenuPR = () => {
   );
 };
 
-export default TrialMenuPR;
+export default TrialMenuPatient;
