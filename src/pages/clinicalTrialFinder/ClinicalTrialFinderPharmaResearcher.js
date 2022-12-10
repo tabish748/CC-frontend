@@ -13,7 +13,7 @@ function ClinicalTrialFinderPharmaResearcher() {
       img:{intro},
       buttonText:"Find Clinical Trials",
       textUnderHeading: "Pharmaceutical and Researcher",
-      buttonLink: 'trial-menu',
+      buttonLink: 'trial-menu-PR',
       loginRequired: true
     }
 

@@ -41,6 +41,8 @@ import ClinicalQuestion6 from './pages/clinicalQuestions/ClinicalQuestion6'
 import ClinicalQuestion7 from './pages/clinicalQuestions/ClinicalQuestion7'
 import ClinicalQuestion8 from './pages/clinicalQuestions/ClinicalQuestion8'
 import ClinicalQuestion9 from './pages/clinicalQuestions/ClinicalQuestion9'
+import TrialMenuPR from "./pages/trailMenuThree/trialMenuPR";
+import ClinicalOptions from "./pages/clinicalQuestions/ClinicalOptions";
 function App() {
   return (
     <>
@@ -123,6 +125,10 @@ function App() {
           <Route path="/pharma-Packages" element={<PharmaPackages />}>
           </Route>
           <Route path="/trial-menu" element={<TrialMenuThree />}>
+          </Route>
+          <Route path="/trial-menu-PR" element={<TrialMenuPR/>}>
+          </Route>
+          <Route path="/clinical-questions-options" element={<ClinicalOptions/>}>
           </Route>
           <Route path="/accounts" element={<MyAccount />}>
           </Route>
