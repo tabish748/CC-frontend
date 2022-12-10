@@ -6,7 +6,7 @@ import "font-awesome/css/font-awesome.min.css";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Header from "../../components/Header/Header";
 import { Link } from "react-router-dom";
-const TrialMenuThree = () => {
+const TrialMenuPR = () => {
     const [header, setHeader] = useState(false);
     const [sideBar, setSideBar] = useState(false);
     const [showDropdown, setShowDropdown] = useState(false);
@@ -61,16 +61,16 @@ const TrialMenuThree = () => {
 
           <Link to='/clinical-questions'>
           <button className="light-theme-btn mb-3">
-          Find trials my patient is eliglible for <i class="fa fa-angle-right" aria-hidden="true"></i>
+          Search for clinical trials by specific criteria <i class="fa fa-angle-right" aria-hidden="true"></i>
           </button>
           </Link>
           <Link to='/clinical-questions'>
           <button className="light-theme-btn  mb-3">
-          Search cc for trials a patient <br/> is eliglble for <i class="fa fa-angle-right" aria-hidden="true"></i>
+          Assess a patient's eligibility for specific <br/> trials I know <i class="fa fa-angle-right" aria-hidden="true"></i>
           </button>
           </Link>
           <button className="light-theme-btn  mb-3"  onClick={handleDropdownButton}>
-          Assess my patient's eligibility for <br/> specific trials I know <i class="fa fa-angle-right" aria-hidden="true"></i>
+          Assess a patient's eligibility for my <br/> research trials from my saved list <i class="fa fa-angle-right" aria-hidden="true"></i>
           </button>
           {showDropdown && (
                 <div className="dropdown-eligibilty-container">
@@ -84,11 +84,11 @@ const TrialMenuThree = () => {
                 </div>
               )}
 
-              <Link to='/saved-trials'>
+              {/* <Link to='/saved-trials'>
                   <button className="light-theme-btn w-100">
                   Determine my patient's eligibility <br/> for trials on my saved list
                   </button>
-                  </Link>
+                  </Link> */}
           </div>
           </div>
        
@@ -112,4 +112,4 @@ const TrialMenuThree = () => {
     );
 }
 
-export default TrialMenuThree;
+export default TrialMenuPR;
