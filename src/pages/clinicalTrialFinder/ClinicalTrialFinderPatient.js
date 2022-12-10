@@ -13,7 +13,7 @@ function ClinicalTrialFinderPatient() {
       img:{intro},
       buttonText:"Find Clinical Trials",
       textUnderHeading: "Patients",
-      buttonLink: 'trial-criteria',
+      buttonLink: 'trial-menu-patient',
       loginRequired: true
     }
 
