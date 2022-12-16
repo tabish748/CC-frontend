@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../../images/logo.png";
 import birds from "../../images/birds.png";
 import leafs from "../../images/leafs.png";
@@ -16,6 +16,65 @@ function ClinicalOptions() {
   function handleSideBar() {
     setSideBar((t) => !t);
   }
+
+  useEffect(()=>{
+  const div_s =    document.querySelectorAll('.question-option-card');
+  div_s.forEach((div) =>{
+    div.addEventListener('click', ()=>{
+
+      if(div.id === "cancer_characteristics")
+        {
+          if(!div.classList.contains('active'))
+          {
+            div.classList.add('active');
+            document.querySelector('#cancer_treatment_history').classList.add('active');
+          }
+          else{
+            div.classList.remove('active');
+            document.querySelector('#cancer_treatment_history').classList.remove('active');
+          }
+        }
+        else if(div.id === "cancer_treatment_history")
+        {
+          if(!div.classList.contains('active'))
+          {
+            div.classList.add('active');
+            document.querySelector('#cancer_characteristics').classList.add('active');
+          }
+          else{
+            div.classList.remove('active');
+            document.querySelector('#cancer_characteristics').classList.remove('active');
+          }
+        }
+      else if(div.classList.contains('active'))
+      {
+        if(div.id === 'cancer_type_Stage')
+        {
+          return;
+        }
+       
+        else
+        div.classList.remove('active')
+      }
+      else
+      {
+        div.classList.add('active');
+      }
+    })
+  })
+
+  },[])
+
+
+function HandleNextButton()
+{
+  let select_items= [];
+  const div_s = document.querySelectorAll('.question-option-card.active');
+  div_s.forEach((div)=>{
+    select_items.unshift(div.id)
+  })
+  console.log('select array is',select_items);
+}
   return (
     <>
       <div className="mobile-header-section">
@@ -57,57 +116,57 @@ function ClinicalOptions() {
 
             <div className="row">
                 <div className="col-lg-4">
-                    <div className="question-option-card">
+                    <div className="question-option-card" id="demographics">
                         <p>Demographics</p>
                     </div>
                 </div>
-                <div className="col-lg-4">
+                <div className="col-lg-4" id="location">
                     <div className="question-option-card">
                         <p>Location</p>
                     </div>
                 </div>
                 <div className="col-lg-4">
-                    <div className="question-option-card">
+                    <div className="question-option-card active" id="cancer_type_Stage">
                         <p>Cancer Type & Stage</p>
                     </div>
                 </div>
                 <div className="col-lg-4">
-                    <div className="question-option-card">
+                    <div className="question-option-card"  id="trial_type_sponcer">
                         <p>Trial Type & Sponcer</p>
                     </div>
                 </div>
                 <div className="col-lg-4">
-                    <div className="question-option-card">
+                    <div className="question-option-card"  id="performance_status_organ_function" >
                         <p>Performance Status & Organ Function</p>
                     </div>
                 </div>
                 <div className="col-lg-4">
-                    <div className="question-option-card">
+                    <div className="question-option-card" id="cancer_characteristics">
                         <p>Cancer Characteristics</p>
                     </div>
                 </div>
                 <div className="col-lg-4">
-                    <div className="question-option-card">
+                    <div className="question-option-card"  id="molecular_profile">
                         <p>Molecular Profile</p>
                     </div>
                 </div>
                 <div className="col-lg-4">
-                    <div className="question-option-card">
+                    <div className="question-option-card" id="cancer_treatment_history">
                         <p>Cancer Treatment History</p>
                     </div>
                 </div>
                 <div className="col-lg-4">
-                    <div className="question-option-card">
+                    <div className="question-option-card"  id="drug_name_mechanism_of_action">
                         <p>Drug Name & Mechanism of Action</p>
                     </div>
                 </div>
             </div>
 
-<Link to="/clinical-questions">
-<button className="gray-button submit-btn mt-5">
+{/* <Link to="/clinical-questions"> */}
+<button className="gray-button submit-btn mt-5" onClick={HandleNextButton}>
     Next
 </button>
-</Link>
+
             </div>
             {/* contact-form-wrapper */}
           </div>
