@@ -120,8 +120,8 @@ function HandleNextButton()
                         <p>Demographics</p>
                     </div>
                 </div>
-                <div className="col-lg-4" id="location">
-                    <div className="question-option-card">
+                <div className="col-lg-4" >
+                    <div className="question-option-card" id="location">
                         <p>Location</p>
                     </div>
                 </div>
