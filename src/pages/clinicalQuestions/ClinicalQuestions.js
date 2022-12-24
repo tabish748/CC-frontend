@@ -7,6 +7,8 @@ import leafs from "../../images/leafs.png";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import { storeOptions } from "../../redux/slices/clinicalOptions";
+import { useDispatch , useSelector } from "react-redux";
 
 import { Link, useNavigate } from "react-router-dom";
 import { object } from "yup";
@@ -45,6 +47,8 @@ function ClinicalQuestions() {
 
   const navigate = useNavigate();
   const update = useForceUpdate();
+  const selector= useSelector(state => state.options);
+
   function handleHeader() {
     setHeader((t) => !t);
   }
@@ -128,6 +132,7 @@ function ClinicalQuestions() {
     document.querySelector('#subtype').value = '';
   };
 
+
   useEffect(async () => {
     const url = STAGGING_BACKEND + "cancer/create/";
     const payload = {
@@ -149,17 +154,52 @@ function ClinicalQuestions() {
     setData(responseData.data);
   }, []);
 
+
+  
   const names = [
-    { text: "Cancer Type & Stage", route: "/clinical-questions" },
-    { text: "Demographics", route: "/clinical-question2" },
-    { text: "Location", route: "/clinical-question3" },
-    { text: "Trial Type & Sponsor", route: "/clinical-question4" },
-    { text: "Functional Status", route: "/clinical-question5" },
-    { text: "Cancer Characteristics", route: "/clinical-question6" },
-    { text: "Molecular Profile", route: "/clinical-question7" },
-    { text: "Treatment History", route: "/clinical-question8" },
-    { text: "Drug & Mechanism", route: "/clinical-question9" },
+    // { text: "Cancer Type & Stage", route: "/clinical-questions" },
+    // { text: "Demographics", route: "/clinical-question2" },
+    // { text: "Location", route: "/clinical-question3" },
+    // { text: "Trial Type & Sponsor", route: "/clinical-question4" },
+    // { text: "Functional Status", route: "/clinical-question5" },
+    // { text: "Cancer Characteristics", route: "/clinical-question6" },
+    // { text: "Molecular Profile", route: "/clinical-question7" },
+    // { text: "Treatment History", route: "/clinical-question8" },
+    // { text: "Drug & Mechanism", route: "/clinical-question9" },
   ];
+
+selector.options.forEach(element => {
+    if (element == "Cancer Type & Stage"){
+      names.unshift({text:element , route: "/clinical-questions"})
+    }
+    if (element == "Demographics"){
+      names.unshift({text:element , route: "/clinical-questions"})
+    }
+    if (element == "Location"){
+      names.unshift({text:element , route: "/clinical-questions"})
+    }
+    if (element == "Trial Type & Sponsor"){
+      names.unshift({text:element , route: "/clinical-questions"})
+    }
+    if (element == "Functional Status"){
+      names.unshift({text:element , route: "/clinical-questions"})
+    }
+    if (element == "Cancer Characteristics"){
+      names.unshift({text:element , route: "/clinical-questions"})
+    }
+    if (element == "Molecular Profile"){
+      names.unshift({text:element , route: "/clinical-questions"})
+    }
+    if (element == "Treatment History"){
+      names.unshift({text:element , route: "/clinical-questions"})
+    }
+    if (element == "Drug & Mechanism"){
+      names.unshift({text:element , route: "/clinical-questions"})
+    }
+
+});
+
+
 
   const stages = [
     "Stage 0",

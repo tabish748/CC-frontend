@@ -5,10 +5,17 @@ import leafs from "../../images/leafs.png";
 import "font-awesome/css/font-awesome.min.css";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Header from "../../components/Header/Header";
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import { storeOptions } from "../../redux/slices/clinicalOptions";
+import { useDispatch , useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 function ClinicalOptions() {
   const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   function handleHeader() {
     setHeader((t) => !t);
@@ -72,8 +79,11 @@ function HandleNextButton()
   const div_s = document.querySelectorAll('.question-option-card.active');
   div_s.forEach((div)=>{
     select_items.unshift(div.id)
+    console.log(div.id)
   })
+  dispatch(storeOptions(select_items));
   console.log('select array is',select_items);
+  navigate('/clinical-questions');
 }
   return (
     <>
@@ -116,47 +126,47 @@ function HandleNextButton()
 
             <div className="row">
                 <div className="col-lg-4">
-                    <div className="question-option-card" id="demographics">
+                    <div className="question-option-card" id="Demographics">
                         <p>Demographics</p>
                     </div>
                 </div>
                 <div className="col-lg-4" >
-                    <div className="question-option-card" id="location">
+                    <div className="question-option-card" id="Location">
                         <p>Location</p>
                     </div>
                 </div>
                 <div className="col-lg-4">
-                    <div className="question-option-card active" id="cancer_type_Stage">
+                    <div className="question-option-card active" id="Cancer Type & Stage">
                         <p>Cancer Type & Stage</p>
                     </div>
                 </div>
                 <div className="col-lg-4">
-                    <div className="question-option-card"  id="trial_type_sponcer">
+                    <div className="question-option-card"  id="Trial Type & Sponsor">
                         <p>Trial Type & Sponcer</p>
                     </div>
                 </div>
                 <div className="col-lg-4">
-                    <div className="question-option-card"  id="performance_status_organ_function" >
+                    <div className="question-option-card"  id="Functional Status" >
                         <p>Performance Status & Organ Function</p>
                     </div>
                 </div>
                 <div className="col-lg-4">
-                    <div className="question-option-card" id="cancer_characteristics">
+                    <div className="question-option-card" id="Cancer Characteristics">
                         <p>Cancer Characteristics</p>
                     </div>
                 </div>
                 <div className="col-lg-4">
-                    <div className="question-option-card"  id="molecular_profile">
+                    <div className="question-option-card"  id="Molecular Profile">
                         <p>Molecular Profile</p>
                     </div>
                 </div>
                 <div className="col-lg-4">
-                    <div className="question-option-card" id="cancer_treatment_history">
+                    <div className="question-option-card" id="Treatment History">
                         <p>Cancer Treatment History</p>
                     </div>
                 </div>
                 <div className="col-lg-4">
-                    <div className="question-option-card"  id="drug_name_mechanism_of_action">
+                    <div className="question-option-card"  id="Drug & Mechanism">
                         <p>Drug Name & Mechanism of Action</p>
                     </div>
                 </div>
