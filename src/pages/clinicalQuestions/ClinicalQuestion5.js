@@ -9,6 +9,8 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Link, useNavigate } from "react-router-dom";
 import { STAGGING_BACKEND, LOCAL_BACKEND } from "../../common/helper";
+import { useDispatch , useSelector } from "react-redux";
+
 // import { Prev } from "react-bootstrap/esm/PageItem";
 
 const useForceRender = () => {
@@ -39,17 +41,50 @@ function ClinicalQuestion5() {
   }
 
   const navigate = useNavigate();
+  const selector= useSelector(state => state.options);
+
   const names = [
-    { text: "Cancer Type & Stage", route: "/clinical-questions" },
-    { text: "Demographics", route: "/clinical-question2" },
-    { text: "Location", route: "/clinical-question3" },
-    { text: "Trial Type & Sponsor", route: "/clinical-question4" },
-    { text: "Functional Status", route: "/clinical-question5" },
-    { text: "Cancer Characteristics", route: "/clinical-question6" },
-    { text: "Molecular Profile", route: "/clinical-question7" },
-    { text: "Treatment History", route: "/clinical-question8" },
-    { text: "Drug & Mechanism", route: "/clinical-question9" },
+    // { text: "Cancer Type & Stage", route: "/clinical-questions" },
+    // { text: "Demographics", route: "/clinical-question2" },
+    // { text: "Location", route: "/clinical-question3" },
+    // { text: "Trial Type & Sponsor", route: "/clinical-question4" },
+    // { text: "Functional Status", route: "/clinical-question5" },
+    // { text: "Cancer Characteristics", route: "/clinical-question6" },
+    // { text: "Molecular Profile", route: "/clinical-question7" },
+    // { text: "Treatment History", route: "/clinical-question8" },
+    // { text: "Drug & Mechanism", route: "/clinical-question9" },
   ];
+
+selector.options.forEach(element => {
+    if (element == "Cancer_Type_&_Stage"){
+      names.unshift({text:element , route: "/clinical-questions"})
+    }
+    if (element == "Demographics"){
+      names.unshift({text:element , route: "/clinical-question2"})
+    }
+    if (element == "Location"){
+      names.unshift({text:element , route: "/clinical-question3"})
+    }
+    if (element == "Trial_Type_&_Sponsor"){
+      names.unshift({text:element , route: "/clinical-question4"})
+    }
+    if (element == "Functional_Status"){
+      names.unshift({text:element , route: "/clinical-question5"})
+    }
+    if (element == "Cancer_Characteristics"){
+      names.unshift({text:element , route: "/clinical-question6"})
+    }
+    if (element == "Molecular_Profile"){
+      names.unshift({text:element , route: "/clinical-question7"})
+    }
+    if (element == "Treatment_History"){
+      names.unshift({text:element , route: "/clinical-question8"})
+    }
+    if (element == "Drug_&_Mechanism"){
+      names.unshift({text:element , route: "/clinical-question9"})
+    }
+
+});
   const [curSection, setCurSection] = useState(0);
 
   const forceUpdate = useForceRender();

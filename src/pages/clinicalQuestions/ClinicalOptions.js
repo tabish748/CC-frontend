@@ -29,33 +29,34 @@ function ClinicalOptions() {
   div_s.forEach((div) =>{
     div.addEventListener('click', ()=>{
 
-      if(div.id === "cancer_characteristics")
+      if(div.id === "Cancer_Characteristics")
         {
           if(!div.classList.contains('active'))
           {
             div.classList.add('active');
-            document.querySelector('#cancer_treatment_history').classList.add('active');
+            document.querySelector('#Treatment_History').classList.add('active');
           }
           else{
             div.classList.remove('active');
-            document.querySelector('#cancer_treatment_history').classList.remove('active');
+            document.querySelector('#Treatment_History').classList.remove('active');
           }
         }
-        else if(div.id === "cancer_treatment_history")
+        else if(div.id === "Treatment_History")
         {
           if(!div.classList.contains('active'))
           {
             div.classList.add('active');
-            document.querySelector('#cancer_characteristics').classList.add('active');
+            console.log('34', document.querySelector('#Cancer_Characteristics'))
+            document.querySelector('#Cancer_Characteristics').classList.add('active');
           }
           else{
             div.classList.remove('active');
-            document.querySelector('#cancer_characteristics').classList.remove('active');
+            document.querySelector('#Cancer_Characteristics').classList.remove('active');
           }
         }
       else if(div.classList.contains('active'))
       {
-        if(div.id === 'cancer_type_Stage')
+        if(div.id === 'Cancer_Type_&_Stage')
         {
           return;
         }
@@ -136,37 +137,37 @@ function HandleNextButton()
                     </div>
                 </div>
                 <div className="col-lg-4">
-                    <div className="question-option-card active" id="Cancer Type & Stage">
+                    <div className="question-option-card active" id="Cancer_Type_&_Stage">
                         <p>Cancer Type & Stage</p>
                     </div>
                 </div>
                 <div className="col-lg-4">
-                    <div className="question-option-card"  id="Trial Type & Sponsor">
+                    <div className="question-option-card"  id="Trial_Type_&_Sponsor">
                         <p>Trial Type & Sponcer</p>
                     </div>
                 </div>
                 <div className="col-lg-4">
-                    <div className="question-option-card"  id="Functional Status" >
+                    <div className="question-option-card"  id="Functional_Status" >
                         <p>Performance Status & Organ Function</p>
                     </div>
                 </div>
                 <div className="col-lg-4">
-                    <div className="question-option-card" id="Cancer Characteristics">
+                    <div className="question-option-card" id="Cancer_Characteristics">
                         <p>Cancer Characteristics</p>
                     </div>
                 </div>
                 <div className="col-lg-4">
-                    <div className="question-option-card"  id="Molecular Profile">
+                    <div className="question-option-card"  id="Molecular_Profile">
                         <p>Molecular Profile</p>
                     </div>
                 </div>
                 <div className="col-lg-4">
-                    <div className="question-option-card" id="Treatment History">
+                    <div className="question-option-card" id="Treatment_History">
                         <p>Cancer Treatment History</p>
                     </div>
                 </div>
                 <div className="col-lg-4">
-                    <div className="question-option-card"  id="Drug & Mechanism">
+                    <div className="question-option-card"  id="Drug_&_Mechanism">
                         <p>Drug Name & Mechanism of Action</p>
                     </div>
                 </div>

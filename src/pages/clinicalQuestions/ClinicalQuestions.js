@@ -169,32 +169,32 @@ function ClinicalQuestions() {
   ];
 
 selector.options.forEach(element => {
-    if (element == "Cancer Type & Stage"){
+    if (element == "Cancer_Type_&_Stage"){
       names.unshift({text:element , route: "/clinical-questions"})
     }
     if (element == "Demographics"){
-      names.unshift({text:element , route: "/clinical-questions"})
+      names.unshift({text:element , route: "/clinical-question2"})
     }
     if (element == "Location"){
-      names.unshift({text:element , route: "/clinical-questions"})
+      names.unshift({text:element , route: "/clinical-question3"})
     }
-    if (element == "Trial Type & Sponsor"){
-      names.unshift({text:element , route: "/clinical-questions"})
+    if (element == "Trial_Type_&_Sponsor"){
+      names.unshift({text:element , route: "/clinical-question4"})
     }
-    if (element == "Functional Status"){
-      names.unshift({text:element , route: "/clinical-questions"})
+    if (element == "Functional_Status"){
+      names.unshift({text:element , route: "/clinical-question5"})
     }
-    if (element == "Cancer Characteristics"){
-      names.unshift({text:element , route: "/clinical-questions"})
+    if (element == "Cancer_Characteristics"){
+      names.unshift({text:element , route: "/clinical-question6"})
     }
-    if (element == "Molecular Profile"){
-      names.unshift({text:element , route: "/clinical-questions"})
+    if (element == "Molecular_Profile"){
+      names.unshift({text:element , route: "/clinical-question7"})
     }
-    if (element == "Treatment History"){
-      names.unshift({text:element , route: "/clinical-questions"})
+    if (element == "Treatment_History"){
+      names.unshift({text:element , route: "/clinical-question8"})
     }
-    if (element == "Drug & Mechanism"){
-      names.unshift({text:element , route: "/clinical-questions"})
+    if (element == "Drug_&_Mechanism"){
+      names.unshift({text:element , route: "/clinical-question9"})
     }
 
 });
