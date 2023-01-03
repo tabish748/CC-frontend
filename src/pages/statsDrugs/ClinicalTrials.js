@@ -17,6 +17,7 @@ const ClinicalTrials = () => {
             <tr className="w-100">
               <th>RANK</th>
               <th>SCORE</th>
+              <th>NCT ID</th>
               <th>DISTANCE</th>
               <th>PHASE</th>
               <th>STATUS</th>
@@ -28,6 +29,7 @@ const ClinicalTrials = () => {
             <tr>
               <td>01</td>
               <td className="drugName">99</td>
+              <td>89</td>
               <td>
                 <p>10mi</p>
               </td>
@@ -46,6 +48,7 @@ const ClinicalTrials = () => {
             <tr>
               <td>01</td>
               <td className="drugName">99</td>
+              <td>89</td>
               <td>
                 <p>10mi</p>
               </td>
@@ -64,6 +67,7 @@ const ClinicalTrials = () => {
             <tr>
               <td>02</td>
               <td className="drugName">99</td>
+              <td>89</td>
               <td>
                 <p>10mi</p>
               </td>
@@ -82,6 +86,7 @@ const ClinicalTrials = () => {
             <tr>
               <td>03</td>
               <td className="drugName">99</td>
+              <td>89</td>
               <td>
                 <p>10mi</p>
               </td>
@@ -100,6 +105,7 @@ const ClinicalTrials = () => {
             <tr>
               <td>04</td>
               <td className="drugName">99</td>
+              <td>89</td>
               <td>
                 <p>10mi</p>
               </td>
@@ -115,7 +121,6 @@ const ClinicalTrials = () => {
               </td>
             </tr>
             
-
           </tbody>
         </Table>
       </div>

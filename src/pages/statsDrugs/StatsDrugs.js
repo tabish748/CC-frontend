@@ -81,6 +81,7 @@ function StatsDrugs() {
                     className="tab-content-wrapper-drugs mt-4"
                     id="analytics-Container"
                   >
+                  <h5 className="blue-text text-center mb-4">Total number of trials: <b>789</b></h5>
                     <div className="row">
                       <div className="col mb-4" onClick={handleAnalyticTab}>
                         <StatsCard
@@ -116,31 +117,31 @@ function StatsDrugs() {
                     <div className="row">
                       <div className="col mb-4">
                         <StatsCard
-                          text="Number of Unique Drugs"
+                          text="Number of Trials by Distance"
                           stats="25482"
                         />
                       </div>
                       <div className="col mb-4">
                         <StatsCard
-                          text="Number of Unique Mechanism"
+                          text="Number of Trials by Cancer Types"
                           stats="25482"
                         />
                       </div>
                       <div className="col mb-4">
                         <StatsCard
-                          text="Number of Trials by Stage"
+                          text="Number of Trials by Institution"
                           stats="25482"
                         />
                       </div>
                       <div className="col mb-4">
                         <StatsCard
-                          text="Number of Trials by Phase"
+                          text="Number of Trials by Line of Therapy"
                           stats="25482"
                         />
                       </div>
                       <div className="col mb-4">
                         <StatsCard
-                          text="Number of Trials by Intervention Type"
+                          text="Number of Trials by Genetic Mutation"
                           stats="25482"
                         />
                       </div>
