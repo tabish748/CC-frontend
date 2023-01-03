@@ -66,18 +66,19 @@ const TrialMenuPatient = () => {
                 Find Trials You're Eligible for <i class="fa fa-angle-right" aria-hidden="true"></i>
                 </button>
               </Link>
-              {/* <Link to="/clinical-questions-options"> */}
+              
+              <Link to="/saved-trials">
                 <button className="light-theme-btn mb-3">
-                Determine Eligibilty for Trials  <br /> I know
+                Determine Eligibilty for Trials  <br /> from my saved list
                   <i class="fa fa-angle-right" aria-hidden="true"></i>
                 </button>
-              {/* </Link> */}
+                </Link>
               <button
                 className="light-theme-btn  mb-3"
                 onClick={handleDropdownButton}
               >
                Determine Patient's Eligibilty   <br />
-                for trials
+                for trials I know
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
               </button>
               {showDropdown && (

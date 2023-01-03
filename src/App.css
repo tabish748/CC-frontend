@@ -1038,11 +1038,14 @@ a:hover {
   margin-top: 30px;
 }
 .questions-both-btn-wrapper button {
-  width: 100%;
+  /* width: 100%; */
   text-transform: uppercase;
 }
-.questions-both-btn-wrapper button{
-  width: 48%;
+.questions-both-btn-wrapper button:first-child,.questions-both-btn-wrapper a{
+  width: 48%!important;
+}
+.questions-both-btn-wrapper button,.questions-both-btn-wrapper a .finish-button{
+  width: 100%!important;
 }
 /* ***************trial-criteria-main-area********** */
 .trial-criteria-main-area {
@@ -1317,15 +1320,17 @@ a:hover {
   font-size: 14px;
   text-align: center;
 }
-.drugsTable tbody tr td {
+.drugsTable tbody tr td{
   text-align: center;
   vertical-align: middle;
 }
-.drugsTable td button {
-  padding: 4px 15px;
+.drugsTable td button{
+  padding: 4px 20px;
+  font-size: 18px!important;
+  border-radius: 0.6rem!important;
 }
 .drugstableIcon {
-  width: 16px;
+  width: 25px;
   cursor: pointer;
   fill: red;
   margin: 0 7px;

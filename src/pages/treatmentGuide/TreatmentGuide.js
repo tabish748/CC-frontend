@@ -15,7 +15,7 @@ function TreatmentGuide(){
       // heading2:{headingForCCCLine2},
       img:{intro},
       buttonText:"Enter The Site",
-      buttonLink:'clinical-questions',
+      buttonLink:'clinical-questions?mode=full_options&page=ccTreatmentGuide',
       loginRequired: true
     }
     const [header, setHeader] = useState(false);

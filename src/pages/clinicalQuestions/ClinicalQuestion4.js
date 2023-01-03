@@ -8,7 +8,7 @@ import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch , useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 // import { Prev } from "react-bootstrap/esm/PageItem";
 import { STAGGING_BACKEND, LOCAL_BACKEND } from "../../common/helper";
@@ -24,11 +24,11 @@ function ClinicalQuestion4() {
   const [isDrug, setIsDrug] = useState(false);
   const [isDevice, setIsDevice] = useState(false);
 
-  const [trialType , setTrialType] = useState("");
-  const [drug , setDrug] = useState("");
-  const [device , setDevice] = useState("");
-  const [trialPhase , setTrialPhase] = useState("");
-  const [trialStatus , setTrialStatus] = useState("");
+  const [trialType, setTrialType] = useState("");
+  const [drug, setDrug] = useState("");
+  const [device, setDevice] = useState("");
+  const [trialPhase, setTrialPhase] = useState("");
+  const [trialStatus, setTrialStatus] = useState("");
 
   function handleHeader() {
     setHeader((t) => !t);
@@ -37,50 +37,93 @@ function ClinicalQuestion4() {
     setSideBar((t) => !t);
   }
   const navigate = useNavigate();
-  const selector= useSelector(state => state.options);
+  const selector = useSelector((state) => state.options);
 
-  const names = [
-    // { text: "Cancer Type & Stage", route: "/clinical-questions" },
-    // { text: "Demographics", route: "/clinical-question2" },
-    // { text: "Location", route: "/clinical-question3" },
-    // { text: "Trial Type & Sponsor", route: "/clinical-question4" },
-    // { text: "Functional Status", route: "/clinical-question5" },
-    // { text: "Cancer Characteristics", route: "/clinical-question6" },
-    // { text: "Molecular Profile", route: "/clinical-question7" },
-    // { text: "Treatment History", route: "/clinical-question8" },
-    // { text: "Drug & Mechanism", route: "/clinical-question9" },
-  ];
+  const urlParams = new URLSearchParams(window.location.search);
+  const myParam = urlParams.get("mode");
+  const page = urlParams.get("page");
+  let names = [];
+  if (myParam === "full_options") {
+    console.log("test");
+    names = [
+      {
+        text: "Cancer Type & Stage",
+        route: "/clinical-questions?mode=full_options&page=ccTreatmentGuide",
+      },
+      {
+        text: "Demographics",
+        route: "/clinical-question2?mode=full_options&page=ccTreatmentGuide",
+      },
+      {
+        text: "Location",
+        route: "/clinical-question3?mode=full_options&page=ccTreatmentGuide",
+      },
+      {
+        text: "Trial Type & Sponsor",
+        route: "/clinical-question4?mode=full_options&page=ccTreatmentGuide",
+      },
+      {
+        text: "Functional Status",
+        route: "/clinical-question5?mode=full_options&page=ccTreatmentGuide",
+      },
+      {
+        text: "Cancer Characteristics",
+        route: "/clinical-question6?mode=full_options&page=ccTreatmentGuide",
+      },
+      {
+        text: "Molecular Profile",
+        route: "/clinical-question7?mode=full_options&page=ccTreatmentGuide",
+      },
+      {
+        text: "Treatment History",
+        route: "/clinical-question8?mode=full_options&page=ccTreatmentGuide",
+      },
+      {
+        text: "Drug & Mechanism",
+        route: "/clinical-question9?mode=full_options&page=ccTreatmentGuide",
+      },
+    ];
+  } else {
+    selector.options.forEach((element) => {
+      if (element == "Cancer_Type_&_Stage") {
+        element = "Cancer Type & Stage";
+        names.unshift({ text: element, route: "/clinical-questions" });
+      }
+      if (element == "Demographics") {
+        element = "Demographics";
+        names.unshift({ text: element, route: "/clinical-question2" });
+      }
+      if (element == "Location") {
+        element = "Location";
+        names.unshift({ text: element, route: "/clinical-question3" });
+      }
+      if (element == "Trial Type & Sponsor") {
+        element = "Location";
+        names.unshift({ text: element, route: "/clinical-question4" });
+      }
+      if (element == "Functional_Status") {
+        element = "Functional Status";
+        names.unshift({ text: element, route: "/clinical-question5" });
+      }
+      if (element == "Cancer_Characteristics") {
+        element = "Cancer Characteristics";
+        names.unshift({ text: element, route: "/clinical-question6" });
+      }
+      if (element == "Molecular_Profile") {
+        element = "Molecular Profile";
+        names.unshift({ text: element, route: "/clinical-question7" });
+      }
+      if (element == "Treatment_History") {
+        element = "Treatment History";
+        names.unshift({ text: element, route: "/clinical-question8" });
+      }
+      if (element == "Drug_&_Mechanism") {
+        element = "Drug & Mechanism";
+        names.unshift({ text: element, route: "/clinical-question9" });
+      }
+    });
+  }
 
-selector.options.forEach(element => {
-    if (element == "Cancer_Type_&_Stage"){
-      names.unshift({text:element , route: "/clinical-questions"})
-    }
-    if (element == "Demographics"){
-      names.unshift({text:element , route: "/clinical-question2"})
-    }
-    if (element == "Location"){
-      names.unshift({text:element , route: "/clinical-question3"})
-    }
-    if (element == "Trial_Type_&_Sponsor"){
-      names.unshift({text:element , route: "/clinical-question4"})
-    }
-    if (element == "Functional_Status"){
-      names.unshift({text:element , route: "/clinical-question5"})
-    }
-    if (element == "Cancer_Characteristics"){
-      names.unshift({text:element , route: "/clinical-question6"})
-    }
-    if (element == "Molecular_Profile"){
-      names.unshift({text:element , route: "/clinical-question7"})
-    }
-    if (element == "Treatment_History"){
-      names.unshift({text:element , route: "/clinical-question8"})
-    }
-    if (element == "Drug_&_Mechanism"){
-      names.unshift({text:element , route: "/clinical-question9"})
-    }
-
-});
   const [curSection, setCurSection] = useState(0);
 
   const forceUpdate = useForceRender();
@@ -111,14 +154,14 @@ selector.options.forEach(element => {
       },
     },
   };
-  const OnSubmitForm = async() => {
+  const OnSubmitForm = async () => {
     const url = STAGGING_BACKEND + "cancer/questionair/trial_type/";
     const payload = {
-      "trial_type": trialType,
-      "drugs": drug,
-      "medical_device": device,
-      "trial_phase":trialPhase,
-      "trial_status":trialStatus
+      trial_type: trialType,
+      drugs: drug,
+      medical_device: device,
+      trial_phase: trialPhase,
+      trial_status: trialStatus,
     };
     const requestOptions = {
       method: "POST",
@@ -130,10 +173,9 @@ selector.options.forEach(element => {
     };
     const response = await fetch(url, requestOptions);
     const responseData = await response.json();
-    console.log(responseData)
+    console.log(responseData);
     navigate("/clinical-question5");
   };
-
 
   return (
     <>
@@ -167,7 +209,11 @@ selector.options.forEach(element => {
         <div className="clinical-question-inner-parent">
           <Header header={header} />
           <div className="clinical-question-main-area mt-4">
-            <h1 className="text-center site-heading">Clinical Trial Finder</h1>
+            <h1 className="text-center site-heading">
+              {page === "ccTreatmentGuide"
+                ? "CC Treatment Guide"
+                : "Clinical Trial Finder"}
+            </h1>
             <div className="slider-wrapper">
               <OwlCarousel
                 className="owl-theme"
@@ -211,7 +257,11 @@ selector.options.forEach(element => {
                   <label htmlFor="">
                     What type of trial are you interested in?{" "}
                   </label>
-                  <select name="" id="" onChange={(event)=>setTrialType(event.target.value)}>
+                  <select
+                    name=""
+                    id=""
+                    onChange={(event) => setTrialType(event.target.value)}
+                  >
                     <option value="">Choose below</option>
                     <option value="drug">Drug </option>
                     <option value="medical device">Medical Device</option>
@@ -251,7 +301,7 @@ selector.options.forEach(element => {
                         className="signup-box-input loginfields"
                         placeholder="Enter drug"
                         id=""
-                        onChange={(event)=>setDrug(event.target.value)}
+                        onChange={(event) => setDrug(event.target.value)}
                       />{" "}
                     </>
                   ) : null}
@@ -288,7 +338,7 @@ selector.options.forEach(element => {
                         className="signup-box-input loginfields"
                         placeholder="Enter device"
                         id=""
-                        onChange={(event)=>setDevice(event.target.value)}
+                        onChange={(event) => setDevice(event.target.value)}
                       />
                     </>
                   ) : null}
@@ -296,22 +346,36 @@ selector.options.forEach(element => {
                   <label htmlFor="">
                     What phase trial are you intersted in?{" "}
                   </label>
-                  <select name="" id="" onChange={(event)=>setTrialPhase(event.target.value)}>
+                  <select
+                    name=""
+                    id=""
+                    onChange={(event) => setTrialPhase(event.target.value)}
+                  >
                     <option value="">Choose below</option>
                     <option value="phase 1">Phase 1</option>
                     <option value="phase 2">Phase 2</option>
                     <option value="phase 3">Phase 3</option>
                     <option value="phase 4">Phase 4</option>
-                    <option value=""any>Any</option>
+                    <option value="" any>
+                      Any
+                    </option>
                   </select>
 
                   <label htmlFor="">
                     What trial satus are you looking for?{" "}
                   </label>
-                  <select name="" id="" onChange={(event)=>setTrialStatus(event.target.value)}>
+                  <select
+                    name=""
+                    id=""
+                    onChange={(event) => setTrialStatus(event.target.value)}
+                  >
                     <option value="">Choose below</option>
-                    <option value="actively recruiting/enrolling">Actively recruiting/enrolling</option>
-                    <option value="active, but not recruiting">Active, but not recruiting</option>
+                    <option value="actively recruiting/enrolling">
+                      Actively recruiting/enrolling
+                    </option>
+                    <option value="active, but not recruiting">
+                      Active, but not recruiting
+                    </option>
                     <option value="terminated">Terminated</option>
                     <option value="completed">Completed</option>
                     <option value="suspended">Suspended</option>
@@ -327,9 +391,14 @@ selector.options.forEach(element => {
                       Next
                     </button>
 
-                    <button className="blue-button" type="button">
-                      Finish
-                    </button>
+                    <Link to="/stats-drugs">
+                      <button
+                        className="blue-button finish-button"
+                        type="button"
+                      >
+                        Finish
+                      </button>
+                    </Link>
                   </div>
                 </form>
               </div>
