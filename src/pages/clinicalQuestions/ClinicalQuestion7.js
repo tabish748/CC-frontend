@@ -225,11 +225,9 @@ function ClinicalQuestion7() {
                     >
                       Next
                     </button>
-                    <Link to="/stats-drugs">
                       <button className="blue-button finish-button" type="button">
                       Finish
                     </button>
-                  </Link>
                   </div>
                 </form>
               </div>

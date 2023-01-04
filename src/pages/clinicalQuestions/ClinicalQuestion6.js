@@ -161,6 +161,31 @@ function ClinicalQuestion6() {
     navigate("/clinical-question7");
   };
 
+  const OnSubmitForm2 = async() => {
+    const url = STAGGING_BACKEND + "cancer/questionair/cancer-characteristics//";
+    const payload = {
+      "pd_l1": pdl1,
+      "cps_tps": cpc_tps,
+      "msi_high": msi,
+      "tmb_high": tmb,
+      "actionable_mutation": actionable_mutation,
+      "metastases": metastases,
+    };
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "token " + localStorage.getItem("token"),
+      },
+      body: JSON.stringify(payload),
+    };
+    const response = await fetch(url, requestOptions);
+    const responseData = await response.json();
+
+    console.log(responseData)
+    navigate("/stats-drugs");
+  };
+
   console.log('test', names)
   return (
     <>
@@ -336,8 +361,11 @@ function ClinicalQuestion6() {
                       Next
                     </button>
 
-                    <Link to="/stats-drugs">
-                      <button className="blue-button finish-button" type="button">
+                    <Link >
+                      <button className="blue-button finish-button" type="button" onClick={()=>{
+                        OnSubmitForm2();
+                        
+                      }}>
                       Finish
                     </button>
                   </Link>

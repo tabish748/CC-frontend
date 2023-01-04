@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import heart from "../../images/heart.svg";
 import download from "../../images/download.svg";
+import { LOCAL_BACKEND, STAGGING_BACKEND } from "../../common/helper";
+
 const ClinicalTrials = () => {
+  const [data, setData] = useState([])
+
+
+  useEffect(async () => {
+
+    const url = STAGGING_BACKEND + "cancer/stats/"
+    const requestOptions = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'token ' + localStorage.getItem("token")
+      },
+      // body: JSON.stringify(payload)
+    };
+
+    const response = await fetch(url, requestOptions);
+    const responseData = await response.json();
+    console.log(responseData)
+    setData(responseData.data);
+
+
+  }, [])
   return (
     <>
       <div className="d-flex justify-content-end mb-3">
@@ -26,26 +50,30 @@ const ClinicalTrials = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>01</td>
-              <td className="drugName">99</td>
-              <td>89</td>
-              <td>
-                <p>10mi</p>
-              </td>
-              <td>third</td>
-              <td>completed</td>
-              <td>Lorem ipsum dolor sit amet consectetur, adipisicing.</td>
-              <td>
-                <button className="blue-button">See Details</button>
+            {data?.map((item, key) => {
+              return <tr>
+                <td>{item.id}</td>
+                <td className="drugName">99</td>
+                <td>{item.user_id}</td>
+                <td>
+                  <p>{item.gender}</p>
+                </td>
+                <td>third</td>
+                <td>{item.distance}</td>
+                <td>Lorem ipsum dolor sit amet consectetur, adipisicing.</td>
+                <td>
+                  <button className="blue-button">See Details</button>
 
-                <img src={download} className="drugstableIcon" alt="" />
+                  <img src={download} className="drugstableIcon" alt="" />
 
-                <img src={heart} className="drugstableIcon" alt="" />
-              </td>
-            </tr>
+                  <img src={heart} className="drugstableIcon" alt="" />
+                </td>
+              </tr>
 
-            <tr>
+            })}
+            
+
+            {/* <tr>
               <td>01</td>
               <td className="drugName">99</td>
               <td>89</td>
@@ -119,8 +147,8 @@ const ClinicalTrials = () => {
 
                 <img src={heart} className="drugstableIcon" alt="" />
               </td>
-            </tr>
-            
+            </tr> */}
+
           </tbody>
         </Table>
       </div>

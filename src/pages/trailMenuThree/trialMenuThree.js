@@ -61,7 +61,7 @@ const TrialMenuPR = () => {
                 Select your trial criteria you wish to filter by
               </p>
 
-              <Link to="/clinical-questions">
+              <Link to="/clinical-questions?mode=full_options">
                 <button className="light-theme-btn  mb-3">
                   Search cancer clarity for trials <br />a patient is eligible
                   for <i class="fa fa-angle-right" aria-hidden="true"></i>

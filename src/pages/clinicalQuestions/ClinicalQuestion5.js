@@ -165,6 +165,35 @@ function ClinicalQuestion5() {
     navigate("/clinical-question6");
   };
 
+  const OnSubmitForm2 = async () => {
+    const url = STAGGING_BACKEND + "cancer/questionair/functional-status/";
+    const payload = {
+      "ecog_perf": ecog,
+      "karnosky_perf": karnosky,
+      "kidney_func": kidneyFunction,
+      "neutrophil": neutrophil,
+      "hemoglobin": hemoglobin,
+      "platelet_count": plateletCount,
+      "ast": ast,
+      "alt": alt,
+      "bilirubin": bilirubin,
+      "albumin": albumin,
+      "alkaline_phostate": albumin,
+    };
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "token " + localStorage.getItem("token"),
+      },
+      body: JSON.stringify(payload),
+    };
+    const response = await fetch(url, requestOptions);
+    const responseData = await response.json();
+    console.log(responseData)
+    navigate("/stats-drugs");
+  };
+
   return (
     <>
       <div className="mobile-header-section">
@@ -360,8 +389,11 @@ function ClinicalQuestion5() {
                       Next
                     </button>
 
-                    <Link to="/stats-drugs">
-                      <button className="blue-button finish-button" type="button">
+                    <Link >
+                      <button className="blue-button finish-button" type="button" onClick={()=>{
+                        OnSubmitForm2();
+                        
+                      }}>
                       Finish
                     </button>
                   </Link>

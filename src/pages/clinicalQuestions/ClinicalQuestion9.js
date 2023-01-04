@@ -127,7 +127,7 @@ function ClinicalQuestion9() {
   };
 
 
-  const OnSubmitForm = async() => {
+  const OnSubmitForm2 = async() => {
     const url = STAGGING_BACKEND + "cancer/questionair/treatment-history/";
     const payload = {
       "drug": drug,
@@ -145,6 +145,7 @@ function ClinicalQuestion9() {
     const responseData = await response.json();
 
     console.log(responseData)
+    navigate("/stats-drugs");
   };
 
   return (
@@ -281,8 +282,11 @@ function ClinicalQuestion9() {
                   
                   <div className="questions-both-btn-wrapper">
                  
-                  <Link to="/stats-drugs">
-                      <button className="blue-button finish-button" type="button">
+                  <Link >
+                      <button className="blue-button finish-button" type="button" onClick={()=>{
+                        OnSubmitForm2();
+                        
+                      }}>
                       Finish
                     </button>
                   </Link>

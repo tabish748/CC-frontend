@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../images/logo.png";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Header from "../../components/Header/Header";
@@ -12,10 +12,11 @@ import ClinicalTrials from "./ClinicalTrials";
 import Table from "react-bootstrap/Table";
 import heart from "../../images/heart.svg";
 import download from "../../images/download.svg";
+
 function StatsDrugs() {
   const [header, setHeader] = useState(false);
   const [sideBar, setSideBar] = useState(false);
-
+  
   function handleHeader() {
     setHeader((t) => !t);
   }
@@ -28,6 +29,7 @@ function StatsDrugs() {
       .classList.add("active");
     document.querySelector("#analytics-Container").classList.add("hide");
   }
+
   return (
     <>
       <div className="mobile-header-section">
