@@ -271,7 +271,7 @@ function ClinicalQuestions() {
   };
 
   const OnSubmitForm = async () => {
-    const url = LOCAL_BACKEND + "cancer/questionair/cancer_type/";
+    const url = STAGGING_BACKEND + "cancer/questionair/cancer_type/";
     const payload = {
       tumor_type: tumorType,
       subtype: subtype,
@@ -294,7 +294,7 @@ function ClinicalQuestions() {
   };
 
   const OnSubmitForm2 = async () => {
-    const url = LOCAL_BACKEND + "cancer/questionair/cancer_type/";
+    const url = STAGGING_BACKEND + "cancer/questionair/cancer_type/";
     const payload = {
       tumor_type: tumorType,
       subtype: subtype,
