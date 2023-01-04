@@ -162,7 +162,7 @@ function ClinicalQuestion5() {
     const response = await fetch(url, requestOptions);
     const responseData = await response.json();
     console.log(responseData)
-    navigate("/clinical-question6");
+    navigate("/clinical-question6?mode=full_options");
   };
 
   const OnSubmitForm2 = async () => {

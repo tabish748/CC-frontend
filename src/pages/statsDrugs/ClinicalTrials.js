@@ -10,7 +10,7 @@ const ClinicalTrials = () => {
 
   useEffect(async () => {
 
-    const url = STAGGING_BACKEND + "cancer/stats/"
+    const url = LOCAL_BACKEND + "cancer/stats/"
     const requestOptions = {
       method: 'GET',
       headers: {

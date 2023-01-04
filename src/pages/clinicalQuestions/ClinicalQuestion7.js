@@ -131,7 +131,7 @@ function ClinicalQuestion7() {
   };
 
   const OnSubmitForm = () => {
-    navigate("/clinical-question8");
+    navigate("/clinical-question8?mode=full_options");
   };
   return (
     <>

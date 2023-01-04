@@ -148,7 +148,7 @@ function ClinicalQuestion3() {
     const response = await fetch(url, requestOptions);
     const responseData = await response.json();
     console.log(responseData)
-    navigate("/clinical-question4");
+    navigate("/clinical-question4?mode=full_options");
   };
 
   const OnSubmitForm2 = async() => {

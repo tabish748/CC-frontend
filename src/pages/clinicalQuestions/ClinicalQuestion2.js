@@ -184,7 +184,7 @@ function ClinicalQuestion2() {
     const response = await fetch(url, requestOptions);
     const responseData = await response.json();
     console.log(responseData)
-    navigate("/clinical-question3");
+    navigate("/clinical-question3?mode=full_options");
   };
   const OnSubmitForm2 = async () => {
     const url = STAGGING_BACKEND + "cancer/questionair/demographics/";

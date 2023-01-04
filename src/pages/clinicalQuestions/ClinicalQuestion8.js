@@ -125,7 +125,7 @@ function ClinicalQuestion8() {
 
 
     
-    navigate("/clinical-question9");
+    navigate("/clinical-question9?mode=full_options");
   };
 
   return (

@@ -271,7 +271,7 @@ function ClinicalQuestions() {
   };
 
   const OnSubmitForm = async () => {
-    const url = STAGGING_BACKEND + "cancer/questionair/cancer_type/";
+    const url = LOCAL_BACKEND + "cancer/questionair/cancer_type/";
     const payload = {
       tumor_type: tumorType,
       subtype: subtype,
@@ -290,11 +290,11 @@ function ClinicalQuestions() {
     const response = await fetch(url, requestOptions);
     const responseData = await response.json();
     console.log(responseData);
-    navigate("/clinical-question2");
+    navigate("/clinical-question2?mode=full_options");
   };
 
   const OnSubmitForm2 = async () => {
-    const url = STAGGING_BACKEND + "cancer/questionair/cancer_type/";
+    const url = LOCAL_BACKEND + "cancer/questionair/cancer_type/";
     const payload = {
       tumor_type: tumorType,
       subtype: subtype,
